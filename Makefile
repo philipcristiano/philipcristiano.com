@@ -11,3 +11,6 @@ requirements:
 	gem uninstall liquid
 	gem install liquid -v 2.2.2
 	pip install pygments
+
+server:
+	cd src; jekyll --auto
