@@ -1,5 +1,5 @@
-
-all: build
+upload: build
+	fab upload
 
 build:
 	cd src; jekyll --no-auto --no-server
