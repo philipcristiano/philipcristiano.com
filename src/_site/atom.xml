@@ -1,0 +1,549 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>philipcristiano.github.com</title>
+  <link href="http://philipcristiano.github.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://writing.philipcristiano.com/atom.xml"/>
+  <updated>2011-11-26T13:14:19-05:00</updated>
+  <id>http://writing.philipcristiano.com/</id>
+  <author>
+    <name>Philip Cristiano</name>
+    <email>jekyll@philipcristiano.com</email>
+  </author>
+
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/vim/gundo/dotfile/2011/07/19/vim-updates</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/vim/gundo/dotfile/2011/07/19/vim-updates.html"/>
+    <title>vimrc Updates</title>
+    <published>2011-07-19T00:00:00-04:00</published>
+    <updated>2011-07-19T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve kept my VIM/dot files online for a while in &lt;a href='https://github.com/philipcristiano/'&gt;my Github&lt;/a&gt; but I recently spent some time to update my .vimrc file.&lt;/p&gt;
+
+&lt;p&gt;One of the changes that bugged me on OSX is that it ships with VIM 7.2 which doesn&amp;#8217;t have ColorColumn support. I like highlighting the 80th column in Python. As I discovered, the code to do this is :&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;    &lt;span class='k'&gt;if&lt;/span&gt; version &lt;span class='p'&gt;&amp;gt;=&lt;/span&gt; &lt;span class='m'&gt;730&lt;/span&gt;
+        autocmd &lt;span class='nb'&gt;FileType&lt;/span&gt; python &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='k'&gt;cc&lt;/span&gt;&lt;span class='p'&gt;=&lt;/span&gt;&lt;span class='m'&gt;80&lt;/span&gt;
+        &lt;span class='nb'&gt;hi&lt;/span&gt; ColorColumn ctermbg&lt;span class='p'&gt;=&lt;/span&gt;darkgrey guibg&lt;span class='p'&gt;=&lt;/span&gt;darkgrey
+    &lt;span class='k'&gt;endif&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Another change was to add &lt;a href='https://github.com/neh/gundo.vim'&gt;Gundo&lt;/a&gt; support. This adds a window to navigate your undo tree, an incredibly useful feature.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/testing/nose/python/2011/07/17/branch-coverage-using-nose</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/testing/nose/python/2011/07/17/branch-coverage-using-nose.html"/>
+    <title>Branch Coverage with Nose</title>
+    <published>2011-07-17T00:00:00-04:00</published>
+    <updated>2011-07-17T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;Since I heard about the addition of branch coverage tracking for &lt;a href='http://nedbatchelder.com/code/coverage/'&gt;Coverage&lt;/a&gt; I&amp;#8217;ve wanted to give it a try. Originally it required a beta release which somehow I never got working.&lt;/p&gt;
+
+&lt;p&gt;Once it was in a normal release I somehow forgot about it. There is still no commandline argument to turn it on when using &lt;a href='http://somethingaboutorange.com/mrl/projects/nose/'&gt;Nose&lt;/a&gt;. You can however use the &lt;em&gt;.coveragerc&lt;/em&gt; file to enable it.&lt;/p&gt;
+
+&lt;p&gt;In &lt;em&gt;.coveragerc&lt;/em&gt; simply put&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    &lt;span class='o'&gt;[&lt;/span&gt;run&lt;span class='o'&gt;]&lt;/span&gt;
+    &lt;span class='nv'&gt;branch&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;And next time you run Nose with coverage you&amp;#8217;ll have branch coverage too! I was finally reminded about this when coming across the &lt;a href='http://lautaportti.wordpress.com/2011/05/07/test-coverage-analysis/'&gt;Test Coverage Analysis&lt;/a&gt; post by &lt;a href='http://lautaportti.wordpress.com/'&gt;Kai Lautaportti&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/site/categories/2011/07/16/categories</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/site/categories/2011/07/16/categories.html"/>
+    <title>Post Categories</title>
+    <published>2011-07-16T00:00:00-04:00</published>
+    <updated>2011-07-16T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve added categories to posts although you can&amp;#8217;t really see them on each page due to an annoying quirk with Jekyll where you can&amp;#8217;t get the category for a post unless you are listing all of the posts.&lt;/p&gt;
+
+&lt;p&gt;Github also doesn&amp;#8217;t seem to load the pluging properly&amp;#8230;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/git/code-review/2011/07/10/code-reviews-with-git</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/git/code-review/2011/07/10/code-reviews-with-git.html"/>
+    <title>Code Reviews with Git</title>
+    <published>2011-07-10T00:00:00-04:00</published>
+    <updated>2011-07-10T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;A few weeks ago at work we improved our code review process by using Git more effectively. Previously a code review happened after the topic branch was merged into &lt;strong&gt;master&lt;/strong&gt;. This obviously was not very effective as changes could have broken master without a proper review and there was less incentive to perform as careful of a review since the code was &amp;#8220;working&amp;#8221; already. This was carried over from when we were using SVN until we realized we were no longer forced to work in the dark ages.&lt;/p&gt;
+
+&lt;p&gt;Since we were already using Git we could easily change our workflow for a better review process. Once a topic branch was ready for review we could push a remote branch. Our remote branches take the form &lt;strong&gt;/review/{initials}/{topic}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To push a new remote branch:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    git push origin &lt;span class='o'&gt;{&lt;/span&gt;branch name&lt;span class='o'&gt;}&lt;/span&gt;:/review/&lt;span class='o'&gt;{&lt;/span&gt;initials&lt;span class='o'&gt;}&lt;/span&gt;/&lt;span class='o'&gt;{&lt;/span&gt;branch name&lt;span class='o'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;And then we would move the Kanban card to the review column and find someone to review our changes.&lt;/p&gt;
+
+&lt;p&gt;When the code has been reviewed and any necessary changes made the reviewer will merge them into &lt;strong&gt;master&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    git checkout master
+    git merge --no-ff --no-commit /review/&lt;span class='o'&gt;{&lt;/span&gt;initials&lt;span class='o'&gt;}&lt;/span&gt;/&lt;span class='o'&gt;{&lt;/span&gt;branch name&lt;span class='o'&gt;}&lt;/span&gt;
+    git commit -s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The merge command turns off fast-forward merging and commiting so when we commit with a -s we can sign-off on the changes. This shows who reviewed the code. We don&amp;#8217;t permit anyone to push their own changes without review although Git doesn&amp;#8217;t prevent you from changing the committer or the sign-off.&lt;/p&gt;
+
+&lt;p&gt;Then finally remove the remote branch by pushing an empty branch over it and delete your local copy of the branch.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    git push origin :/review/&lt;span class='o'&gt;{&lt;/span&gt;initials&lt;span class='o'&gt;}&lt;/span&gt;/&lt;span class='o'&gt;{&lt;/span&gt;branch name&lt;span class='o'&gt;}&lt;/span&gt;
+    git branch -d /review/&lt;span class='o'&gt;{&lt;/span&gt;initials&lt;span class='o'&gt;}&lt;/span&gt;/&lt;span class='o'&gt;{&lt;/span&gt;branch name&lt;span class='o'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/projects/plug/python/2011/07/09/plug</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/projects/plug/python/2011/07/09/plug.html"/>
+    <title>Plug v0.1.2 Bug Fixes</title>
+    <published>2011-07-09T00:00:00-04:00</published>
+    <updated>2011-07-09T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;This release fixes a bug cause by linking all plug service instances to the installed plug. &lt;a href='http://smarden.org/runit/'&gt;Runit&lt;/a&gt; uses a ./supervise in the service&amp;#8217;s directory to maintain state which would be clobbered when multiple services link to the same plug.&lt;/p&gt;
+
+&lt;p&gt;Now the virtualenv is copied to /srv/plug/plug_instances/ and linked into runit.&lt;/p&gt;
+
+&lt;p&gt;There is also a fix for uninstalling plugs leaving orphaned processes. Now Plug will stop the processes before removing them to prevent this.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/projects/python/plug/2011/07/07/plug</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/projects/python/plug/2011/07/07/plug.html"/>
+    <title>Plug v0.1.1</title>
+    <published>2011-07-07T00:00:00-04:00</published>
+    <updated>2011-07-07T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;Release v0.1.1 adds an &lt;code&gt;uninstall&lt;/code&gt; command to Plug that takes a &lt;code&gt;--plug=&lt;/code&gt; option and removes the virtualenv and all runit links.&lt;/p&gt;
+
+&lt;p&gt;You can get &lt;a href='http://pypi.python.org/pypi/plug'&gt;Plug&lt;/a&gt; on PyPi and try it out. As always, &lt;a href='http://github.com/philipcristiano/plug/issues'&gt;report any issues&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/projects/python/testhttpserver/2011/07/06/test-http-server</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/projects/python/testhttpserver/2011/07/06/test-http-server.html"/>
+    <title>TestHTTPServer v0.1.2 - Beta Status!</title>
+    <published>2011-07-06T00:00:00-04:00</published>
+    <updated>2011-07-06T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;Release v0.1.2 includes the ability to set custom response headers and the __version__ package attribute! This release should be &amp;#8220;complete&amp;#8221; for my own needs and for common uses. If you see anything you need &lt;a href='https://github.com/philipcristiano/testhttpserver/issues'&gt;open an issue&lt;/a&gt; and I can probably get it updated and packaged in a day or so.&lt;/p&gt;
+
+&lt;p&gt;After I use the package a bit more I will bump the version and switch it to production status.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/projects/python/testhttpserver/2011/07/05/test-http-server</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/projects/python/testhttpserver/2011/07/05/test-http-server.html"/>
+    <title>TestHTTPServer v0.1.1</title>
+    <published>2011-07-05T00:00:00-04:00</published>
+    <updated>2011-07-05T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve push v0.1.1 of TestHTTPServer. This release adds the ability to handle any method as well as storing request headers and content for all methods.&lt;/p&gt;
+
+&lt;p&gt;For v0.1.2 I should be adding more to the server reponse options.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/projects/python/testhttpserver/2011/07/04/test-http-server</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/projects/python/testhttpserver/2011/07/04/test-http-server.html"/>
+    <title>TestHTTPServer v0.1.0</title>
+    <published>2011-07-04T00:00:00-04:00</published>
+    <updated>2011-07-04T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve pushed a new PyPi package &lt;a href='http://pypi.python.org/pypi/testhttpserver'&gt;TestHTTPServer&lt;/a&gt; based on some work at &lt;a href='http://aweber.com'&gt;AWeber&lt;/a&gt; where I needed to test processes that make web requests.&lt;/p&gt;
+
+&lt;p&gt;This probably shouldn&amp;#8217;t be used right away as it was from memory that I created the package. It will be expanded to record more of the request data and handle more requests.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/plug/projects/python/2011/07/04/plug-v0.1.0</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/plug/projects/python/2011/07/04/plug-v0.1.0.html"/>
+    <title>Plug v0.1.0</title>
+    <published>2011-07-04T00:00:00-04:00</published>
+    <updated>2011-07-04T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve pushed the first version of Plug. You can download it with pip&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install plug&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is mostly to help me manually test Plug by using it in a few of my own projects and getting together a list of glaring issues.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/google/music/2011/07/04/google-music</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/google/music/2011/07/04/google-music.html"/>
+    <title>Google Music</title>
+    <published>2011-07-04T00:00:00-04:00</published>
+    <updated>2011-07-04T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve been using &lt;a href='http://music.google.com/'&gt;Google Music&lt;/a&gt; quite a bit lately. It was rather painless to setup although the upload process can take a while. The service works out well with my Macbook Air since I only have a 64GB SSD and don&amp;#8217;t want to fill my drive with music I may or may not be listening to very frequently.&lt;/p&gt;
+
+&lt;p&gt;The only issue for me is that the Flash performance can frequently cause studdering if I am doing too much in Chrome at the same time.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/projects/worker-process/python/2011/07/03/worker-process</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/projects/worker-process/python/2011/07/03/worker-process.html"/>
+    <title>Worker Process</title>
+    <published>2011-07-03T00:00:00-04:00</published>
+    <updated>2011-07-03T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;Part of a current project at work involves writing many stand-alone processes to handle events from RabbitMQ. The worker processes are managed by Supervisor but should gracefully handle SIGTERM and generally follow a common pattern.&lt;/p&gt;
+
+&lt;p&gt;The main design is splitting out how worker&amp;#8217;s should run from what they are supposed to be doing. Extending the BaseWorker class will give a main classmethod used to start new workers.&lt;/p&gt;
+
+&lt;p&gt;The BaseWorker class is split from the WorkerRunner class giving a common interface for all workers and Unixy interaction.&lt;/p&gt;
+
+&lt;p&gt;You can take a look at what I have so far on the &lt;a href='/projects.html'&gt;projects page&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/packaging/projects/supervisor/plug/2011/07/03/packaging</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/packaging/projects/supervisor/plug/2011/07/03/packaging.html"/>
+    <title>Packaging</title>
+    <published>2011-07-03T00:00:00-04:00</published>
+    <updated>2011-07-03T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;Roughly 2 weeks ago I started &lt;a href='https://github.com/philipcristiano/plug'&gt;Plug&lt;/a&gt; which aims to create a package format for Python daemons. The project started after seeing how &lt;a href='http://supervisord.org/'&gt;Supervisor&lt;/a&gt; handles 150+ processes.&lt;/p&gt;
+
+&lt;p&gt;A current project at work can easily have many daemon processes with differing number of running instances that may need to be adjusted frequently. Deploying with Supervisor can be a problem given the amount of time Supervisor would take to start/stop processes.&lt;/p&gt;
+
+&lt;p&gt;Plug installs each package into a virtualenv then uses &lt;a href='http://smarden.org/runit/'&gt;runit&lt;/a&gt; to manage each daemon instance.&lt;/p&gt;
+
+&lt;p&gt;I have a prototype version working now with a packaged version to come in the next few weeks after giving it more testing.&lt;/p&gt;
+
+&lt;p&gt;The biggest issue is after watching &lt;a href='http://dev2ops.org/blog/2011/7/2/devops-days-mountain-view-2011-to-package-or-not-to-package.html'&gt;To Package or Not to Package&lt;/a&gt; I am falling in more of the &amp;#8220;to package&amp;#8221; crowd and despite Plug being a packaging solution smells a bit too much of NIH.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/2011/06/25/new-feed</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/2011/06/25/new-feed.html"/>
+    <title>New Feed</title>
+    <published>2011-06-25T00:00:00-04:00</published>
+    <updated>2011-06-25T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve added an &lt;a href='/atom.xml'&gt;atom feed&lt;/a&gt; for all your newsreading pleasure!&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/testing/dingus/tdd/2011/05/23/TestingExampleForMarkdownBlog</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/testing/dingus/tdd/2011/05/23/TestingExampleForMarkdownBlog.html"/>
+    <title>Python TDD with Dingus - A Markdown Function</title>
+    <published>2011-05-23T00:00:00-04:00</published>
+    <updated>2011-05-23T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;Here is a walk through for testing a simple function that will convert a directory of markdown files to a directory of HTML files&lt;/p&gt;
+
+&lt;p&gt;It should take 2 paths, the source directory and the output directory.&lt;/p&gt;
+
+&lt;h1 id='acceptance_test'&gt;Acceptance Test&lt;/h1&gt;
+
+&lt;p&gt;In acceptance tests you will want to test as large a feature as possible. The test in this case will assert that a file in the src directory is converted to HTML in the output directory.&lt;/p&gt;
+
+&lt;p&gt;Since we want this to create the files on disk we will need to import os.path for some helper functions.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;os.path&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Then we import the function we plan on testing.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='kn'&gt;from&lt;/span&gt; &lt;span class='nn'&gt;markdown_processor&lt;/span&gt; &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='n'&gt;process_markdown&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;From there we can begin by creating the test class that will handle all of our setup and our assertion.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;WhenRunningProcessor&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+
+        &lt;span class='nd'&gt;@classmethod&lt;/span&gt;
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;setup_class&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;src_example&amp;#39;&lt;/span&gt;
+            &lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;target_dir&amp;#39;&lt;/span&gt;
+
+            &lt;span class='n'&gt;process_markdown&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This creates a class &lt;em&gt;WhenRunningProcessor&lt;/em&gt; That inherits from object. Before each test case Nose allows us to run code to setup the test. In this case we use the @classmethod decorator and setup_class. This function will be run once before all tests in this class. Acceptance tests will take longer to run then unit tests and usually do not require the same level of isolation.&lt;/p&gt;
+
+&lt;p&gt;Then we define the src_dir and target_dir since we will be using them a few times.&lt;/p&gt;
+
+&lt;p&gt;Finally we run the function we plan on testing passing in the src_dir and target_dir.&lt;/p&gt;
+
+&lt;p&gt;Now we can write the acceptance test for this function&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_have_html_hello_world&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;file_path&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;hello_world.html&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='n'&gt;content&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;open&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;file_path&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;read&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;&amp;lt;p&amp;gt;Hello World!&amp;lt;/p&amp;gt;&amp;#39;&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;content&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Our test is checking that the text &amp;#8217;&amp;#60;p&amp;#62;Hello World!&amp;#60;/p&amp;#62;&amp;#8217; is in a file in the output directory. This requires some fixture data in the source directory which is only&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hello World!&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The file_path is the our target_dir folder and the hello_world.html file. The file is read and then an assertion checking that the test exists.&lt;/p&gt;
+
+&lt;p&gt;The whole test file will look like this:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;os.path&lt;/span&gt;
+
+    &lt;span class='kn'&gt;from&lt;/span&gt; &lt;span class='nn'&gt;markdown_processor&lt;/span&gt; &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='n'&gt;process_markdown&lt;/span&gt;
+
+    &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;WhenRunningProcessor&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;object&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+
+        &lt;span class='nd'&gt;@classmethod&lt;/span&gt;
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;setup_class&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;src_example&amp;#39;&lt;/span&gt;
+            &lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;target_dir&amp;#39;&lt;/span&gt;
+
+            &lt;span class='n'&gt;process_markdown&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;cls&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_have_html_hello_world&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;file_path&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;hello_world.html&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='n'&gt;content&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nb'&gt;open&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;file_path&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;read&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+            &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;&amp;lt;p&amp;gt;Hello World!&amp;lt;/p&amp;gt;&amp;#39;&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;content&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h1 id='unit_tests'&gt;Unit Tests&lt;/h1&gt;
+
+&lt;p&gt;In our unit tests we will test how we plan to implement this functionality. The mocking library Dingus will allow us to isolate the our function from the OS and our other libraries. After the function is run we can test to make sure the code works how we expected it to.&lt;/p&gt;
+
+&lt;p&gt;First will will import everything we need for the test&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='kn'&gt;from&lt;/span&gt; &lt;span class='nn'&gt;dingus&lt;/span&gt; &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='n'&gt;Dingus&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;DingusTestCase&lt;/span&gt;
+
+    &lt;span class='kn'&gt;from&lt;/span&gt; &lt;span class='nn'&gt;markdown_processor&lt;/span&gt; &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='n'&gt;process_markdown&lt;/span&gt;
+    &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;markdown_processor&lt;/span&gt; &lt;span class='kn'&gt;as&lt;/span&gt; &lt;span class='nn'&gt;mod&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The dingus library provides us with a Dingus class which we will use to assert what our function is doing and the DingusTestCase will automatically isolate our function.&lt;/p&gt;
+
+&lt;p&gt;As well as the function we want to test we also import the module to help us make assertions about what goes on outside the function.&lt;/p&gt;
+
+&lt;p&gt;Now we can setup a base class to use for our tests. This will hold the common elements we use for our tests.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;BaseProcessing&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;DingusTestCase&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;process_markdown&lt;/span&gt;&lt;span class='p'&gt;)):&lt;/span&gt;
+
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;setup&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='nb'&gt;super&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseProcessing&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;setup&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Dingus&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;src_dir&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Dingus&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;target_dir&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+            &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;listdir&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;return_value&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;hello_world.markdown&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+            &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;splitext&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;return_value&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;hello_world&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+            &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;md&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;markdown&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Markdown&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Our BaseProcessing class inherits from DingusTestCase while passing in our function. This will isolate our function and replace everything around it with Dingus objects. The setup method will be run before &lt;em&gt;each&lt;/em&gt; test, unlike the acceptance tests where setup_class was only run once. We once again setup our src_dir and target_dir but this time use Dingus objects while passing in a helpful name. In this case the strings for our directories shouldn&amp;#8217;t be modified but this allows you to verify any operations performed on the arguments.&lt;/p&gt;
+
+&lt;p&gt;Next we set the return values of some function we plan on using. Remember everything but our function is a Dingus which only return a new Dingus when called. The listdir function will return a list of entries in the directory. In this case we just want to return a list with 1 file. We will need to get the filename without an extension so we will set the return_value to be a tuple of the name and extension.&lt;/p&gt;
+
+&lt;p&gt;The last part is setting a shorter name for the Markdown instance.&lt;/p&gt;
+
+&lt;h2 id='test_cases'&gt;Test Cases&lt;/h2&gt;
+
+&lt;p&gt;Of first test is to assert that we see if the target directory exists.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_check_existance_of_target_dir&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;exists&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;We will use os.path.exists to check. The assert uses the .calls method to see if os.path.exists was called with our target directory.&lt;/p&gt;
+
+&lt;p&gt;Next will want to assert that a markdown instance is created&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_create_markdown_instance&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;markdown&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;
+            &lt;span class='s'&gt;&amp;#39;Markdown&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+            &lt;span class='n'&gt;extensions&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;codehilite&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+        &lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;once&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This time we check that the object is called with the extension &amp;#8216;codehilite&amp;#8217; and that it is only called once.&lt;/p&gt;
+
+&lt;p&gt;Now we need to get the files we plan on converting so we will use the os.listdir that uses our mocked return value.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_find_markdown_files&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;listdir&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Finally we can test that our file is actually converted by markdown&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_join_source&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;join&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;hello_world.markdown&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_join_target&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;join&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;hello_world.html&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_convert_files&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='n'&gt;in_file&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='n'&gt;out_file&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+        &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;md&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;convertFile&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;in_file&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;out_file&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;We first assert that our function properly creates the paths to use for the input and output files then calls markdown&amp;#8217;s convertFile function. The in_file and out_file are actually the same dingus in this case, the join() will return an object we can use to test with.&lt;/p&gt;
+
+&lt;p&gt;Now that the tests are written we can add the classes to run them.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;WhenProcessingMarkdown&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseProcessing&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;setup&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;BaseProcessing&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;setup&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;exists&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;return_value&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
+            &lt;span class='n'&gt;process_markdown&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_create_target_directory&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;mkdir&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;WhenProcessingMarkdown inherits from our BaseProcessing class including all of the test cases. In our setup this time we want to make sure we run BaseProcessing.setup with our instance and set the return value of os.path.exists. After that we run our function.&lt;/p&gt;
+
+&lt;p&gt;Since our output directory doesn&amp;#8217;t exist in this test it will want to make sure that we try to create it.&lt;/p&gt;
+
+&lt;p&gt;Because we need to test the other case where the directory already exists we create a new test class where that is true.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;WhenProcessingMarkdownAndDirectoryExists&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BaseProcessing&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;setup&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;BaseProcessing&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;setup&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;exists&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;return_value&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;True&lt;/span&gt;
+            &lt;span class='n'&gt;process_markdown&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+        &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;should_not_create_target_directory&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='bp'&gt;self&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='k'&gt;assert&lt;/span&gt; &lt;span class='ow'&gt;not&lt;/span&gt; &lt;span class='n'&gt;mod&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;calls&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;mkdir&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This is very similar except that the exists() return value is True so we will want to assert that we do not call mkdir at all.&lt;/p&gt;
+
+&lt;h1 id='implementation'&gt;Implementation&lt;/h1&gt;
+
+&lt;p&gt;Our tests are complete and we can move on to our implementation.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='python'&gt;    &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;os&lt;/span&gt;
+
+    &lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;markdown&lt;/span&gt;
+
+    &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;process_markdown&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+        &lt;span class='s'&gt;&amp;quot;Converts files from :param src_dir: to html in the :param target_dir:&amp;quot;&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='ow'&gt;not&lt;/span&gt; &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;exists&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;mkdir&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+        &lt;span class='n'&gt;md&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;markdown&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Markdown&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;extensions&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;codehilite&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;])&lt;/span&gt;
+
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='nb'&gt;file&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;listdir&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+            &lt;span class='n'&gt;name&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;ext&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;splitext&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;file&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+
+            &lt;span class='n'&gt;in_file&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;src_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nb'&gt;file&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='n'&gt;out_file&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;os&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;path&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;join&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;target_dir&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;name&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='s'&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+            &lt;span class='n'&gt;md&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;convertFile&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;in_file&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;out_file&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The implementation shouldn&amp;#8217;t be surprising after planning it out. Our function takes 2 arguments, possibly creates the target directory, then converts each file from our source directory.&lt;/p&gt;
+
+&lt;p&gt;You can download the &lt;a href='https://github.com/philipcristiano/blog_tdd_markdown'&gt;full source&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://writing.philipcristiano.com/testing/2011/05/21/test-sizes</id>
+    <link type="text/html" rel="alternate" href="http://philipcristiano.github.com/testing/2011/05/21/test-sizes.html"/>
+    <title>Test Sizes</title>
+    <published>2011-05-21T00:00:00-04:00</published>
+    <updated>2011-05-21T00:00:00-04:00</updated>
+    <author>
+      <name>Philip Cristiano</name>
+      <uri>http://philipcristiano.com</uri>
+    </author>
+    <content type="html">&lt;p&gt;At AWeber we tend to write tests. A lot of them. I spend more time writing tests then features. My belief is that if a line of code isn&amp;#8217;t tested it wasn&amp;#8217;t important enough to write in the first place. You won&amp;#8217;t know when it breaks and now you&amp;#8217;re delivering broken software.&lt;/p&gt;
+
+&lt;p&gt;Testing isn&amp;#8217;t covered much in school. If your projects are only 2 weeks long and disappear after you&amp;#8217;ve handed them in, testing doesn&amp;#8217;t prove it&amp;#8217;s worth. When tests are mentioned it&amp;#8217;s never anything practical, never how to test certain features, what parts are even worth testing?&lt;/p&gt;
+
+&lt;p&gt;My current project has 3 sets of tests, unit, integration, and acceptance tests. &lt;a href='http://googletesting.blogspot.com/2011/03/how-google-tests-software-part-five.html'&gt;Google has small, medium, and large&lt;/a&gt; tests which roughly correspond to what we write.&lt;/p&gt;
+
+&lt;h2 id='acceptance_tests'&gt;Acceptance Tests&lt;/h2&gt;
+
+&lt;p&gt;These are written first to tell us what we want from a feature. Usually these are structure as interaction stories of the &lt;a href='http://cukes.info/'&gt;Cucumber&lt;/a&gt; variety.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    When a customer has a list of subscribers
+    And sends a message to the list
+    The subscribers receive the message
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;A common example, definitely a feature you want working. The tests are a little more complicated than that, including assertions to make sure certain steps execute as anticipated.&lt;/p&gt;
+
+&lt;h2 id='integration_tests'&gt;Integration tests&lt;/h2&gt;
+
+&lt;p&gt;Integration tests started as a need to test various states of our database and queuing systems. They generally involve testing components to make sure they behave when everything isn&amp;#8217;t perfect.&lt;/p&gt;
+
+&lt;p&gt;What happens when a worker dies in the middle of a job?&lt;/p&gt;
+
+&lt;p&gt;Can another worker pick up the job immediately or does it require human intervention?&lt;/p&gt;
+
+&lt;p&gt;These stories enumerate the states our models can occupy. When an event comes in from the queue it may be the first, a duplicate, or a re-fired event from a failed worker. A simplified case for sending an email that can be either :&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    New
+    Trying to send
+    Sending
+    Sent
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Our tests classes would cover the cases:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    When sending a new email
+    When sending an email that is trying to send
+    When sending an email that is sending
+    When sending a sent email
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Once we have the tests we can figure out which states are possible to recover from. These cases are much more difficult to cover in acceptance tests. They would require excessive test setup and extensive knowledge of our system.&lt;/p&gt;
+
+&lt;h2 id='unit_tests'&gt;Unit tests&lt;/h2&gt;
+
+&lt;p&gt;We write unit tests to verify our implementation. This means mocking out as much as possible and isolating individual objects and functions. We use &lt;a href='https://github.com/garybernhardt/dingus'&gt;Dingus&lt;/a&gt; as our mocking library. At this point the feature is well defined and important test cases are covered, we can focus on how we want to solve them.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    When sending an email
+    If email is New
+    Generate and send an email
+
+    When sending an email
+    If email is Trying to send, Sending, or Sent
+    Do not try and send the email
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;With tests of each size we gain greater confidence that our code is working and you can use them in a month when you forget how or why things were done this way.&lt;/p&gt;</content>
+  </entry>
+  
+
+</feed>
+

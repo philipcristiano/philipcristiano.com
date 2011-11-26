@@ -1,0 +1,268 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Python TDD with Dingus - A Markdown Function</title>
+	<meta name="description" content="">
+	<meta name="author" content="Philip Cristiano">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css" />
+	<link rel="stylesheet" href="/css/skeleton.css" />
+	<link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Favicons
+	================================================== -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+
+<!-- Google Analytics -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6568165-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="sixteen columns">
+            <h1>Python TDD with Dingus - A Markdown Function</h1>
+        </div>
+        <div class="sixteen columns">
+            <div class="eight columns">
+                 <ul class="post">
+<p>Here is a walk through for testing a simple function that will convert a directory of markdown files to a directory of HTML files</p>
+
+<p>It should take 2 paths, the source directory and the output directory.</p>
+
+<h1 id='acceptance_test'>Acceptance Test</h1>
+
+<p>In acceptance tests you will want to test as large a feature as possible. The test in this case will assert that a file in the src directory is converted to HTML in the output directory.</p>
+
+<p>Since we want this to create the files on disk we will need to import os.path for some helper functions.</p>
+<div class='highlight'><pre><code class='python'>    <span class='kn'>import</span> <span class='nn'>os.path</span>
+</code></pre>
+</div>
+<p>Then we import the function we plan on testing.</p>
+<div class='highlight'><pre><code class='python'>    <span class='kn'>from</span> <span class='nn'>markdown_processor</span> <span class='kn'>import</span> <span class='n'>process_markdown</span>
+</code></pre>
+</div>
+<p>From there we can begin by creating the test class that will handle all of our setup and our assertion.</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>class</span> <span class='nc'>WhenRunningProcessor</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
+
+        <span class='nd'>@classmethod</span>
+        <span class='k'>def</span> <span class='nf'>setup_class</span><span class='p'>(</span><span class='n'>cls</span><span class='p'>):</span>
+            <span class='n'>cls</span><span class='o'>.</span><span class='n'>src_dir</span> <span class='o'>=</span> <span class='s'>&#39;src_example&#39;</span>
+            <span class='n'>cls</span><span class='o'>.</span><span class='n'>target_dir</span> <span class='o'>=</span> <span class='s'>&#39;target_dir&#39;</span>
+
+            <span class='n'>process_markdown</span><span class='p'>(</span><span class='n'>cls</span><span class='o'>.</span><span class='n'>src_dir</span><span class='p'>,</span> <span class='n'>cls</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>This creates a class <em>WhenRunningProcessor</em> That inherits from object. Before each test case Nose allows us to run code to setup the test. In this case we use the @classmethod decorator and setup_class. This function will be run once before all tests in this class. Acceptance tests will take longer to run then unit tests and usually do not require the same level of isolation.</p>
+
+<p>Then we define the src_dir and target_dir since we will be using them a few times.</p>
+
+<p>Finally we run the function we plan on testing passing in the src_dir and target_dir.</p>
+
+<p>Now we can write the acceptance test for this function</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>should_have_html_hello_world</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>file_path</span> <span class='o'>=</span> <span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>,</span> <span class='s'>&#39;hello_world.html&#39;</span><span class='p'>)</span>
+        <span class='n'>content</span> <span class='o'>=</span> <span class='nb'>open</span><span class='p'>(</span><span class='n'>file_path</span><span class='p'>,</span> <span class='s'>&#39;r&#39;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>read</span><span class='p'>()</span>
+        <span class='k'>assert</span> <span class='s'>&#39;&lt;p&gt;Hello World!&lt;/p&gt;&#39;</span> <span class='ow'>in</span> <span class='n'>content</span>
+</code></pre>
+</div>
+<p>Our test is checking that the text &#8217;&#60;p&#62;Hello World!&#60;/p&#62;&#8217; is in a file in the output directory. This requires some fixture data in the source directory which is only</p>
+
+<pre><code>Hello World!</code></pre>
+
+<p>The file_path is the our target_dir folder and the hello_world.html file. The file is read and then an assertion checking that the test exists.</p>
+
+<p>The whole test file will look like this:</p>
+<div class='highlight'><pre><code class='python'>    <span class='kn'>import</span> <span class='nn'>os.path</span>
+
+    <span class='kn'>from</span> <span class='nn'>markdown_processor</span> <span class='kn'>import</span> <span class='n'>process_markdown</span>
+
+    <span class='k'>class</span> <span class='nc'>WhenRunningProcessor</span><span class='p'>(</span><span class='nb'>object</span><span class='p'>):</span>
+
+        <span class='nd'>@classmethod</span>
+        <span class='k'>def</span> <span class='nf'>setup_class</span><span class='p'>(</span><span class='n'>cls</span><span class='p'>):</span>
+            <span class='n'>cls</span><span class='o'>.</span><span class='n'>src_dir</span> <span class='o'>=</span> <span class='s'>&#39;src_example&#39;</span>
+            <span class='n'>cls</span><span class='o'>.</span><span class='n'>target_dir</span> <span class='o'>=</span> <span class='s'>&#39;target_dir&#39;</span>
+
+            <span class='n'>process_markdown</span><span class='p'>(</span><span class='n'>cls</span><span class='o'>.</span><span class='n'>src_dir</span><span class='p'>,</span> <span class='n'>cls</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>)</span>
+
+        <span class='k'>def</span> <span class='nf'>should_have_html_hello_world</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='n'>file_path</span> <span class='o'>=</span> <span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>,</span> <span class='s'>&#39;hello_world.html&#39;</span><span class='p'>)</span>
+            <span class='n'>content</span> <span class='o'>=</span> <span class='nb'>open</span><span class='p'>(</span><span class='n'>file_path</span><span class='p'>,</span> <span class='s'>&#39;r&#39;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>read</span><span class='p'>()</span>
+            <span class='k'>assert</span> <span class='s'>&#39;&lt;p&gt;Hello World!&lt;/p&gt;&#39;</span> <span class='ow'>in</span> <span class='n'>content</span>
+</code></pre>
+</div>
+<h1 id='unit_tests'>Unit Tests</h1>
+
+<p>In our unit tests we will test how we plan to implement this functionality. The mocking library Dingus will allow us to isolate the our function from the OS and our other libraries. After the function is run we can test to make sure the code works how we expected it to.</p>
+
+<p>First will will import everything we need for the test</p>
+<div class='highlight'><pre><code class='python'>    <span class='kn'>from</span> <span class='nn'>dingus</span> <span class='kn'>import</span> <span class='n'>Dingus</span><span class='p'>,</span> <span class='n'>DingusTestCase</span>
+
+    <span class='kn'>from</span> <span class='nn'>markdown_processor</span> <span class='kn'>import</span> <span class='n'>process_markdown</span>
+    <span class='kn'>import</span> <span class='nn'>markdown_processor</span> <span class='kn'>as</span> <span class='nn'>mod</span>
+</code></pre>
+</div>
+<p>The dingus library provides us with a Dingus class which we will use to assert what our function is doing and the DingusTestCase will automatically isolate our function.</p>
+
+<p>As well as the function we want to test we also import the module to help us make assertions about what goes on outside the function.</p>
+
+<p>Now we can setup a base class to use for our tests. This will hold the common elements we use for our tests.</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>class</span> <span class='nc'>BaseProcessing</span><span class='p'>(</span><span class='n'>DingusTestCase</span><span class='p'>(</span><span class='n'>process_markdown</span><span class='p'>)):</span>
+
+        <span class='k'>def</span> <span class='nf'>setup</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='nb'>super</span><span class='p'>(</span><span class='n'>BaseProcessing</span><span class='p'>,</span> <span class='bp'>self</span><span class='p'>)</span><span class='o'>.</span><span class='n'>setup</span><span class='p'>()</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>src_dir</span> <span class='o'>=</span> <span class='n'>Dingus</span><span class='p'>(</span><span class='s'>&#39;src_dir&#39;</span><span class='p'>)</span>
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span> <span class='o'>=</span> <span class='n'>Dingus</span><span class='p'>(</span><span class='s'>&#39;target_dir&#39;</span><span class='p'>)</span>
+
+            <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>listdir</span><span class='o'>.</span><span class='n'>return_value</span> <span class='o'>=</span> <span class='p'>[</span><span class='s'>&#39;hello_world.markdown&#39;</span><span class='p'>]</span>
+            <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>splitext</span><span class='o'>.</span><span class='n'>return_value</span> <span class='o'>=</span> <span class='p'>(</span><span class='s'>&#39;hello_world&#39;</span><span class='p'>,</span> <span class='s'>&#39;markdown&#39;</span><span class='p'>)</span>
+
+            <span class='bp'>self</span><span class='o'>.</span><span class='n'>md</span> <span class='o'>=</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>markdown</span><span class='o'>.</span><span class='n'>Markdown</span><span class='p'>()</span>
+</code></pre>
+</div>
+<p>Our BaseProcessing class inherits from DingusTestCase while passing in our function. This will isolate our function and replace everything around it with Dingus objects. The setup method will be run before <em>each</em> test, unlike the acceptance tests where setup_class was only run once. We once again setup our src_dir and target_dir but this time use Dingus objects while passing in a helpful name. In this case the strings for our directories shouldn&#8217;t be modified but this allows you to verify any operations performed on the arguments.</p>
+
+<p>Next we set the return values of some function we plan on using. Remember everything but our function is a Dingus which only return a new Dingus when called. The listdir function will return a list of entries in the directory. In this case we just want to return a list with 1 file. We will need to get the filename without an extension so we will set the return_value to be a tuple of the name and extension.</p>
+
+<p>The last part is setting a shorter name for the Markdown instance.</p>
+
+<h2 id='test_cases'>Test Cases</h2>
+
+<p>Of first test is to assert that we see if the target directory exists.</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>should_check_existance_of_target_dir</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>assert</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span><span class='s'>&#39;exists&#39;</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>We will use os.path.exists to check. The assert uses the .calls method to see if os.path.exists was called with our target directory.</p>
+
+<p>Next will want to assert that a markdown instance is created</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>should_create_markdown_instance</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>assert</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>markdown</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span>
+            <span class='s'>&#39;Markdown&#39;</span><span class='p'>,</span>
+            <span class='n'>extensions</span><span class='o'>=</span><span class='p'>[</span><span class='s'>&#39;codehilite&#39;</span><span class='p'>]</span>
+        <span class='p'>)</span><span class='o'>.</span><span class='n'>once</span><span class='p'>()</span>
+</code></pre>
+</div>
+<p>This time we check that the object is called with the extension &#8216;codehilite&#8217; and that it is only called once.</p>
+
+<p>Now we need to get the files we plan on converting so we will use the os.listdir that uses our mocked return value.</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>should_find_markdown_files</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>assert</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span><span class='s'>&#39;listdir&#39;</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>src_dir</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>Finally we can test that our file is actually converted by markdown</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>def</span> <span class='nf'>should_join_source</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>assert</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span><span class='s'>&#39;join&#39;</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>src_dir</span><span class='p'>,</span> <span class='s'>&#39;hello_world.markdown&#39;</span><span class='p'>)</span>
+
+    <span class='k'>def</span> <span class='nf'>should_join_target</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>assert</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span><span class='s'>&#39;join&#39;</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>,</span> <span class='s'>&#39;hello_world.html&#39;</span><span class='p'>)</span>
+
+    <span class='k'>def</span> <span class='nf'>should_convert_files</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='n'>in_file</span> <span class='o'>=</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>()</span>
+        <span class='n'>out_file</span> <span class='o'>=</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>()</span>
+        <span class='k'>assert</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>md</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span><span class='s'>&#39;convertFile&#39;</span><span class='p'>,</span> <span class='n'>in_file</span><span class='p'>,</span> <span class='n'>out_file</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>We first assert that our function properly creates the paths to use for the input and output files then calls markdown&#8217;s convertFile function. The in_file and out_file are actually the same dingus in this case, the join() will return an object we can use to test with.</p>
+
+<p>Now that the tests are written we can add the classes to run them.</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>class</span> <span class='nc'>WhenProcessingMarkdown</span><span class='p'>(</span><span class='n'>BaseProcessing</span><span class='p'>):</span>
+
+        <span class='k'>def</span> <span class='nf'>setup</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='n'>BaseProcessing</span><span class='o'>.</span><span class='n'>setup</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>)</span>
+            <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>exists</span><span class='o'>.</span><span class='n'>return_value</span> <span class='o'>=</span> <span class='bp'>False</span>
+            <span class='n'>process_markdown</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>src_dir</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>)</span>
+
+        <span class='k'>def</span> <span class='nf'>should_create_target_directory</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='k'>assert</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span><span class='s'>&#39;mkdir&#39;</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>WhenProcessingMarkdown inherits from our BaseProcessing class including all of the test cases. In our setup this time we want to make sure we run BaseProcessing.setup with our instance and set the return value of os.path.exists. After that we run our function.</p>
+
+<p>Since our output directory doesn&#8217;t exist in this test it will want to make sure that we try to create it.</p>
+
+<p>Because we need to test the other case where the directory already exists we create a new test class where that is true.</p>
+<div class='highlight'><pre><code class='python'>    <span class='k'>class</span> <span class='nc'>WhenProcessingMarkdownAndDirectoryExists</span><span class='p'>(</span><span class='n'>BaseProcessing</span><span class='p'>):</span>
+
+        <span class='k'>def</span> <span class='nf'>setup</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='n'>BaseProcessing</span><span class='o'>.</span><span class='n'>setup</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>)</span>
+            <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>exists</span><span class='o'>.</span><span class='n'>return_value</span> <span class='o'>=</span> <span class='bp'>True</span>
+            <span class='n'>process_markdown</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>src_dir</span><span class='p'>,</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>target_dir</span><span class='p'>)</span>
+
+        <span class='k'>def</span> <span class='nf'>should_not_create_target_directory</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+            <span class='k'>assert</span> <span class='ow'>not</span> <span class='n'>mod</span><span class='o'>.</span><span class='n'>os</span><span class='o'>.</span><span class='n'>calls</span><span class='p'>(</span><span class='s'>&#39;mkdir&#39;</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>This is very similar except that the exists() return value is True so we will want to assert that we do not call mkdir at all.</p>
+
+<h1 id='implementation'>Implementation</h1>
+
+<p>Our tests are complete and we can move on to our implementation.</p>
+<div class='highlight'><pre><code class='python'>    <span class='kn'>import</span> <span class='nn'>os</span>
+
+    <span class='kn'>import</span> <span class='nn'>markdown</span>
+
+    <span class='k'>def</span> <span class='nf'>process_markdown</span><span class='p'>(</span><span class='n'>src_dir</span><span class='p'>,</span> <span class='n'>target_dir</span><span class='p'>):</span>
+        <span class='s'>&quot;Converts files from :param src_dir: to html in the :param target_dir:&quot;</span>
+        <span class='k'>if</span> <span class='ow'>not</span> <span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>exists</span><span class='p'>(</span><span class='n'>target_dir</span><span class='p'>):</span>
+            <span class='n'>os</span><span class='o'>.</span><span class='n'>mkdir</span><span class='p'>(</span><span class='n'>target_dir</span><span class='p'>)</span>
+
+        <span class='n'>md</span> <span class='o'>=</span> <span class='n'>markdown</span><span class='o'>.</span><span class='n'>Markdown</span><span class='p'>(</span><span class='n'>extensions</span><span class='o'>=</span><span class='p'>[</span><span class='s'>&#39;codehilite&#39;</span><span class='p'>])</span>
+
+        <span class='k'>for</span> <span class='nb'>file</span> <span class='ow'>in</span> <span class='n'>os</span><span class='o'>.</span><span class='n'>listdir</span><span class='p'>(</span><span class='n'>src_dir</span><span class='p'>):</span>
+            <span class='n'>name</span><span class='p'>,</span> <span class='n'>ext</span> <span class='o'>=</span> <span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>splitext</span><span class='p'>(</span><span class='nb'>file</span><span class='p'>)</span>
+
+            <span class='n'>in_file</span> <span class='o'>=</span> <span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='n'>src_dir</span><span class='p'>,</span> <span class='nb'>file</span><span class='p'>)</span>
+            <span class='n'>out_file</span> <span class='o'>=</span> <span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='n'>target_dir</span><span class='p'>,</span> <span class='n'>name</span> <span class='o'>+</span> <span class='s'>&#39;.html&#39;</span><span class='p'>)</span>
+            <span class='n'>md</span><span class='o'>.</span><span class='n'>convertFile</span><span class='p'>(</span><span class='n'>in_file</span><span class='p'>,</span> <span class='n'>out_file</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>The implementation shouldn&#8217;t be surprising after planning it out. Our function takes 2 arguments, possibly creates the target directory, then converts each file from our source directory.</p>
+
+<p>You can download the <a href='https://github.com/philipcristiano/blog_tdd_markdown'>full source</a></p>
+</ul>
+
+            </div>
+            <div class="four columns">
+                <h5><a href="http://philipcristiano.com">Flavors.me</a></h5>
+                <h5><a href="/projects.html">Projects</a></h5>
+                <h5><a href="/reading.html">Reading</a></h5>
+                <h5><a href="/atom.xml">Atom Feed</a></h5>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

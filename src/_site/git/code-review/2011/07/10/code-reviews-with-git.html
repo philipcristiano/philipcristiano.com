@@ -1,0 +1,96 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Code Reviews with Git</title>
+	<meta name="description" content="">
+	<meta name="author" content="Philip Cristiano">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css" />
+	<link rel="stylesheet" href="/css/skeleton.css" />
+	<link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Favicons
+	================================================== -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+
+<!-- Google Analytics -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6568165-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="sixteen columns">
+            <h1>Code Reviews with Git</h1>
+        </div>
+        <div class="sixteen columns">
+            <div class="eight columns">
+                 <ul class="post">
+<p>A few weeks ago at work we improved our code review process by using Git more effectively. Previously a code review happened after the topic branch was merged into <strong>master</strong>. This obviously was not very effective as changes could have broken master without a proper review and there was less incentive to perform as careful of a review since the code was &#8220;working&#8221; already. This was carried over from when we were using SVN until we realized we were no longer forced to work in the dark ages.</p>
+
+<p>Since we were already using Git we could easily change our workflow for a better review process. Once a topic branch was ready for review we could push a remote branch. Our remote branches take the form <strong>/review/{initials}/{topic}</strong></p>
+
+<p>To push a new remote branch:</p>
+<div class='highlight'><pre><code class='bash'>    git push origin <span class='o'>{</span>branch name<span class='o'>}</span>:/review/<span class='o'>{</span>initials<span class='o'>}</span>/<span class='o'>{</span>branch name<span class='o'>}</span>
+</code></pre>
+</div>
+<p>And then we would move the Kanban card to the review column and find someone to review our changes.</p>
+
+<p>When the code has been reviewed and any necessary changes made the reviewer will merge them into <strong>master</strong>.</p>
+<div class='highlight'><pre><code class='bash'>    git checkout master
+    git merge --no-ff --no-commit /review/<span class='o'>{</span>initials<span class='o'>}</span>/<span class='o'>{</span>branch name<span class='o'>}</span>
+    git commit -s
+</code></pre>
+</div>
+<p>The merge command turns off fast-forward merging and commiting so when we commit with a -s we can sign-off on the changes. This shows who reviewed the code. We don&#8217;t permit anyone to push their own changes without review although Git doesn&#8217;t prevent you from changing the committer or the sign-off.</p>
+
+<p>Then finally remove the remote branch by pushing an empty branch over it and delete your local copy of the branch.</p>
+<div class='highlight'><pre><code class='bash'>    git push origin :/review/<span class='o'>{</span>initials<span class='o'>}</span>/<span class='o'>{</span>branch name<span class='o'>}</span>
+    git branch -d /review/<span class='o'>{</span>initials<span class='o'>}</span>/<span class='o'>{</span>branch name<span class='o'>}</span>
+</code></pre>
+</div>
+</ul>
+
+            </div>
+            <div class="four columns">
+                <h5><a href="http://philipcristiano.com">Flavors.me</a></h5>
+                <h5><a href="/projects.html">Projects</a></h5>
+                <h5><a href="/reading.html">Reading</a></h5>
+                <h5><a href="/atom.xml">Atom Feed</a></h5>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

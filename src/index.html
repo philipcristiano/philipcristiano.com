@@ -1,0 +1,10 @@
+---
+layout: default
+title: Philip Cristiano
+---
+
+{% for post in site.posts %}
+<h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+<div><em>Posted on {{ post.date | date_to_long_string }}.</em></div>
+<div><em>Filed under {{ post.categories | category_links }}</em></div>
+{% endfor %}

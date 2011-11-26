@@ -1,0 +1,83 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Branch Coverage with Nose</title>
+	<meta name="description" content="">
+	<meta name="author" content="Philip Cristiano">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css" />
+	<link rel="stylesheet" href="/css/skeleton.css" />
+	<link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Favicons
+	================================================== -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+
+<!-- Google Analytics -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6568165-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="sixteen columns">
+            <h1>Branch Coverage with Nose</h1>
+        </div>
+        <div class="sixteen columns">
+            <div class="eight columns">
+                 <ul class="post">
+<p>Since I heard about the addition of branch coverage tracking for <a href='http://nedbatchelder.com/code/coverage/'>Coverage</a> I&#8217;ve wanted to give it a try. Originally it required a beta release which somehow I never got working.</p>
+
+<p>Once it was in a normal release I somehow forgot about it. There is still no commandline argument to turn it on when using <a href='http://somethingaboutorange.com/mrl/projects/nose/'>Nose</a>. You can however use the <em>.coveragerc</em> file to enable it.</p>
+
+<p>In <em>.coveragerc</em> simply put</p>
+<div class='highlight'><pre><code class='bash'>    <span class='o'>[</span>run<span class='o'>]</span>
+    <span class='nv'>branch</span> <span class='o'>=</span> True
+</code></pre>
+</div>
+<p>And next time you run Nose with coverage you&#8217;ll have branch coverage too! I was finally reminded about this when coming across the <a href='http://lautaportti.wordpress.com/2011/05/07/test-coverage-analysis/'>Test Coverage Analysis</a> post by <a href='http://lautaportti.wordpress.com/'>Kai Lautaportti</a>.</p>
+</ul>
+
+            </div>
+            <div class="four columns">
+                <h5><a href="http://philipcristiano.com">Flavors.me</a></h5>
+                <h5><a href="/projects.html">Projects</a></h5>
+                <h5><a href="/reading.html">Reading</a></h5>
+                <h5><a href="/atom.xml">Atom Feed</a></h5>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

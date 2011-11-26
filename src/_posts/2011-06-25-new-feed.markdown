@@ -1,0 +1,6 @@
+---
+layout: post
+title: New Feed
+categories:
+---
+I've added an [atom feed](/atom.xml) for all your newsreading pleasure!

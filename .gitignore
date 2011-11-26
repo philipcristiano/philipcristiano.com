@@ -1,3 +1,6 @@
 .rake_test_cache
 *.pyc
 
+/_site
+*.swp
+.DS_Store
