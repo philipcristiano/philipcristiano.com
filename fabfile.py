@@ -1,7 +1,7 @@
 from fabric.api import *
+from fabric.contrib.project import rsync_project
 
 env.hosts = ['root@node.philipcristiano.com']
 
 def upload():
-    put("philipcristiano", "/var/www")
-    sudo("chown www-data /var/www/philipcristiano")
+    rsync_project('/var/www', 'philipcristiano')
