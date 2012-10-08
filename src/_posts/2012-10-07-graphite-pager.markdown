@@ -18,7 +18,7 @@ metrics!
 
 The alert format looks like:
 
-<script src="https://gist.github.com/3850147.js?file=alerts.yml"></script>
+<script type="text/javascript" src="https://gist.github.com/3850147.js?file=alerts.yml"> </script>
 
 Pretty Simple. It supports globbing with unique alerts for each metric.
 Graphite Pager can't determine a disappearing host from the glob, maybe in the
