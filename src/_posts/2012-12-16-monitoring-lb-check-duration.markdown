@@ -7,7 +7,7 @@ check for services behind [HAProxy](http://haproxy.1wt.eu). This is reported in
 the admin interface CSV and can easily be added to your metric systems. This is
 what a few nodes started doing yesterday:
 
-![Check Duration](http://i.imgur.com/Ja2NZ.png)
+![Check Duration](/images/posts/check_duration/check_duration.png)
 
 This service can usually hits the 50ms range for health checks although it
 started getting much worse. The service is actually written in Tornado although
