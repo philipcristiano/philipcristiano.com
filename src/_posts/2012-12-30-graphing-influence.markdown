@@ -13,7 +13,7 @@ Graphite.
 
 To run it:
 
-<script type="text/javascript" src="https://gist.github.com/4415638.js"> </script>
+<script type="text/javascript" src="https://gist.github.com/4415737.js"> </script>
 
 Ideally this is run in cron, we use 30 minutes. Over the course of 2 weeks
 there is already a few rank changes and large jumps due to adding new social
