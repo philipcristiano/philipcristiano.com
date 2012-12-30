@@ -2,7 +2,5 @@
 layout: post
 title: New Feed
 categories:
-- atom
-- syndication
 ---
 I've added an [atom feed](/atom.xml) for all your newsreading pleasure!
