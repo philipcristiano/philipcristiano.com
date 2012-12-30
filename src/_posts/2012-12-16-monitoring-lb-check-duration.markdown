@@ -22,7 +22,7 @@ it will remove the nodes from the pool, a good precaution, although in our case
 can cause flickering if MongoDB takes longer than expected.
 
 I did receive alerts thanks to alerting of per-service health checks with
-[Graphite Pager](github.com/philipcristiano/graphite-pager).
+[Graphite Pager](/2012/10/07/graphite-pager.html).
 
 We are using [Diamond](https://github.com/brightcoveos/diamond) at
 [SeatGeek](http://seatgeek.com) which easily collects metrics from HAProxy.
