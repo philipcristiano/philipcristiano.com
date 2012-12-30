@@ -19,3 +19,11 @@ A packaging and deployment tool for Python daemons using
 --------------
 A small HTTP server that handles a single request and stores the request
 information. This is used for testing processes that need to make web requests.
+
+[Graphite Pager](http://github.com/philipcristiano/graphite-pager)
+----------------
+A daemon to monitor Graphite metrics and send alerts via PagerDuty.
+
+[Klout-to-Graphite](http://pypi.python.org/pypi/klout-to-graphite/)
+------------------
+A tool to graph [Klout](http://klout.com) score in Graphite.
