@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Packaging
-categories:
+tags:
 - packaging
 - projects
 - supervisor

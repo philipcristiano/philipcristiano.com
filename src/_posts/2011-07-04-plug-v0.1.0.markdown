@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Plug v0.1.0
-categories:
+tags:
 - plug
 - projects
 - python

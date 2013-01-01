@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Graphing Influence
+tags:
+- metrics
+- python
+- klout
 ---
 I just pushed a Python package for
 [Klout-to-Graphite](http://pypi.python.org/pypi/klout-to-graphite/) that will

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: vimrc Updates
-categories:
+tags:
 - vim
 - gundo
 - dotfile

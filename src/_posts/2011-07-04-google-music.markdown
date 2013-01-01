@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Google Music
-categories:
+tags:
 - google
 - music
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Twitter Bootstrap
-categories:
+tags:
 - Twitter
 - CSS
 - Bootstrap

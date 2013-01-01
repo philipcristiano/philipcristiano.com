@@ -1,7 +1,7 @@
 ---
 layout: post
 title: TestHTTPServer v0.1.1
-categories:
+tags:
 - projects
 - python
 - testhttpserver

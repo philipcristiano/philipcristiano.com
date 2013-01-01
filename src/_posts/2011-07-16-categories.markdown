@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Post Categories
-categories:
+tags:
 - site
 - categories
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Brightcove's Diamond and Contributing to Projects
-categories:
+tags:
 - brightcove
 - diamond
 - ganglia

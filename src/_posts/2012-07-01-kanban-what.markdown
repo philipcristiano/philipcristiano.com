@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Kanban What
-categories:
+tags:
 - AWeber
 - Kanban
 - PhillyTechWeek

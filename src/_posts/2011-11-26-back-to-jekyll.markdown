@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Back to Jekyll
-categories:
+tags:
 - site
 ---
 I've switched back to Jekyll! This time it's hosted on my

@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Graphite Pager - An Easy Way to Send Alerts From Graphite
+tags:
+- metrics
+- graphite
+- monitoring
+- graphite pager
 ---
 I've started working on a project [making it easy to send alerts from
 Graphite](http://github.com/philipcristiano/graphite-pager). Previously at

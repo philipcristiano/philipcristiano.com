@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Test Sizes
-categories:
+tags:
 - testing
 ---
 At AWeber we tend to write tests. A lot of them. I spend more time writing

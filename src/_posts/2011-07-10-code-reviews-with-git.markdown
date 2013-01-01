@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Code Reviews with Git
-categories:
+tags:
 - git
 - code-review
 ---

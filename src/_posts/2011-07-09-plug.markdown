@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Plug v0.1.2 Bug Fixes
-categories:
+tags:
 - projects
 - plug
 - python

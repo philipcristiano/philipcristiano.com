@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Free Shirts (Focus on Quality)
-categories:
+tags:
 - free
 - merch
 - american apparel

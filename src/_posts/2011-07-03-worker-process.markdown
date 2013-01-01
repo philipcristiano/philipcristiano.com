@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Worker Process
-categories:
+tags:
 - projects
 - worker-process
 - python

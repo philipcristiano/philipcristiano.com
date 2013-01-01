@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python TDD with Dingus - A Markdown Function
-categories:
+tags:
 - testing
 - dingus
 - tdd

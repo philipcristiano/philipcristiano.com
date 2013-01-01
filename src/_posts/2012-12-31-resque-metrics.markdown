@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Resque Metrics with StatsD
+tags:
+- ruby
+- resque
+- statsd
+- metrics
 ---
 A recent task of mine was to add some metric collection to a Rails application
 at [SeatGeek](http://seatgeek.com). One of the main components (and critical if

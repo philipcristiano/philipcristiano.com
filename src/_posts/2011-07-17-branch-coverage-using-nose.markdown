@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Branch Coverage with Nose
-categories:
+tags:
 - testing
 - nose
 - python
