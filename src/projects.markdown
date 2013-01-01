@@ -26,4 +26,4 @@ A daemon to monitor Graphite metrics and send alerts via PagerDuty.
 
 [Klout-to-Graphite](http://pypi.python.org/pypi/klout-to-graphite/)
 ------------------
-A tool to graph [Klout](http://klout.com) score in Graphite.
+A tool to graph [Klout](http://klout.com) scores in Graphite.
