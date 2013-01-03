@@ -5,6 +5,7 @@ tags:
 - metrics
 - python
 - klout
+- graphite
 ---
 I just pushed a Python package for
 [Klout-to-Graphite](http://pypi.python.org/pypi/klout-to-graphite/) that will

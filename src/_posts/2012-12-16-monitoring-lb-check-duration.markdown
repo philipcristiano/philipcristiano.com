@@ -5,6 +5,7 @@ tags:
 - haproxy
 - metrics
 - health checks
+- graphite
 ---
 A recent metric I've started paying attention to was the duration of the health
 check for services behind [HAProxy](http://haproxy.1wt.eu). This is reported in
