@@ -18,6 +18,6 @@ the alert that is triggering.
 
 While people at work haven't jumped to create metrics and alerts for various
 things this will at least make it easier for them to know why this alert was
-created and have to fix the problem. Right now I have only documented a few
+created and how to fix the problem. Right now I have only documented a few
 alerts and will do so as existing alerts fire. If anyone needs alerts made I
 will make sure the wiki page exists ahead of time.
