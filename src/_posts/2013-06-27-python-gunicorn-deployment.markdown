@@ -20,6 +20,13 @@ your application doesn't take too long to start. Unfortunately some
 applications at work can take a minute to start, too long to have connections
 waiting at the socket.
 
+The Gunicorn reloading using `kill -HUP `cat /var/run/gunicorn.pid` will stop
+all worker processes then start them again. The slow init for workers tends to
+cause problems. uWSGI has [chain
+reloading](http://uwsgi-docs.readthedocs.org/en/latest/Changelog-1.9.html#chain-reloading)
+which will restart workers one at a time. I need support for Tornado which
+doesn't fit well with uWSGI.
+
 #### With a Load Balancer
 
 A common technique is to remove a single server from the load balancer,
