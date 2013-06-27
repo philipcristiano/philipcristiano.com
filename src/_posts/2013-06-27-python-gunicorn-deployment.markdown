@@ -20,7 +20,7 @@ your application doesn't take too long to start. Unfortunately some
 applications at work can take a minute to start, too long to have connections
 waiting at the socket.
 
-The Gunicorn reloading using `kill -HUP `cat /var/run/gunicorn.pid` will stop
+The Gunicorn reloading using `kill -HUP $PID` will stop
 all worker processes then start them again. The slow init for workers tends to
 cause problems. uWSGI has [chain
 reloading](http://uwsgi-docs.readthedocs.org/en/latest/Changelog-1.9.html#chain-reloading)
