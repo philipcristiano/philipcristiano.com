@@ -80,6 +80,6 @@ Be careful with trying to run too much of your application in this healthcheck,
 if for any reason your `post_worker_init` raises an error then the worker will
     exit, preventing your application from starting. This may be a problem when
     you are checking a DB connection that may go away, even if you application
-    could work it don't be able to boot.
+    could work it won't be able to boot.
 
 Now with our applications that take a minute to start we can do a rolling restart without taking the application down or dropping any connections!
