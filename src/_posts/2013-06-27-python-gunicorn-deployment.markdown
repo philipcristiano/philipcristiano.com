@@ -57,9 +57,11 @@ but we will continue to handle traffic without letting connections wait too long
 
 The general process for this is
 
+<pre>
   for child_pid of gunicorn-master:
     kill child_pid
     wait for app startup
+</pre>
 
 My first version of this used shell and `nc` to listen on UDP for an
 application startup.  This worked well although integrating our process manager
