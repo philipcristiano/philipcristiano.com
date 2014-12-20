@@ -2,6 +2,9 @@
 philipcristiano
 *.pyc
 
+.doit.db.db
+output/
+/cache/
 /_site
 *.swp
 .DS_Store
