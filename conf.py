@@ -304,7 +304,7 @@ FEED_LENGTH = 1000
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = [('atom.xml', '/rss.xml')]
+REDIRECTIONS = []
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
