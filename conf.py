@@ -21,7 +21,7 @@ BLOG_AUTHOR = "Philip Cristiano"  # (translatable)
 BLOG_TITLE = "philipcristiano"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://philipcristiano.com"
+SITE_URL = "/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://philipcristiano.com"
@@ -190,10 +190,10 @@ TIMEZONE = "UTC"
 #
 
 POSTS = (
+    ("posts/*.markdown", "", "post.tmpl"),
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.md", "posts", "post.tmpl"),
-    ("posts/*.markdown", "posts", "post.tmpl"),
 )
 PAGES = (
     ("stories/*.rst", "stories", "story.tmpl"),
@@ -284,14 +284,14 @@ COMPILERS = {
 # rel_path: a relative URL to the current page/post (default)
 # full_path: a URL with the full path from the root
 # absolute: a complete URL (that includes the SITE_URL)
-# URL_TYPE = 'rel_path'
+URL_TYPE = 'full_path'
 
 # Final location for the blog main RSS feed is:
 # output / TRANSLATION[lang] / RSS_PATH / rss.xml
-# RSS_PATH = ""
+RSS_PATH = ""
 
 # Number of posts in RSS feeds
-# FEED_LENGTH = 10
+FEED_LENGTH = 1000
 
 # Slug the Tag URL easier for users to type, special characters are
 # often removed or replaced as well.
@@ -304,7 +304,7 @@ COMPILERS = {
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = []
+REDIRECTIONS = [('atom.xml', '/rss.xml')]
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
@@ -555,7 +555,7 @@ COMMENT_SYSTEM_ID = ""
 # If this is False
 # e.g. /2012 includes only /01, /02, /03, /04, ...: don't add it to the sitemap
 # if /2012 includes any files (including index.html)... add it to the sitemap
-# SITEMAP_INCLUDE_FILELESS_DIRS = True
+SITEMAP_INCLUDE_FILELESS_DIRS = False
 
 # List of files relative to the server root (!) that will be asked to be excluded
 # from indexing and other robotic spidering. * is supported. Will only be effective
@@ -638,18 +638,18 @@ COMMENT_SYSTEM_ID = ""
 
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
-# SHOW_SOURCELINK = True
+SHOW_SOURCELINK = False
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
-# COPY_SOURCES = True
+COPY_SOURCES = False
 
 # Modify the number of Post per Index Page
 # Defaults to 10
-# INDEX_DISPLAY_POST_COUNT = 10
+INDEX_DISPLAY_POST_COUNT = 50
 
 # By default, Nikola generates RSS files for the website and for tags, and
 # links to it.  Set this to False to disable everything RSS-related.
-# GENERATE_RSS = True
+GENERATE_RSS = True
 
 # RSS_LINK is a HTML fragment to link the RSS or Atom feeds. If set to None,
 # the base.tmpl will use the feed Nikola generates. However, you may want to
@@ -657,7 +657,7 @@ COMMENT_SYSTEM_ID = ""
 # RSS_LINK = None
 
 # Show only teasers in the RSS feed? Default to True
-# RSS_TEASERS = True
+RSS_TEASERS = False
 
 # Strip HTML in the RSS feed? Default to False
 # RSS_PLAIN = False
@@ -733,7 +733,7 @@ COMMENT_SYSTEM_ID = ""
 #
 # An example re is the following:
 # '(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)\.markdown'
-FILE_METADATA_REGEXP ='(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)\.markdown'
+FILE_METADATA_REGEXP ='posts.(?P<date>\d{4}.\d{2}.\d{2}).(?P<slug>.*)\.(md|markdown)'
 
 # If you hate "Filenames with Capital Letters and Spaces.md", you should
 # set this to true.

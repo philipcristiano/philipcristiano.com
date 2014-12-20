@@ -1,0 +1,7 @@
+<!---
+.. layout: post
+.. title: New Feed
+.. tags:
+..     - atom
+-->
+I've added an [atom feed](/atom.xml) for all your newsreading pleasure!

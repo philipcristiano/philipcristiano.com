@@ -1,0 +1,17 @@
+<!---
+.. layout: post
+.. title: Plug v0.1.2 Bug Fixes
+.. tags:
+.. - projects
+.. - plug
+.. - python
+-->
+
+This release fixes a bug cause by linking all plug service instances to the installed
+plug. [Runit](http://smarden.org/runit/) uses a ./supervise in the service's directory
+to maintain state which would be clobbered when multiple services link to the same plug.
+
+Now the virtualenv is copied to /srv/plug/plug\_instances/ and linked into runit.
+
+There is also a fix for uninstalling plugs leaving orphaned processes. Now Plug will
+stop the processes before removing them to prevent this.

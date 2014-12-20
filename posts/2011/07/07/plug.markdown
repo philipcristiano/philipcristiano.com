@@ -1,0 +1,14 @@
+<!--
+.. layout: post
+.. title: Plug v0.1.1
+.. tags:
+.. - projects
+.. - python
+.. - plug
+-->
+
+Release v0.1.1 adds an ``uninstall`` command to Plug that takes a ``--plug=``
+option and removes the virtualenv and all runit links.
+
+You can get [Plug](http://pypi.python.org/pypi/plug) on PyPi and try it out. As
+always, [report any issues](http://github.com/philipcristiano/plug/issues).
