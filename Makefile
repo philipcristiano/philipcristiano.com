@@ -4,6 +4,7 @@ upload: build
 
 build:
 	nikola build
+	cp -r src/images output
 
 server:
 	nikola serve
