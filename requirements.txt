@@ -17,3 +17,4 @@ natsort==3.5.1
 python-dateutil==2.3
 six==1.8.0
 wsgiref==0.1.2
+-e git+https://github.com/philipcristiano/cloudflare-python.git#egg=cloudflare
