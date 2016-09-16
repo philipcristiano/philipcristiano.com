@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-import datetime
-import os
 import time
 
 # !! This is the configuration of Nikola. !! #
@@ -190,16 +188,7 @@ TIMEZONE = "UTC"
 # to feeds and are considered part of a blog, while PAGES are
 # just independent HTML pages.
 #
-now = datetime.datetime.utcnow()
-new_post_folder = 'posts/{}/{}'.format(now.year, str(now.month).zfill(2))
-new_post = new_post_folder + '/*.markdown'
-try:
-    os.mkdir(new_post_folder)
-except OSError:
-    pass
-
 POSTS = (
-    (new_post , "", "post.tmpl"), # Create new posts in year/month
     ("posts/*.markdown", "", "post.tmpl"),
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
