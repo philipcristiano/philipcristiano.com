@@ -6,5 +6,5 @@ build:
 	nikola build
 	cp -r src/images output
 
-server:
-	nikola serve
+server: build
+	./run_livereload.py
