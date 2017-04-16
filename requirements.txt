@@ -1,3 +1,4 @@
+awscli
 Logbook==0.8.1
 MacFSEvents==0.4
 Mako==1.0.0
