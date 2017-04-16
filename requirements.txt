@@ -1,6 +1,5 @@
 awscli
 Logbook==0.8.1
-MacFSEvents==0.4
 Mako==1.0.0
 Markdown==2.5.2
 MarkupSafe==0.23
