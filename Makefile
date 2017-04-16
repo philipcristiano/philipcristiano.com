@@ -1,6 +1,5 @@
 upload: clean build
 	aws s3 sync output/ s3://philipcristiano.com
-	cloudflare cache purge philipcristiano.com
 
 clean:
 	rm -rf output
