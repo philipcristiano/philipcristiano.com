@@ -8,6 +8,6 @@ test:
     - make build
 
 deployment:
-  staging:
+  deploy:
     branch: master
     commands: make upload
