@@ -1,0 +1,13 @@
+## Customize deployment commands
+dependencies:
+  override:
+    - pip install -r requirements.txt
+
+test:
+  override:
+    - make build
+
+deployment:
+  staging:
+    branch: master
+    commands: make upload
