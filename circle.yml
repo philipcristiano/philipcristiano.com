@@ -10,4 +10,5 @@ test:
 deployment:
   deploy:
     branch: master
-    commands: make upload
+    commands:
+      - make upload
