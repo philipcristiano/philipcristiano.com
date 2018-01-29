@@ -29,5 +29,8 @@ a tag, bypassing the Github workflow.
 
 ## Tags do not have an order
 
-Any commit in the repository can be tagged. If you have a convention
+Any commit in the repository can be tagged. There is little difference (to Git)
+between a tag on the latest commit and a tag on a commit from 3 months ago. If
+your process relies on some semantic meaning for these tags you will have to
+encode that information and handle it in your deployment automation.
 
