@@ -17,3 +17,5 @@ pkg list -afv $PACKAGE
 `-af` lists all versions, regardless of installation state
 
 `-v` Includes the FMRI in the output
+
+If you don't see a newer version you think should be there, try a `pkg refresh`!
