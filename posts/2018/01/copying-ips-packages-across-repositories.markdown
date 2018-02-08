@@ -2,7 +2,7 @@
 .. title: Copying IPS Packages Across Repositories
 .. slug: copying-ips-packages-across-repositories
 .. date: 2018-01-29 22:53:33 UTC
-.. tags: omniosce omnios
+.. tags: omniosce, omnios
 .. link:
 .. description:
 .. type: text
