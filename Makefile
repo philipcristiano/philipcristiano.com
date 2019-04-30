@@ -4,9 +4,12 @@ upload: clean build
 clean:
 	rm -rf output
 
-build:
+build: deps
 	nikola build
 	cp -r src/images output
+
+deps:
+	pip install -r requirements.txt
 
 server: build
 	./run_livereload.py
