@@ -2,45 +2,40 @@
 
 -export([data/1, site/1]).
 
+-export([date_to_long_string/1,
+         tag_links/1]).
+
 data(_) ->
     #{
      site     => {eterm,    "site.config"},
-     recipes => {markdown, "site_src/recipes/*/index.md"},
-     snippets => {markdown, "snippets/*.md"}
+     daily_posts => {markdown, "posts/*/*/*/*.markdown"},
+     monthly_posts => {markdown, "posts/*/*/*.markdown"}
+     % snippets => {markdown, "snippets/*.md"}
      }.
 
 site(Data) ->
     io:format("Data ~p~n", [Data]),
     #{
-      "site/index.html" => {template, "templates/index.html", #{site_root => "/"}},
-      "site/static/bootstrap-4.6.0/css/*" => {files, "site_src/static/bootstrap-4.6.0/css/*"},
-      "site/static/bootstrap-4.6.0/js/*" => {files, "site_src/static/bootstrap-4.6.0/js/*"},
+      "site/index.html" => {template, "src/index.html", #{site_root => "/"}},
+      "site/css/*" => {files, "site_src/static/bootstrap-4.6.0/css/*"},
+      "site/js/*" => {files, "site_src/static/bootstrap-4.6.0/js/*"},
 
-      "site/static/hz/css/*" => {files, "site_src/static/hz/css/*"},
-      "site/recipes/index.html" =>
-          {template, "templates/recipes.html",
-           #{site_root => "../"}},
+      %"site/recipes/index.html" =>
+      %    {template, "templates/recipes.html",
+      %     #{site_root => "../"}},
 
-      "site/recipes/{{recipe.id}}.html" =>
-          {template_map, "templates/recipe.html", {recipe, recipes(Data)},
+      "site/{{post.id}}.html" =>
+          {template_map, "src/_layouts/post.html", {post, posts(Data)},
            #{site_root => "/"}}
 
-      %"site/static/js/*.js" => {files, "site_src/static/js/*.js",
-      %                      #{site_root => "/"}}
-      %"site/static/css/*.css" => {files, "site_src/static/css/*.css",
-      %                      #{site_root => "/"}},
-      % "site/static/fonts/*.*" => {files, "site_src/static/fonts/*.*",
-      %                       #{site_root => "/"}}
     }.
 
+date_to_long_string(Var) ->
+    io:format("date to long string ~p~n", [Var]),
+    <<"DATE_TO_LONG_STRING_TODO">>.
+tag_links(Var) ->
+    io:format("Tag Links ~p~n", [Var]),
+    <<"TAG_LINKS_TODO">>.
 
-    %   "site/examples/index.erl.html" =>
-    %       {template, "templates/example.html",
-    %        #{site_root => "../",
-    %          example_file => "index.erl"}},
+posts(Data) -> plist:value(daily_posts, Data) ++ plist:value(monthly_posts, Data).
 
-    %   "site/assets/*.css" =>
-    %       {files, "assets/*.css"}
-    % }.
-
-recipes(Data) -> plist:value(recipes, Data).
