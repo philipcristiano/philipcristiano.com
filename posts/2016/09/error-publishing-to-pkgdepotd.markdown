@@ -1,12 +1,10 @@
-<!--
-.. title: Error Publishing to pkg.depotd
-.. slug: error-publishing-to-pkgdepotd
-.. date: 2016-09-15 20:04:03 UTC
-.. tags: omnios, pkgsend, depotd
-.. link:
-.. description:
-.. type: text
--->
+title: Error Publishing to pkg.depotd
+id: 2016/09/error-publishing-to-pkgdepotd
+date: 2016-09-15 20:04:03 UTC
+tags: omnios, pkgsend, depotd
+link:
+description:
+type: text
 
 When publishing to an IPS depotd server you may see the line
 

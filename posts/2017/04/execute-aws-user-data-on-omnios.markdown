@@ -1,12 +1,9 @@
-<!--
-.. title: Execute AWS User Data on OmniOS
-.. slug: execute-aws-user-data-on-omnios
-.. date: 2017-04-02 14:49:11 UTC
-.. tags: omnios, aws, packer, smf
-.. link:
-.. description:
-.. type: text
--->
+title: Execute AWS User Data on OmniOS
+id: 2017/04/execute-aws-user-data-on-omnios
+date: 2017-04-02
+tags: omnios, aws, packer, smf
+link:
+description:
 
 As I started to use the [OmniOS](http://omnios.omniti.com/) on AWS I ran into
 the problem that it does not, by default, include a way to execute the AWS User

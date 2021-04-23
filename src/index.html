@@ -1,13 +1,12 @@
 {% extends "templates/base.html" %}
 
 {% block body %}
-{{ site.posts }}
 {{ site.monthly_posts }}
 {% for post in monthly_posts %}
 <div class="row">
     <div class="row">
         <div class="span8">
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <h2><a href="{{ post.id }}.html">{{ post.title }}</a></h2>
             <div><em>Posted on {{ post.date | date_to_long_string }}.</em></div>
         </div>
     </div>

@@ -25,13 +25,12 @@ site(Data) ->
       %     #{site_root => "../"}},
 
       "site/{{post.id}}.html" =>
-          {template_map, "src/_layouts/post.html", {post, posts(Data)},
+          {template_map, "src/templates/post.html", {post, posts(Data)},
            #{site_root => "/"}}
 
     }.
 
 date_to_long_string(Var) ->
-    io:format("date to long string ~p~n", [Var]),
     Var.
 tag_links(undefined) ->
     "";

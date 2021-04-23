@@ -1,12 +1,12 @@
-<!---
-.. layout: post
-.. title: Packaging
-.. tags:
-.. - packaging
-.. - projects
-.. - supervisor
-.. - plug
--->
+layout: post
+id: 2011/07/03/packaging
+date: 2011-07-03
+title: Packaging
+tags:
+- packaging
+- projects
+- supervisor
+- plug
 
 Roughly 2 weeks ago I started [Plug](https://github.com/philipcristiano/plug)
 which aims to create a package format for Python daemons. The project started

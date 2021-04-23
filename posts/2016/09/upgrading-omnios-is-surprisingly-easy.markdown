@@ -1,12 +1,10 @@
-<!--
-.. title: Upgrading OmniOS is Surprisingly Easy
-.. slug: upgrading-omnios-is-surprisingly-easy
-.. date: 2016-09-13 23:27:43 UTC
-.. tags: omnios
-.. link:
-.. description:
-.. type: text
--->
+title: Upgrading OmniOS is Surprisingly Easy
+id: 2016/09/upgrading-omnios-is-surprisingly-easy
+date: 2016-09-13
+tags: omnios
+link:
+description:
+type: text
 
 As part of the process of shaving some yaks today I wound up needing to upgrade
 my development server to the latest version of

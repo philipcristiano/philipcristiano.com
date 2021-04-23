@@ -1,11 +1,10 @@
-<!---
-.. layout: post
-.. title: Worker Process
-.. tags:
-.. - projects
-.. - worker-process
-.. - python
--->
+layout: post
+id: 2011/07/03/worker-process
+title: Worker Process
+tags:
+- projects
+- worker-process
+- python
 Part of a current project at work involves writing many stand-alone processes
 to handle events from RabbitMQ. The worker processes are managed by Supervisor
 but should gracefully handle SIGTERM and generally follow a common pattern.

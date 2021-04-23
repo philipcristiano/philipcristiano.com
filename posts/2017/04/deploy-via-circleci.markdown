@@ -1,12 +1,11 @@
-<!--
-.. title: Deploying This With CircleCI
-.. slug: deploy-with-circle-ci
-.. date: 2017-04-16 14:49:11 UTC
-.. tags: circleci, deployment
-.. link:
-.. description:
-.. type: text
--->
+title: Deploying This With CircleCI
+id: 2017/04/deploy-with-circle-ci
+date: 2017-04-16
+tags: circleci, deployment
+link:
+description:
+type: text
+
 
 Despite using automated deploys for most things I work on I had put off setting up such a mechanism for this site. Not sure what took so long.
 

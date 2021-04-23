@@ -1,12 +1,10 @@
-<!--
-.. title: OmniOS on Vultr
-.. slug: omnios-on-vultr
-.. date: 2016-09-08 14:29:30 UTC
-.. tags: omnios, vultr, hosting
-.. link:
-.. description:
-.. type: text
--->
+title: OmniOS on Vultr
+id: 2016/09/omnios-on-vultr
+date: 2016-09-08
+tags: omnios, vultr, hosting
+link:
+description:
+type: text
 
 This week I started trying to install [OmniOS](https://omnios.omniti.com/) in a
 [Vultr](https://www.vultr.com/) instance. I'm not sure where I first saw Vultr
