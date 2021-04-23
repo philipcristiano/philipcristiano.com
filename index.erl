@@ -3,6 +3,7 @@
 -export([data/1, site/1]).
 
 -export([date_to_long_string/1,
+         post_to_link/1,
          tag_links/1]).
 
 data(_) ->
@@ -19,6 +20,7 @@ site(Data) ->
       "site/index.html" => {template, "src/index.html", #{site_root => "/"}},
       "site/css/*" => {files, "src/css/*"},
       "site/js/*" => {files, "src/js/*"},
+      "site/atom.xml" => {template, "src/atom.xml", #{site_root => "/"}},
 
       %"site/recipes/index.html" =>
       %    {template, "templates/recipes.html",
@@ -32,6 +34,12 @@ site(Data) ->
 
 date_to_long_string(Var) ->
     Var.
+
+post_to_link(undefined) ->
+    "/";
+post_to_link(Post) ->
+    "/" ++ Post ++ ".html".
+
 tag_links(undefined) ->
     "";
 tag_links(Var) ->
