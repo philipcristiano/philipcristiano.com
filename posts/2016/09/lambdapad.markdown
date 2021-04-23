@@ -1,12 +1,10 @@
-<!--
-.. title: LambdaPad
-.. slug: lambdapad
-.. date: 2016-09-09 19:51:52 UTC
-.. tags: lambdapad, erlang, contentful
-.. link:
-.. description:
-.. type: text
--->
+title: LambdaPad
+slug: 2016/09/lambdapad
+date: 2016-09-09
+tags: lambdapad, erlang, contentful
+link:
+description:
+type: text
 
 I recently came across a static site generator written in Erlang called
 [LambdaPad](https://github.com/gar1t/lambdapad). I looked around a bit while

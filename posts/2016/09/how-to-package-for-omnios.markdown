@@ -1,12 +1,11 @@
-<!--
-.. title: How to Package Your Software for OmniOS
-.. slug: how-to-package-for-omnios
-.. date: 2016-09-16 18:56:13 UTC
-.. tags: omnios, packaging
-.. link:
-.. description:
-.. type: text
--->
+title: How to Package Your Software for OmniOS
+id: 2016/09/how-to-package-for-omnios
+date: 2016-09-16 18:56:13 UTC
+tags: omnios, packaging
+link:
+description:
+type: text
+
 
 [Packaging for OmniOS](https://omnios.omniti.com/wiki.php/PackagingForOmniOS)
 goes over how to create a package using the [same build

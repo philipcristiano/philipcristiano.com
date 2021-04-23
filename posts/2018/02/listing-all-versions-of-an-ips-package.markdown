@@ -1,12 +1,11 @@
-<!--
-.. title: Listing All Versions of an IPS Package
-.. slug: listing-all-versions-of-an-ips-package
-.. date: 2018-02-08 00:16:15 UTC
-.. tags: omniosce, ips,
-.. link:
-.. description:
-.. type: text
--->
+title: Listing All Versions of an IPS Package
+slug: listing-all-versions-of-an-ips-package
+id: 2018/02/08/listing-all-versions-of-an-ips-package
+date: 2018-02-08
+tags: omniosce, ips
+link:
+description:
+type: text
 
 Listing all packages (with FMRI) can be useful to see what you could install. It wasn't immediately obvious to me and couldn't easily find how to do.
 

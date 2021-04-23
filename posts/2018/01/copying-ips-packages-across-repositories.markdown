@@ -1,12 +1,7 @@
-<!--
-.. title: Copying IPS Packages Across Repositories
-.. slug: copying-ips-packages-across-repositories
-.. date: 2018-01-29 22:53:33 UTC
-.. tags: omniosce, omnios
-.. link:
-.. description:
-.. type: text
--->
+title: Copying IPS Packages Across Repositories
+id: 2018/01/29/copying-ips-packages-across-repositories
+date: 2018-01-29
+tags: omniosce, omnios
 
 With the release of [OmniosCS](https://omniosce.org/) I've found myself needing
 packages from [OmniTI's Managed

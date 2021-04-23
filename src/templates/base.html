@@ -44,13 +44,9 @@
             <div class="container">
                 <a class="brand" href="/">Philip Cristiano</a>
                 <ul class="nav">
-                    <li class="nav"><a href="/projects.html">Projects</a></li>
-                    <li class="nav"><a href="/opensource.html">Open Source</a></li>
-                    <li class="nav"><a href="/reading.html">Reading</a></li>
                     <li class="nav"><a href="/atom.xml">Atom Feed</a></li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li class="nav"><a href="http://coderwall.com/philipcristiano">Coderwall</a></li>
                     <li class="nav"><a href="http://github.com/philipcristiano">Github</a></li>
                 </ul>
             </div>
@@ -62,7 +58,8 @@
                 <h3>{{ page.title }}</h3>
             </div>
             <div class="span8">
-                {{ content }}
+                {% block body %}
+                {% endblock %}
             </div>
         </div>
     </div>

@@ -1,10 +1,10 @@
-<!--
-.. title: Python TDD with Dingus - A Markdown Function
-.. tags:
-.. - testing
-.. - dingus
-.. - tdd
--->
+title: Python TDD with Dingus - A Markdown Function
+id: 2011/05/23/testing-example-for-markdown-blog
+date: 2011-05-23
+tags:
+- testing
+- dingus
+- tdd
 Here is a walk through for testing a simple function that will convert a
 directory of markdown files to a directory of HTML files
 

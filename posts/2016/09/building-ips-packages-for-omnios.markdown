@@ -1,12 +1,10 @@
-<!--
-.. title: Building IPS Packages For OmniOS
-.. slug: building-ips-packages-for-omnios
-.. date: 2016-09-14 23:27:39 UTC
-.. tags: omnios, ips, packaging
-.. link:
-.. description:
-.. type: text
--->
+title: Building IPS Packages For OmniOS
+id: 2016/09/building-ips-packages-for-omnios
+date: 2016-09-14
+tags: omnios, ips, packaging
+link:
+description:
+type: text
 
 I've started trying to package some software for OmniOS for personal use. The
 [OmniOS Packaging](https://omnios.omniti.com/wiki.php/PackagingForOmniOS) page

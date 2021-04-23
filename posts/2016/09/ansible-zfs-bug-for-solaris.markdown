@@ -1,12 +1,10 @@
-<!--
-.. title: Ansible ZFS Bug For Solaris
-.. slug: ansible-zfs-bug-for-solaris
-.. date: 2016-09-12 22:28:56 UTC
-.. tags: ansible, solaris, omnios, zfs
-.. link:
-.. description:
-.. type: text
--->
+title: Ansible ZFS Bug For Solaris
+id: 2016/09/ansible-zfs-bug-for-solaris
+date: 2016-09-12 22:28:56 UTC
+tags: ansible, solaris, omnios, zfs
+link:
+description:
+type: text
 
 While updating Ansible I ran into an issue with an extras module for ZFS and
 Solaris. A playbook that used to work to set a mount point no longer worked. I

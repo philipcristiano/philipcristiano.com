@@ -1,12 +1,11 @@
-<!--
-.. title: OmniosCE Networking on OVH
-.. slug: omniosce-networking-on-ovh
-.. date: 2018-03-12 00:00:00 UTC
-.. tags: omnios, omniosce, ovh, networking
-.. link:
-.. description:
-.. type: text
--->
+id: 2018/03/omniosce-networking-on-ovh
+title: OmniosCE Networking on OVH
+slug: omniosce-networking-on-ovh
+date: 2018-03-12 00:00:00 UTC
+tags: omnios, omniosce, ovh, networking
+link:
+description:
+type: text
 
 I recently found that my DHCP leasing on OVH was unreliable. The address worked
 at one point, but after a few months/reboots I found that the instance could

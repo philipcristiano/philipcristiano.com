@@ -1,12 +1,10 @@
-<!--
-.. title: Refreshing pkg.depotd After Package Upload
-.. slug: refresh-depotd-after-upload
-.. date: 2016-09-16 16:15:38 UTC
-.. tags: omnios, depotd, pkgsend, pkgrepo
-.. link:
-.. description:
-.. type: text
--->
+title: Refreshing pkg.depotd After Package Upload
+id: 2016/09/16/refresh-depotd-after-upload
+date: 2016-09-16 16:15:38 UTC
+tags: omnios, depotd, pkgsend, pkgrepo
+link:
+description:
+type: text
 
 After uploading a package to an OmniOS package repository I was unable to find
 the package by searching. The package could be installed and local searching

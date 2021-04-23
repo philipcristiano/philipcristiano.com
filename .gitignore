@@ -6,6 +6,9 @@ philipcristiano
 output/
 /cache/
 /_site
+/site
 *.swp
 .DS_Store
 .s3cfg
+/deps
+/.erlang.mk

@@ -1,8 +1,8 @@
-<!--
-.. title: Test Sizes
-.. tags:
-.. - testing
---->
+title: Test Sizes
+id: 2011/05/21/test-sizes
+date: 2011-05-21
+tags:
+- testing
 At AWeber we tend to write tests. A lot of them. I spend more time writing
 tests then features. My belief is that if a line of code isn't tested it wasn't
 important enough to write in the first place. You won't know when it breaks and
