@@ -62,7 +62,8 @@
                 <h3>{{ page.title }}</h3>
             </div>
             <div class="span8">
-                {{ content }}
+                {% block body %}
+                {% endblock %}
             </div>
         </div>
     </div>

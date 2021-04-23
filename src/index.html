@@ -1,9 +1,9 @@
----
-layout: default
-title: Posts
----
+{% extends "templates/base.html" %}
 
-{% for post in site.posts %}
+{% block body %}
+{{ site.posts }}
+{{ site.monthly_posts }}
+{% for post in monthly_posts %}
 <div class="row">
     <div class="row">
         <div class="span8">
@@ -13,10 +13,12 @@ title: Posts
     </div>
     <div class="row">
         <div class="span8">
-            <div><em>Filed under {{ post.tags | tag_links }}</em></div>
+            <div><em>{% if post.tags != "undefined" %}Filed under {{ post.tags | tag_links }}{% endif %} </em></div>
         </div>
     </div>
 </div>
 <hr>
 
 {% endfor %}
+
+{% endblock %}
