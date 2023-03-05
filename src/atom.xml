@@ -4,7 +4,7 @@
   <title>philipcristiano.com</title>
   <link href="http://philipcristiano.com/"/>
   <link type="application/atom+xml" rel="self" href="http://philipcristiano.com/atom.xml"/>
-  <updated>{{ site.time }}</updated>
+  <updated>{{ now }}</updated>
   <id>http://philipcristiano.com/</id>
   <author>
     <name>Philip Cristiano</name>

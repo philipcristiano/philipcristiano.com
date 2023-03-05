@@ -16,11 +16,12 @@ data(_) ->
 
 site(Data) ->
     io:format("Data ~p~n", [Data]),
+    Now = calendar:system_time_to_rfc3339(erlang:system_time(second)),
     #{
       "site/index.html" => {template, "src/index.html", #{site_root => "/"}},
       "site/css/*" => {files, "src/css/*"},
       "site/js/*" => {files, "src/js/*"},
-      "site/atom.xml" => {template, "src/atom.xml", #{site_root => "/"}},
+      "site/atom.xml" => {template, "src/atom.xml", #{site_root => "/", now => Now}},
 
       %"site/recipes/index.html" =>
       %    {template, "templates/recipes.html",
