@@ -34,8 +34,10 @@ site(Data) ->
 
     }.
 
+date_to_long_string(undefined) ->
+    calendar:system_time_to_rfc3339(0);
 date_to_long_string(Var) ->
-    Var.
+    calendar:system_time_to_rfc3339(qdate:to_unixtime(Var)).
 
 post_to_link(undefined) ->
     "/";
