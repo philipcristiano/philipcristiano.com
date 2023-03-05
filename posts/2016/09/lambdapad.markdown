@@ -1,5 +1,5 @@
 title: LambdaPad
-slug: 2016/09/lambdapad
+id: 2016/09/lambdapad
 date: 2016-09-09
 tags: lambdapad, erlang, contentful
 link:
