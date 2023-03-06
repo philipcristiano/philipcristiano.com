@@ -22,7 +22,7 @@
       <name>Philip Cristiano</name>
       <uri>{{ host }}</uri>
     </author>
-    <content type="html">{{ post | markdown_to_html }}</content>
+    <content type="html">{{ post | markdown_to_html | escape}}</content>
   </entry>
   {% endfor %}
 
