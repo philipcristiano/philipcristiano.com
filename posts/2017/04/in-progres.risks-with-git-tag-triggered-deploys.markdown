@@ -1,12 +1,10 @@
-<!--
-.. title: Risks With Git Tag Triggered Deploys
-.. slug: risks-with-git-tag-triggered-deploys
-.. date: 2020-04-16 20:52:29 UTC
-.. tags: deployment, git, tag
-.. link:
-.. description:
-.. type: text
--->
+title: Risks With Git Tag Triggered Deploys
+id: risks-with-git-tag-triggered-deploys
+date: 2020-04-16 20:52:29 UTC
+tags: deployment, git, tag
+link:
+description:
+type: text
 
 Git workflows can come in many flavors. Once the code hits a continuous
 integration system your workflow will need to trigger a deploy to production. A

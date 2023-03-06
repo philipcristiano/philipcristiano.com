@@ -1,12 +1,10 @@
-<!--
-.. title: How To Package a Service For OmniOS
-.. slug: how-to-package-a-service-for-omnios
-.. date: 2016-09-21 19:44:19 UTC
-.. tags: draft, packaging, omnios, smf
-.. link:
-.. description:
-.. type: text
--->
+title: How To Package a Service For OmniOS
+id: how-to-package-a-service-for-omnios
+date: 2016-09-21 19:44:19 UTC
+tags: draft, packaging, omnios, smf
+link:
+description:
+type: text
 
 A [previous post](2016/09/how-to-package-for-omnios.html) showed how to install
 files. If you wanted to run a service from that package there are a few more
