@@ -23,7 +23,7 @@ site(Data) ->
       "site/css/*" => {files, "src/css/*"},
       "site/js/*" => {files, "src/js/*"},
       "site/.well-known/matrix/*" => {files, "src/well-known/matrix/*"},
-      "site/.well-known/*" => {files, "src/well-known/*"},
+      "site/.well-known/*" => {files, "src/well-known/*.json"},
       "site/atom.xml" => {template, "src/atom.xml", #{site_root => "/", now => Now, host => Host}},
 
       %"site/recipes/index.html" =>
