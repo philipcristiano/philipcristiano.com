@@ -1,5 +1,8 @@
 {
   "names": {
     "_": "0d9fb02096835a012930c10d3372e9d9ad8947426023bc4a7821a3f9cbbf82b6"
+  },
+  "relays": {
+    "0d9fb02096835a012930c10d3372e9d9ad8947426023bc4a7821a3f9cbbf82b6": [ "wss://nostr-relay.philipcristiano.com" ]
   }
 }
