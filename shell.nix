@@ -3,8 +3,8 @@ let
   releasedPkgs = sysPkg.fetchFromGitHub {
     owner = "NixOS";
     repo = "nixpkgs";
-    rev = "22.11";
-    sha256 = "sha256-/HEZNyGbnQecrgJnfE8d0WC5c1xuPSD2LUpB6YXlg4c=";
+    rev = "23.05";
+    sha256 = "sha256-btHN1czJ6rzteeCuE/PNrdssqYD2nIA4w48miQAFloM=";
   };
   pkgs = import releasedPkgs {};
   stdenv = pkgs.stdenv;
@@ -12,30 +12,13 @@ let
     Cocoa
     CoreServices]);
 
-
 in stdenv.mkDerivation {
   name = "env";
   buildInputs = [ pkgs.gnumake
-                  pkgs.erlangR25
-                  pkgs.rebar3
-                  pkgs.elixir_1_14
                   pkgs.wget
-                  pkgs.beam.packages.erlang.elixir
-                  pkgs.python3
-
-                  pkgs.rebar
-
-
+                  pkgs.zola
                 ] ++ extraInputs;
   shellHook = ''
-        source .env
-
-        export MIX_REBAR=$PWD/rebar3
-
-        mix local.hex --force
-        # cd ui
-        # npm install
-        # cd ..
 
   '';
 

@@ -7,6 +7,7 @@ output/
 /cache/
 /_site
 /site
+/public
 *.swp
 .DS_Store
 .s3cfg
