@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% set posts_section = get_section(path="posts/_index.md") %}
+
+{% for post in posts_section.pages  %}
+<div class="row">
+    <div class="row">
+        <div class="span8">
+            <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+            <div><em>Posted on {{ post.date }}.</em></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span8">
+        {% if post.summary %}
+        {{ post.summary | safe }}
+        {% else %}
+        {{ post.content | safe }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}
