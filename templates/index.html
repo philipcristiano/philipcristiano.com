@@ -4,15 +4,13 @@
 {% set posts_section = get_section(path="posts/_index.md") %}
 
 {% for post in posts_section.pages  %}
-<div class="row">
-    <div class="row">
-        <div class="span8">
-            <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-            <div><em>Posted on {{ post.date }}.</em></div>
-        </div>
+<div class="max-w-4xlg post">
+    <div class="">
+        <h1 ><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+        <div >Posted on {{ post.date }}.</div>
     </div>
-    <div class="row">
-        <div class="span8">
+    <div class="post_body">
+        <div class="">
         {% if post.summary %}
         {{ post.summary | safe }}
         {% else %}
@@ -21,6 +19,6 @@
         {% endif %}
     </div>
 </div>
-<hr>
+<hr class="">
 {% endfor %}
 {% endblock %}
