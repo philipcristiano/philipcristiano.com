@@ -4,6 +4,7 @@ philipcristiano
 
 .doit.db.db
 output/
+/tailwind/site.css
 /cache/
 /_site
 /site
