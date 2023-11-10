@@ -4,6 +4,7 @@ philipcristiano
 
 .doit.db.db
 output/
+/src/site.css
 /cache/
 /_site
 /site
