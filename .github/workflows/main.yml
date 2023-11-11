@@ -15,12 +15,6 @@ jobs:
     with:
       automerge: true
 
-  flake:
-    uses: "philipcristiano/workflows/.github/workflows/nix.yml@main"
-    with:
-      script: |
-        make build
-
   nix_build_deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 30
