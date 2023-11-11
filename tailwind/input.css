@@ -30,7 +30,8 @@
   }
 
   pre {
-    @apply space-x-3
+    @apply space-x-3;
+    overflow-x: scroll;
   }
 }
 
