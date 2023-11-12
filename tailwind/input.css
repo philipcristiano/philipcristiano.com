@@ -9,6 +9,12 @@
   h2 {
     @apply text-4xl;
   }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
   ul {
     @apply indent-4 list-disc py-4 bg-slate-300 rounded drop-shadow;
   }
@@ -32,6 +38,10 @@
   pre {
     @apply space-x-3;
     overflow-x: scroll;
+  }
+
+  a {
+    text-decoration: underline
   }
 }
 
