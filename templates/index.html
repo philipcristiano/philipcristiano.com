@@ -8,16 +8,18 @@
 {% set posts_section = get_section(path="posts/_index.md") %}
 
 {% for post in posts_section.pages  %}
-<div class="max-w-4xlg post">
+<div class="max-w-4xlg post h-entry">
     <div class="">
-        <h1 ><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+        <h1 ><a class="u-url" href="{{ post.permalink }}">{{ post.title }}</a></h2>
         <div >Posted on {{ post.date }}.</div>
     </div>
-    <div class="post_body">
-        <div class="">
+    <div class="post_body ">
         {% if post.summary %}
-        {{ post.summary | safe }}
+        <div class="p-summary">
+          {{ post.summary | safe }}
+        </div>
         {% else %}
+        <div class="e-content">
         {{ post.content | safe }}
         </div>
         {% endif %}

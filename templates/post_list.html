@@ -4,9 +4,9 @@
 {% for page in pages %}
 <div class="row">
     <div class="row">
-        <div class="span8">
-            <h2><a href="{{ page.id }}.html">{{ page.title }}</a></h2>
-            <div><em>Posted on {{ page.date | date_to_long_string }}.</em></div>
+        <div class="span8 h-entry">
+            <h2><a class="u-url" href="{{ page.id }}.html">{{ page.title }}</a></h2>
+            <div><em >Posted on <time class="dt-published" datetime="{{page.date}}">{{ page.date | date_to_long_string }}</span>.</em></div>
         </div>
     </div>
     <div class="row">
