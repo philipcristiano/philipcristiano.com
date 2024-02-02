@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block header %}
+  <link href="https://github.com/philipcristiano" rel="me">
+{% endblock %}
+
 {% block body %}
 {% set posts_section = get_section(path="posts/_index.md") %}
 
