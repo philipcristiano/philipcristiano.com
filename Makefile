@@ -13,7 +13,7 @@ build_zola: build_tailwind
 	zola build
 
 build_zola_preview: build_tailwind
-	zola build --base-url $DEPLOY_PRIME_URL
+	zola build --base-url "/"
 
 serve:
 	zola serve
