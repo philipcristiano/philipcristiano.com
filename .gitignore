@@ -1,10 +1,12 @@
 .rake_test_cache
 philipcristiano
 *.pyc
+/node_modules
 
 .doit.db.db
 output/
 /tailwind/site.css
+/static/site.css
 /cache/
 /_site
 /site
