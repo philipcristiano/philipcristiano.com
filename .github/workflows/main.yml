@@ -36,5 +36,8 @@ jobs:
         build_command: "echo build"
 
     - name: Send Webmentions
+      env:
+        WEBMENTION_TARGET_URL: ${{ secrets.WEBMENTION_TARGET_URL }}
+        WEBMENTION_TOKEN: ${{ secrets.WEBMENTION_TOKEN}}
       run: |
-        curl -fX POST https://webmention.app/check?url=https://philipcristiano.com/atom.xml
+        curl -fX POST "https://webmention.app/check?url=$WEBMENTION_TARGET_URL&token=$WEBMENTION_TOKEN"
