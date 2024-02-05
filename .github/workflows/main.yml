@@ -34,3 +34,7 @@ jobs:
         build_directory: public
         install_command: "echo install"
         build_command: "echo build"
+
+    - name: Send Webmentions
+      run: |
+        curl -fX POST https://webmention.app/check?url=https://philipcristiano.com/atom.xml
