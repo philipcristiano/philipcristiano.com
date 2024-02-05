@@ -41,4 +41,4 @@ jobs:
         WEBMENTION_TOKEN: ${{ secrets.WEBMENTION_TOKEN}}
       run: |
         npm install @remy/webmention
-        npx webmention $"WEBMENTION_TARGET_URL" --limit=0 --send
+        npx webmention $WEBMENTION_TARGET_URL --limit=0 --send
