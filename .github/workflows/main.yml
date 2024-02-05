@@ -40,4 +40,5 @@ jobs:
         WEBMENTION_TARGET_URL: ${{ secrets.WEBMENTION_TARGET_URL }}
         WEBMENTION_TOKEN: ${{ secrets.WEBMENTION_TOKEN}}
       run: |
-        curl -fX POST "https://webmention.app/check?url=$WEBMENTION_TARGET_URL&token=$WEBMENTION_TOKEN"
+        npm install @remy/webmention
+        npx webmention $"WEBMENTION_TARGET_URL" --limit=0 --send

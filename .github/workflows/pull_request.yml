@@ -53,3 +53,10 @@ jobs:
       env:
         PR_URL: ${{github.event.pull_request.html_url}}
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Test webmention
+      env:
+        PR_URL: ${{github.event.pull_request.html_url}}
+      run: |
+        npm install @remy/webmention
+        npx webmention ${{ env.NETLIFY_PREVIEW_URL }}/atom.xml --limit=0
