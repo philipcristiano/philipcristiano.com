@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "post_macros.html" as post_macros %}
 
 {% block header %}
   <link href="https://github.com/philipcristiano" rel="me">
@@ -9,21 +10,12 @@
 
 {% for post in posts_section.pages  %}
 <div class="max-w-4xlg post h-entry">
-    <div class="">
-        <h1 ><a class="u-url" href="{{ post.permalink }}">{{ post.title }}</a></h2>
-        <div >Posted on {{ post.date }}.</div>
-    </div>
-    <div class="post_body ">
-        {% if post.summary %}
-        <div class="p-summary">
-          {{ post.summary | safe }}
-        </div>
-        {% else %}
-        <div class="e-content">
-        {{ post.content | safe }}
-        </div>
-        {% endif %}
-    </div>
+
+    {% if post.summary %}
+    {{ post_macros::post_summary(page=post) }}
+    {% else %}
+    {{ post_macros::post(page=post) }}
+    {% endif %}
 </div>
 <hr class="">
 {% endfor %}

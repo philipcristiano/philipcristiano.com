@@ -1,10 +1,7 @@
 {% extends "base.html" %}
-{% block body %}
-<ul class="post h-entry">
-    <div class=""> <h2 class="p-name">{{ page.title }}</h2></div>
-    <div class="post_body e-content">
-	      {{ page.content | safe }}
-    </div>
+{% import "post_macros.html" as post_macros %}
 
-</ul>
+{% block body %}
+
+{{ post_macros::post(page=page) }}
 {% endblock %}

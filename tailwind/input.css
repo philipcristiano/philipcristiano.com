@@ -16,7 +16,11 @@
     @apply text-xl;
   }
   ul {
-    @apply indent-4 list-disc py-4 bg-slate-300 rounded drop-shadow;
+    @apply list-inside list-disc my-4  rounded drop-shadow;
+  }
+
+  li {
+    @apply mx-2 my-1;
   }
 }
 
@@ -25,10 +29,10 @@
     @apply fixed w-full z-10 top-0 border-slate-600 border-b-2;
   }
   p {
-    @apply py-2;
+    @apply my-4;
   }
   .post {
-    @apply bg-gray-200 p-5 rounded-md my-3;
+    @apply bg-gray-200 p-2 rounded-md my-3;
   }
 
   .post_body {
