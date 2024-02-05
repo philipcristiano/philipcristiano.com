@@ -2,7 +2,7 @@
 <div class="post h-entry">
     <h2>
       <a class="u-url no-underline" href="{{ page.permalink }}">{{ page.title }}</a></h2>
-    <div >Posted on {{ page.date }}.</div>
+    <time class="dt-published" datetime="{{page.date}}">Posted on {{ page.date }}</time>
     <div class="post_body e-content">
 	      {{ page.content | safe }}
     </div>
@@ -12,7 +12,7 @@
 
 {% macro post_summary(page) %}
 <div class="post h-entry">
-    <h1><a class="u-url" href="{{ post.permalink }}">{{ page.title }}</a></h1>
+    <h1><a class="u-url p-name" href="{{ post.permalink }}">{{ page.title }}</a></h1>
 
     <div >Posted on {{ post.date }}.</div>
     <div class="p-summary">
