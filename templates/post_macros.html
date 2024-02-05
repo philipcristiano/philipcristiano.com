@@ -1,7 +1,7 @@
 {% macro post(page) %}
 <div class="post h-entry">
-    <h1>
-      <a class="u-url no-underline" href="{{ page.permalink }}">{{ page.title }}</a></h1>
+    <h2>
+      <a class="u-url no-underline" href="{{ page.permalink }}">{{ page.title }}</a></h2>
     <div >Posted on {{ page.date }}.</div>
     <div class="post_body e-content">
 	      {{ page.content | safe }}
