@@ -16,10 +16,9 @@
         {{ config.base_url | escape_xml | safe }}
       {%- endif -%}
     "/>
-    <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>{{ last_updated | date(format="%+") }}</updated>
     <id>{{ feed_url | safe }}</id>
-    {%- for page in pages %}
+    {%- for page in pages | slice(end=config.extra.number_feed_items) %}
     <entry xml:lang="{{ page.lang }}">
         <title>{{ page.title }}</title>
         <published>{{ page.date | date(format="%+") }}</published>
