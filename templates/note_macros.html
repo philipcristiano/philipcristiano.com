@@ -1,0 +1,11 @@
+{% macro note(page) %}
+<div class="post h-entry">
+    <a class="u-url no-underline" href="{{ page.permalink }}">
+      Posted on <time class="dt-published" datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    </a>
+    <div class="post_body e-content">
+	      {{ page.content | safe }}
+    </div>
+
+</div>
+{% endmacro post %}
