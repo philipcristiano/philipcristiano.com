@@ -5,11 +5,11 @@
 {% block body %}
 
 {% for page in section.pages  %}
-<div class="max-w-4xlg ">
-    {% if page.components.0 == "notes"%}
+<div class="max-w-4xlg post ">
+    {% if section.title == "Notes"%}
      {{ note_macros::note(page=page) }}
-    {% elif page.components.0 == "posts"%}
-      {% if page.summary %}
+    {% elif section.title == "Posts" %}
+      {% if post.summary %}
       {{ post_macros::post_summary(page=page) }}
       {% else %}
       {{ post_macros::post(page=page) }}
@@ -17,5 +17,6 @@
     {% endif %}
 </div>
 <hr class="">
+
 {% endfor %}
 {% endblock %}
