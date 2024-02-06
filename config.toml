@@ -22,4 +22,4 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-number_feed_items = 50
+number_feed_items = 20
