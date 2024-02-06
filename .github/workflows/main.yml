@@ -36,9 +36,6 @@ jobs:
         build_command: "echo build"
 
     - name: Send Webmentions
-      env:
-        WEBMENTION_TARGET_URL: ${{ secrets.WEBMENTION_TARGET_URL }}
-        WEBMENTION_TOKEN: ${{ secrets.WEBMENTION_TOKEN}}
       run: |
         npm install @remy/webmention
-        npx webmention $WEBMENTION_TARGET_URL --limit=0 --send
+        npx webmention ${{ secrets.WEBMENTION_TARGET_URL }} --limit=0 --send

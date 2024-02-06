@@ -10,11 +10,9 @@ Adding this as a step post-release
 
 ```yaml
 - name: Send Webmentions
-  env:
-    WEBMENTION_TARGET_URL: ${{ secrets.WEBMENTION_TARGET_URL }}
   run: |
     npm install @remy/webmention
-    npx webmention $WEBMENTION_TARGET_URL --limit=0 --send
+    npx webmention ${{ secrets.WEBMENTION_TARGET_URL }} --limit=0 --send
 ```
 
 In my pull-requests I have a variation of this, removing `--send` and using the temporary Netlify URL for the PR so I can see what webmentions would be sent.
