@@ -20,3 +20,13 @@ ZOLA_VERSION = "0.17.2"
 
 [context.deploy-preview]
 command = "make build_preview"
+
+# https://fed.brid.gy/docs#fediverse-enhanced
+[[redirects]]
+  from = "/.well-known/host-meta*"
+  to = "https://fed.brid.gy/.well-known/host-meta:splat"
+  status = 302
+[[redirects]]
+  from = "/.well-known/webfinger*"
+  to = "https://fed.brid.gy/.well-known/webfinger"
+  status = 302
