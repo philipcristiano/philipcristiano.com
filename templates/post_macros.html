@@ -1,5 +1,6 @@
 {% macro post(page) %}
 <div class="post h-entry">
+    <a href="/" class="u-author"></a>
     <h2>
       <a class="u-url no-underline" href="{{ page.permalink }}">{{ page.title }}</a></h2>
     <time class="dt-published" datetime="{{page.date}}">Posted on {{ page.date }}</time>
@@ -12,6 +13,7 @@
 
 {% macro post_summary(page) %}
 <div class="post h-entry">
+    <a href="/" class="u-author"></a>
     <h1><a class="u-url p-name" href="{{ post.permalink }}">{{ page.title }}</a></h1>
 
     <div >Posted on {{ post.date }}.</div>
