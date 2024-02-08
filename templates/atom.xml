@@ -40,9 +40,9 @@
         <summary type="html">{{ page.summary }}</summary>
         {% endif %}
         <content type="html">
-        {% if page.extra.in_reply_to %}
-          <p><a class="u-in-reply-to" href="{{page.extra.in_reply_to}}">In reply to</a></p>
-        {% endif %}
+        {% if page.extra.in_reply_to -%}
+          &lt;a class=&quot;u-in-reply-to&quot; href=&quot;{{- page.extra.in_reply_to  }}&quot;&gt;In reply to&lt;/a&gt;
+        {%- endif -%}
         {{ page.content }}</content>
     </entry>
     {%- endfor %}
