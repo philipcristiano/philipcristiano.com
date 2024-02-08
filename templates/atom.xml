@@ -39,7 +39,11 @@
         {% if page.summary %}
         <summary type="html">{{ page.summary }}</summary>
         {% endif %}
-        <content type="html">{{ page.content }}</content>
+        <content type="html">
+        {% if page.extra.in_reply_to %}
+          <a class="u-in-reply-to" href="{{page.extra.in_reply_to}}">In reply to</a>
+        {% endif %}
+        {{ page.content }}</content>
     </entry>
     {%- endfor %}
 </feed>
