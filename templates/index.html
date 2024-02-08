@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import "note_macros.html" as note_macros %}
 {% import "post_macros.html" as post_macros %}
+{% import "reply_macros.html" as reply_macros %}
 
 {% block body %}
 
@@ -14,6 +15,8 @@
       {% else %}
       {{ post_macros::post(page=page) }}
       {% endif %}
+    {% elif page.components.0 == "replies"%}
+     {{ reply_macros::reply(page=page) }}
     {% endif %}
 </div>
 <hr class="">

@@ -1,0 +1,13 @@
+{% macro reply(page) %}
+<div class="post h-entry">
+    <a href="/" class="u-author"></a>
+    <a class="u-url no-underline" href="{{ page.permalink }}">
+      Posted on <time class="dt-published" datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    </a>
+    <a class="u-in-reply-to" href="{{page.extra.in_reply_to}}">In reply to</a>
+    <div class="post_body e-content">
+	      {{ page.content | safe }}
+    </div>
+
+</div>
+{% endmacro post %}
