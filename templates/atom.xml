@@ -41,7 +41,7 @@
         {% endif %}
         <content type="html">
         {% if page.extra.in_reply_to %}
-          <a class="u-in-reply-to" href="{{page.extra.in_reply_to}}">In reply to</a>
+          <p><a class="u-in-reply-to" href="{{page.extra.in_reply_to}}">In reply to</a></p>
         {% endif %}
         {{ page.content }}</content>
     </entry>
