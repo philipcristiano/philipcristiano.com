@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "note_macros.html" as note_macros %}
+{% import "photo_macros.html" as photo_macros %}
 {% import "post_macros.html" as post_macros %}
 {% import "reply_macros.html" as reply_macros %}
 
@@ -9,6 +10,8 @@
 <div class="max-w-4xlg">
     {% if page.components.0 == "notes"%}
      {{ note_macros::note(page=page) }}
+    {% elif page.components.0 == "photos"%}
+     {{ photo_macros::gallery(page=page) }}
     {% elif page.components.0 == "posts"%}
       {% if page.summary %}
       {{ post_macros::post_summary(page=page) }}
@@ -18,6 +21,7 @@
     {% elif page.components.0 == "replies"%}
      {{ reply_macros::reply(page=page) }}
     {% endif %}
+
 </div>
 <hr class="">
 {% endfor %}
