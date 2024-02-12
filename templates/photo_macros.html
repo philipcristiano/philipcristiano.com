@@ -1,0 +1,20 @@
+
+{% macro gallery(page) %}
+<div class="post h-entry">
+    <a href="/" class="u-author"></a>
+    <a class="u-url no-underline" href="{{ page.permalink }}">
+      Posted on <time class="dt-published" datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    </a>
+    <div class="post_body flex e-content flex-wrap">
+        {% for asset in page.assets -%}
+          {%- if asset is matching("[.](jpg|png)$") -%}
+          {% set image = resize_image(path=asset, width=320, op="fit_width") %}
+          <img class="u-photo flex flex-wrap block" src="{{ image.url }}" />
+          {%- endif %}
+        {%- endfor %}
+
+	      {{ page.content | safe }}
+    </div>
+
+</div>
+{% endmacro post %}

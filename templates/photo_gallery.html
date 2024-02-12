@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% import "photo_macros.html" as photo_macros %}
+
+{% block body %}
+
+{{ photo_macros::gallery(page=page) }}
+{% endblock %}
