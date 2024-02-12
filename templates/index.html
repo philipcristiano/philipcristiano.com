@@ -5,7 +5,7 @@
 
 {% block body %}
 
-{% for page in section.pages  %}
+{% for page in paginator.pages %}
 <div class="max-w-4xlg">
     {% if page.components.0 == "notes"%}
      {{ note_macros::note(page=page) }}
@@ -21,4 +21,13 @@
 </div>
 <hr class="">
 {% endfor %}
+
+{% if paginator.previous %}
+  <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+{% endif %}
+
+{% if paginator.next %}
+  <a class="next" href="{{ paginator.next }}">Next ›</a>
+{% endif %}
+
 {% endblock %}
