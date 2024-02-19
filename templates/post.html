@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% import "post_macros.html" as post_macros %}
 
+
+{% block title %}{{page.title}}{% endblock title %}
 {% block body %}
 
 {{ post_macros::post(page=page) }}
