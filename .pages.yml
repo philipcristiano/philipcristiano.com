@@ -1,0 +1,8 @@
+content:
+  - name: posts
+    label: Posts
+    path: content/posts
+    type: collection
+    filename: {year}-{month}-{day}-{primary}.md
+    fields:
+      - title
