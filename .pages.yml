@@ -14,4 +14,5 @@ content:
           minlength: 20
           maxlength: 160
       - name: body
+        type: rich-text
         label: Body
