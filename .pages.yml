@@ -13,3 +13,5 @@ content:
         options:
           minlength: 20
           maxlength: 160
+      - name: body
+        label: Body
