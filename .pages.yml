@@ -1,0 +1,14 @@
+media: "src/media
+content:
+  - name: posts
+    label: Posts
+    path: content/posts
+    type: collection
+    filename: '{year}/{year}-{month}-{day}-{primary}.md'
+    fields:
+      - name: title
+        type: string
+        label: Title
+        options:
+          minlength: 20
+          maxlength: 160
