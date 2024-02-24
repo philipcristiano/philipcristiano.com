@@ -30,3 +30,15 @@ content:
       - name: body
         type: rich-text
         label: Body
+  - name: replies
+    label: replies
+    path: content/replies
+    type: collection
+    filename: '{year}/{year}-{month}-{day}T{hour}:{minute}:00Z-{primary}.md'
+    format: toml-frontmatter
+    fields:
+      - name: reply-to
+        type: string
+      - name: body
+        type: rich-text
+        label: Body
