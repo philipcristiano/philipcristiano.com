@@ -11,8 +11,12 @@ content:
         type: string
         label: Title
         options:
-          minlength: 20
+          minlength: 3
           maxlength: 160
+      - name: draft
+        label: draft
+        type: boolean
+        default: false
       - name: body
         type: rich-text
         label: Body
