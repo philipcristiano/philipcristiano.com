@@ -42,7 +42,7 @@ content:
     view: 
       primary: body
     fields:
-      - name: in-reply-to
+      - name: extra.in-reply-to
         type: string
       - name: body
         type: rich-text
