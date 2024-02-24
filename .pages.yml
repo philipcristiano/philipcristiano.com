@@ -5,6 +5,7 @@ content:
     path: content/posts
     type: collection
     filename: '{year}/{year}-{month}-{day}-{primary}.md'
+    format: toml
     fields:
       - name: title
         type: string
