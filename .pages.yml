@@ -26,6 +26,8 @@ content:
     type: collection
     filename: '{year}/{year}-{month}-{day}T{hour}:{minute}:00Z-{primary}.md'
     format: toml-frontmatter
+    view: 
+      primary: body
     primary: body
     fields:
       - name: body
@@ -37,7 +39,8 @@ content:
     type: collection
     filename: '{year}/{year}-{month}-{day}T{hour}:{minute}:00Z-{primary}.md'
     format: toml-frontmatter
-    primary: body
+    view: 
+      primary: body
     fields:
       - name: in-reply-to
         type: string
