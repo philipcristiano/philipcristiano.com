@@ -4,7 +4,7 @@ content:
     label: Posts
     path: content/posts
     type: collection
-    filename: '{year}-{month}-{day}-{primary}.md'
+    filename: '{year}-{month}-{day}T{hour}:{minute}:00Z-{primary}.md'
     format: toml-frontmatter
     fields:
       - name: title
