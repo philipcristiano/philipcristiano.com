@@ -43,6 +43,14 @@
         {% if page.extra.in_reply_to -%}
           &lt;a class=&quot;u-in-reply-to&quot; href=&quot;{{- page.extra.in_reply_to  }}&quot;&gt;In reply to&lt;/a&gt;
         {%- endif -%}
+        {% if page.components.0 == "photos" -%}
+          {% for asset in page.assets -%}
+            {%- if asset is matching("[.](jpg|png)$") -%}
+            {% set image = resize_image(path=asset, width=320, op="fit_width") %}
+            &lt;img src=&quot;{{ image.url }}&quot; /&gt;
+            {%- endif %}
+          {%- endfor %}
+        {%- endif -%}
         {{ page.content }}</content>
     </entry>
     {%- endfor %}
