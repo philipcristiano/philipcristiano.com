@@ -45,6 +45,11 @@
         {% if page.extra.in_reply_to -%}
           &lt;a class=&quot;u-in-reply-to&quot; href=&quot;{{- page.extra.in_reply_to  }}&quot;&gt;In reply to&lt;/a&gt;
         {%- endif -%}
+        {% if page.components.0 == "recommendations" -%}
+        {% filter escape_xml %}
+          <a href="{{page.extra.url}}">{{page.title}}</a> - <a href="{{page.extra.feed}}">Feed</a>
+        {% endfilter %}
+        {%- endif -%}
         {% if page.components.0 == "photos" -%}
           {% for asset in page.assets -%}
             {%- if asset is matching("[.](jpg|png)$") -%}
