@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="max-w-4xlg">
+<h4> Things I read that are maybe worth checking out </h4>
+<ul>
+{% for page in section.pages %}
+
+    <li><a href="{{page.extra.url}}">{{page.title}}</a> - <a href="{{page.extra.feed}}">Feed</a></li>
+
+{% endfor %}
+</ul>
+</div>
+
+{% endblock %}
