@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% import "reply_macros.html" as reply_macros %}
+{% import "short.html" as short %}
 
 {% block body %}
 
 {{ reply_macros::reply(page=page) }}
+{{ short::webmention_reply() }}
 {% endblock %}

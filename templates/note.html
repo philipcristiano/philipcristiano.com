@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% import "note_macros.html" as note_macros %}
+{% import "short.html" as short %}
 
 {% block title %}Note on {{page.date}}{% endblock title %}
 {% block body %}
 
 {{ note_macros::note(page=page) }}
+{{ short::webmention_reply() }}
 {% endblock %}
