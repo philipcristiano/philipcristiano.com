@@ -3,6 +3,7 @@
 {% import "photo_macros.html" as photo_macros %}
 {% import "post_macros.html" as post_macros %}
 {% import "reply_macros.html" as reply_macros %}
+{% import "recommendation_macros.html" as recommendation_macros %}
 
 {% block body %}
 
@@ -20,6 +21,10 @@
       {% endif %}
     {% elif page.components.0 == "replies"%}
      {{ reply_macros::reply(page=page) }}
+    {% elif page.components.0 == "recommendations"%}
+     {{ recommendation_macros::recommendation(page=page) }}
+    {% else %}
+      {{ EXPLODE }}
     {% endif %}
 
 </div>

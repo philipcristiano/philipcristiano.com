@@ -1,12 +1,13 @@
 {% import "date_macros.html" as date_macros %}
-{% macro reply(page) %}
+{% macro recommendation(page) %}
 <div class="post h-entry">
     <a href="/" class="u-author"></a>
     <a class="u-url no-underline" href="{{ page.permalink }}">
       {{ date_macros::posted_on(date=page.date) }}
     </a>
-    <a class="u-in-reply-to" href="{{page.extra.in_reply_to}}">In reply to</a>
     <div class="post_body e-content">
+      <p> Added recommendation for
+        <a href="{{page.extra.url}}">{{page.title}}</a>
 	      {{ page.content | safe }}
     </div>
 
