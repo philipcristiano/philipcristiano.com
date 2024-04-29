@@ -23,8 +23,9 @@
      {{ reply_macros::reply(page=page) }}
     {% elif page.components.0 == "recommendations"%}
      {{ recommendation_macros::recommendation(page=page) }}
+    {% elif page.path == "/about/" %}
     {% else %}
-      {{ EXPLODE }}
+      {{EXPLODE}}
     {% endif %}
 
 </div>
