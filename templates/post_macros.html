@@ -1,9 +1,10 @@
+{% import "date_macros.html" as date_macros %}
 {% macro post(page) %}
 <div class="post h-entry">
     <a href="/" class="u-author"></a>
     <h2>
       <a class="u-url no-underline" href="{{ page.permalink }}">{{ page.title }}</a></h2>
-    <time class="dt-published" datetime="{{page.date}}">Posted on {{ page.date }}</time>
+      {{ date_macros::posted_on(date=page.date) }}
     <div class="post_body e-content">
 	      {{ page.content | safe }}
     </div>
@@ -16,7 +17,9 @@
     <a href="/" class="u-author"></a>
     <h1><a class="u-url p-name" href="{{ post.permalink }}">{{ page.title }}</a></h1>
 
-    <div >Posted on {{ post.date }}.</div>
+    <div >
+      {{ date_macros::posted_on(date=page.date) }}
+    </div>
     <div class="p-summary">
 	      {{ page.summary | safe }}
     </div>

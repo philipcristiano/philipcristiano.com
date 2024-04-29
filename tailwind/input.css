@@ -39,6 +39,10 @@
     @apply bg-slate-50 p-3;
   }
 
+  span.posted_on {
+    @apply text-sm
+  }
+
   pre {
     @apply pt-3;
     @apply space-x-3;
