@@ -32,11 +32,11 @@
     @apply my-4;
   }
   .post {
-    @apply bg-gray-200 p-2 rounded-md my-3;
+    @apply bg-gray-50 p-2 rounded-md my-3;
   }
 
   .post_body {
-    @apply bg-slate-200 p-3;
+    @apply bg-slate-50 p-3;
   }
 
   pre {
