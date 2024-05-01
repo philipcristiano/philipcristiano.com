@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% import "like_macros.html" as like_macros %}
+{% import "short.html" as short %}
+
+{% block body %}
+
+{{ like_macros::like(page=page) }}
+{{ short::webmention_reply() }}
+{% endblock %}

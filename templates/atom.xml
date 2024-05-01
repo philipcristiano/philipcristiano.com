@@ -45,6 +45,12 @@
         {% if page.extra.in_reply_to -%}
           &lt;a class=&quot;u-in-reply-to&quot; href=&quot;{{- page.extra.in_reply_to  }}&quot;&gt;In reply to&lt;/a&gt;
         {%- endif -%}
+        {% if page.extra.in_like_of -%}
+        {% filter escape_xml %}
+            <a class="u-like-of"
+               href="{{page.extra.in_like_of}}">{{page.extra.in_like_of}}</a>
+        {% endfilter %}
+        {%- endif -%}
         {% if page.components.0 == "recommendations" -%}
         {% filter escape_xml %}
           <a href="{{page.extra.url}}">{{page.title}}</a> - <a href="{{page.extra.feed}}">Feed</a>
