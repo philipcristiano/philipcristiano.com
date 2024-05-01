@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "like_macros.html" as like_macros %}
 {% import "note_macros.html" as note_macros %}
 {% import "photo_macros.html" as photo_macros %}
 {% import "post_macros.html" as post_macros %}
@@ -9,7 +10,9 @@
 
 {% for page in paginator.pages %}
 <div class="max-w-4xlg">
-    {% if page.components.0 == "notes"%}
+    {% if page.components.0 == "likes"%}
+     {{ like_macros::like(page=page) }}
+    {% elif page.components.0 == "notes"%}
      {{ note_macros::note(page=page) }}
     {% elif page.components.0 == "photos"%}
      {{ photo_macros::gallery(page=page) }}
