@@ -1,0 +1,14 @@
+{% import "date_macros.html" as date_macros %}
+{% macro like(page) %}
+<div class="post h-entry">
+    <a href="/" class="u-author"></a>
+    <a class="u-url no-underline" href="{{ page.permalink }}">
+      {{ date_macros::posted_on(date=page.date) }}
+    </a>
+    <a class="u-like-of" href="{{page.extra.in_like_of}}">Liked {{ page.extra.in_like_of}}</a>
+    <div class="post_body e-content">
+	      {{ page.content | safe }}
+    </div>
+
+</div>
+{% endmacro post %}
