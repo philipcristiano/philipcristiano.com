@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<opml version="2.0">
+	<head>
+		<title>Recommendations</title>
+		<ownerName>Philip Cristiano</ownerName>
+		<ownerEmail>email@philipcristiano.com</ownerEmail>
+		<expansionState></expansionState>
+		<vertScrollState>1</vertScrollState>
+		</head>
+	<body>
+{% set recommendations = get_section(path="recommendations/_index.md") -%}
+{% for page in recommendations.pages %}
+		<outline text="{{page.title}}" htmlUrl="{{page.extra.url}}" language="unknown" title="{{page.title}}" type="rss" version="RSS2" xmlUrl="{{page.extra.feed}}"/>
+{% endfor %}
+
+    </body>
+</opml>
