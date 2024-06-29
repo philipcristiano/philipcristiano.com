@@ -27,6 +27,7 @@
     {% elif page.components.0 == "recommendations"%}
      {{ recommendation_macros::recommendation(page=page) }}
     {% elif page.path == "/about/" %}
+    {% elif page.path == "/opml/" %}
     {% else %}
       {{EXPLODE}}
     {% endif %}

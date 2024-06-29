@@ -2,6 +2,10 @@
   for = "/.well-known/nostr.json"
   [headers.values]
     Access-Control-Allow-Origin = "*"
+[[headers]]
+  for = "/opml/"
+  [headers.values]
+    Content-Type = "application/xml"
 
 [build]
 # This assumes that the Zola site is in a docs folder. If it isn't, you don't need
