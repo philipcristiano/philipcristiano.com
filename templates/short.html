@@ -1,3 +1,11 @@
 {% macro webmention_reply() -%}
 <span>Comment or reply by <a href="https://indieweb.org/Webmention">webmention</a>. </span>
 {%- endmacro webmention_reply %}
+
+{% macro page_tags(page) -%}
+<div><em>{% if page.taxonomies.tags %}Filed under:
+{% for taxo in page.taxonomies.tags %}
+{{ taxo }}
+{% endfor %}
+{% endif %}
+{%- endmacro page_tags %}

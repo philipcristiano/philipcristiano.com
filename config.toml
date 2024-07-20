@@ -13,7 +13,7 @@ build_search_index = true
 generate_feed = true
 
 taxonomies = [
-    {name = "tags", feed = true, render = true},
+    {name = "tags", feed = true, render = false},
 ]
 [markdown]
 # Whether to do syntax highlighting

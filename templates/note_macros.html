@@ -1,4 +1,5 @@
 {% import "date_macros.html" as date_macros %}
+{% import "short.html" as short %}
 {% macro note(page) %}
 <div class="post h-entry">
     <a href="/" class="u-author"></a>
@@ -8,6 +9,8 @@
     <div class="post_body e-content">
 	      {{ page.content | safe }}
     </div>
+
+    {{ short::page_tags(page=page) }}
 
 </div>
 {% endmacro post %}
