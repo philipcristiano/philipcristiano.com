@@ -1,6 +1,7 @@
-+++
-date = "1970-01-01"
-+++
+---
+date: 1970-01-01
+title: About Me
+---
 
 I'm Philip Cristiano.
 
