@@ -12,7 +12,6 @@
         inherit (nixpkgs.lib) optional;
         pkgs = import nixpkgs { inherit system; };
 
-        zola = pkgs.beam.packages.erlang.elixir;
       in
       {
         devShell = pkgs.mkShell {
