@@ -1,0 +1,62 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: philipcristiano/philipcristiano.com
+  branch: main
+
+publish_mode: editorial_workflow
+
+# These lines should *not* be indented
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "pages" # Used in routes, e.g., /admin/collections/blog
+    label: "Pages" # Used in the UI
+    folder: "content/" # depending on how you have this setup it may be like `content/pages`
+    format: "toml-frontmatter"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "content/posts" # depending on how you have this setup it may be like `content/pages`
+    format: "toml-frontmatter"
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: "{{year}}/{{year}}-{{month}}-{{day}}-{{slug}}/index"
+    media_folder: ''
+    nested:
+      depth: 5
+      summary: "{{title}}"
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime"}
+
+  - name: "notes" # Used in routes, e.g., /admin/collections/blog
+    label: "Note" # Used in the UI
+    folder: "content/notes" # depending on how you have this setup it may be like `content/pages`
+    format: "toml-frontmatter"
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: "{{year}}/{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}/index"
+    media_folder: ''
+    summary: "{{commit_date}} - {{body}}"
+    nested:
+      depth: 5
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - { label: "Date", name: "date", widget: "datetime"}
+      - { label: "Body", name: "body", widget: "markdown" }
+
+
+
+
+
+
+
