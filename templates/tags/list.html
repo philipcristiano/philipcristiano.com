@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "like_macros.html" as like_macros %}
+{% import "note_macros.html" as note_macros %}
+{% import "photo_macros.html" as photo_macros %}
+{% import "post_macros.html" as post_macros %}
+{% import "reply_macros.html" as reply_macros %}
+{% import "recommendation_macros.html" as recommendation_macros %}
+
+{% block body %}
+
+{% for term in terms %}
+<div class="max-w-4xlg">
+    <a href="{{term.path}}">{{ term.name }}</a>
+</div>
+<hr class="">
+{% endfor %}
+
+{% if paginator.previous %}
+  <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+{% endif %}
+
+{% if paginator.next %}
+  <a class="next" href="{{ paginator.next }}">Next ›</a>
+{% endif %}
+
+{% endblock %}
