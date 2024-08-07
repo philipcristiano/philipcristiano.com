@@ -54,9 +54,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: "Date", name: "date", widget: "datetime"}
       - { label: "Body", name: "body", widget: "markdown" }
-      - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: []}
-
-
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true }
 
 
 
