@@ -38,6 +38,12 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime"}
+      - label: "Taxonomies"
+        name: "taxonomies"
+        widget: "object"
+        fields:
+              - { label: "Tags", name: "tags", widget: "list", allow_add: true}
+
 
   - name: "notes" # Used in routes, e.g., /admin/collections/blog
     label: "Note" # Used in the UI
@@ -46,7 +52,7 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     path: "{{year}}/{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}/index"
     media_folder: ''
-    summary: "{{commit_date}} - {{body}}"
+    summary: "{{date}} - {{body}}"
     identifier_field: "date"
     nested:
       depth: 5
@@ -54,7 +60,11 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: "Date", name: "date", widget: "datetime"}
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list", allow_add: true }
+      - label: "Taxonomies"
+        name: "taxonomies"
+        widget: "object"
+        fields:
+              - { label: "Tags", name: "tags", widget: "list", allow_add: true}
 
 
 
