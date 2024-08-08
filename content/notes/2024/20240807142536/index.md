@@ -20,7 +20,7 @@ collections:
 This is written out into the frontmatter as 
 
 ```toml
-++
++++
 [taxonomies]
 tags = ["tag"]
 +++
