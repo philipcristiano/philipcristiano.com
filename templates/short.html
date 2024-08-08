@@ -5,7 +5,7 @@
 {% macro page_tags(page) -%}
 <div><em>{% if page.taxonomies.tags %}Filed under:
 {% for taxo in page.taxonomies.tags %}
-{{ taxo }}
+<a href="/tags/{{taxo}}">{{ taxo }}</a>
 {% endfor %}
 {% endif %}
 {%- endmacro page_tags %}
