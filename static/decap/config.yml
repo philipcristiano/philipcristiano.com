@@ -48,6 +48,31 @@ collections:
         fields:
               - { label: "Tags", name: "tags", widget: "list", allow_add: true}
 
+  - name: "likes" # Used in routes, e.g., /admin/collections/blog
+    label: "Like" # Used in the UI
+    folder: "content/likes" # depending on how you have this setup it may be like `content/pages`
+    format: "toml-frontmatter"
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: "{{year}}/{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}/index"
+    media_folder: ''
+    summary: "{{date}} - {{body}}"
+    identifier_field: "date"
+    nested:
+      depth: 5
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - { label: "Date", name: "date", widget: "datetime"}
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Taxonomies"
+        name: "taxonomies"
+        widget: "object"
+        fields:
+              - { label: "Tags", name: "tags", widget: "list", allow_add: true}
+      - label: "Extra"
+        name: "extra"
+        widget: "object"
+        fields:
+              - { label: "Likes URL", name: "in_like_of", widget: "string", allow_add: true}
 
   - name: "notes" # Used in routes, e.g., /admin/collections/blog
     label: "Note" # Used in the UI
@@ -69,8 +94,3 @@ collections:
         widget: "object"
         fields:
               - { label: "Tags", name: "tags", widget: "list", allow_add: true}
-
-
-
-
-
