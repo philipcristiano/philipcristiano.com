@@ -8,6 +8,6 @@ transparent = true
 
 page_template = "note.html"
 
-generate_feed = true
+generate_feeds = true
 
 +++
