@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block header %}
+    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
+{% endblock header %}
+
 {% block body %}
 
 <div class="max-w-4xlg">

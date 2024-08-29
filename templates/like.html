@@ -2,6 +2,11 @@
 {% import "like_macros.html" as like_macros %}
 {% import "short.html" as short %}
 
+
+{% block header %}
+    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
+{% endblock header %}
+
 {% block body %}
 
 {{ like_macros::like(page=page) }}

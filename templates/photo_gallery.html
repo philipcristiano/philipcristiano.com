@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% import "photo_macros.html" as photo_macros %}
 
+{% block header %}
+    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
+{% endblock header %}
+
 {% block body %}
 
 {{ photo_macros::gallery(page=page) }}

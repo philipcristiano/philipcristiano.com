@@ -2,6 +2,10 @@
 {% import "note_macros.html" as note_macros %}
 {% import "short.html" as short %}
 
+{% block header %}
+    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
+{% endblock header %}
+
 {% block title %}Note on {{page.date}}{% endblock title %}
 {% block body %}
 

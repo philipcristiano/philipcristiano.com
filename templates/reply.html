@@ -2,6 +2,10 @@
 {% import "reply_macros.html" as reply_macros %}
 {% import "short.html" as short %}
 
+{% block header %}
+    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
+{% endblock header %}
+
 {% block body %}
 
 {{ reply_macros::reply(page=page) }}

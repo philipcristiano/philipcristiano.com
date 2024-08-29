@@ -2,6 +2,9 @@
 {% import "post_macros.html" as post_macros %}
 {% import "short.html" as short %}
 
+{% block header %}
+    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
+{% endblock header %}
 
 {% block title %}{{page.title}}{% endblock title %}
 {% block body %}
