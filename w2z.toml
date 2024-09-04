@@ -1,0 +1,34 @@
+[templates]
+[templates.note]
+path = "content/notes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
+body = """
++++
+date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
++++
+
+{{contents}}
+"""
+
+[templates.reply]
+path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
+body = """
++++
+date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
+[extra]
+in_reply_to = "{{in_reply_to}}"
++++
+
+{{contents}}
+"""
+
+[templates.like]
+path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
+body = """
++++
+date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
+[extra]
+in_like_of = "{{in_like_of}}"
++++
+
+{{contents}}
+"""
