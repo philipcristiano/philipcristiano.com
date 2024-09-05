@@ -1,5 +1,8 @@
 [templates]
 [templates.note]
+input_fields = [
+    {name = "contents"},
+]
 path = "content/notes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 body = """
 +++
@@ -10,6 +13,10 @@ date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
 """
 
 [templates.reply]
+input_fields = [
+    {name = "contents"},
+    {name = "in_reply_to"},
+]
 path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 body = """
 +++
@@ -22,6 +29,10 @@ in_reply_to = "{{in_reply_to}}"
 """
 
 [templates.like]
+input_fields = [
+    {name = "contents"},
+    {name = "in_like_of"},
+]
 path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 body = """
 +++
