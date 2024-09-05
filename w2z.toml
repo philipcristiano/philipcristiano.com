@@ -43,3 +43,19 @@ in_like_of = "{{in_like_of}}"
 
 {{contents}}
 """
+
+[templates.err]
+input_fields = [
+    {name = "contents", type = "text"},
+    {name = "in_like_of", type = "string"},
+]
+path = "content/likes/{{ /index.md"
+body = """
++++
+date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
+[extra]
+in_like_of = "}}"
++++
+
+{{contents}}
+"""
