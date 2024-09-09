@@ -4,6 +4,7 @@ input_fields = [
     {name = "contents", type = "text"},
 ]
 path = "content/notes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
+content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
@@ -18,6 +19,7 @@ input_fields = [
     {name = "extra", type = "object", input_fields = [ {name = "in_reply_to", type = "string"} ]},
 ]
 path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
+content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
@@ -34,6 +36,7 @@ input_fields = [
     {name = "extra", type = "object", input_fields = [ {name = "in_like_of", type = "string"}]},
 ]
 path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
+content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
@@ -50,6 +53,7 @@ input_fields = [
     {name = "in_like_of", type = "string"},
 ]
 path = "content/likes/{{ /index.md"
+content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
