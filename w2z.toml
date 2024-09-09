@@ -1,25 +1,22 @@
 [templates]
 [templates.note]
 input_fields = [
-    {name = "contents", type = "text"},
+    {name = "body", type = "text"},
 ]
 path = "content/notes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
-content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
 +++
 
-{{contents}}
 """
 
 [templates.reply]
 input_fields = [
-    {name = "contents", type = "text"},
+    {name = "body", type = "text"},
     {name = "extra", type = "object", input_fields = [ {name = "in_reply_to", type = "string"} ]},
 ]
 path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
-content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
@@ -27,16 +24,14 @@ date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
 in_reply_to = "{{in_reply_to}}"
 +++
 
-{{contents}}
 """
 
 [templates.like]
 input_fields = [
-    {name = "contents", type = "text"},
+    {name = "body", type = "text"},
     {name = "extra", type = "object", input_fields = [ {name = "in_like_of", type = "string"}]},
 ]
 path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
-content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
@@ -44,16 +39,14 @@ date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
 in_like_of = "{{in_like_of}}"
 +++
 
-{{contents}}
 """
 
 [templates.err]
 input_fields = [
-    {name = "contents", type = "text"},
+    {name = "body", type = "text"},
     {name = "in_like_of", type = "string"},
 ]
 path = "content/likes/{{ /index.md"
-content_field = "contents"
 body = """
 +++
 date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
@@ -61,5 +54,4 @@ date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
 in_like_of = "}}"
 +++
 
-{{contents}}
 """
