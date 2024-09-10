@@ -26,6 +26,7 @@ path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 path = "content/recommendations/{slug}.md"
 input_fields = [
     {name = "slug", type = "string"},
+    {name = "title", type = "string"},
     {name = "date", type = "datetime", default_now = true},
     {name = "extra", type = "object", input_fields = [ {name = "url", type = "string"}, {name = "feed", type = "string"}
     ]},
