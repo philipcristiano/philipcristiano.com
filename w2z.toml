@@ -23,7 +23,7 @@ input_fields = [
 path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 
 [templates.recommendations]
-path = "content/recommendations/{slug}.md"
+path = "content/recommendations/{{slug}}.md"
 input_fields = [
     {name = "slug", type = "string"},
     {name = "title", type = "string"},
