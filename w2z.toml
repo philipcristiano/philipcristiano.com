@@ -5,12 +5,6 @@ input_fields = [
     {name = "date", type = "datetime", default_now = true},
 ]
 path = "content/notes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
-body = """
-+++
-date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
-+++
-
-"""
 
 [templates.reply]
 input_fields = [
@@ -19,14 +13,6 @@ input_fields = [
     {name = "extra", type = "object", input_fields = [ {name = "in_reply_to", type = "string"} ]},
 ]
 path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
-body = """
-+++
-date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
-[extra]
-in_reply_to = "{{in_reply_to}}"
-+++
-
-"""
 
 [templates.like]
 input_fields = [
@@ -35,14 +21,15 @@ input_fields = [
     {name = "extra", type = "object", input_fields = [ {name = "in_like_of", type = "string"}]},
 ]
 path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
-body = """
-+++
-date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
-[extra]
-in_like_of = "{{in_like_of}}"
-+++
 
-"""
+[templates.recommendations]
+input_fields = [
+    {name = "body", type = "text"},
+    {name = "date", type = "datetime", default_now = true},
+    {name = "extra", type = "object", input_fields = [ {name = "url", type = "string"}, {name = "feed", type = "string"}
+    ]},
+]
+path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 
 [templates.err]
 input_fields = [
@@ -50,11 +37,3 @@ input_fields = [
     {name = "in_like_of", type = "string"},
 ]
 path = "content/likes/{{ /index.md"
-body = """
-+++
-date = "{{ now() | date(format=\"%Y-%m-%dT%H:%M:%SZ\")}}"
-[extra]
-in_like_of = "}}"
-+++
-
-"""
