@@ -3,7 +3,7 @@
 input_fields = [
     {name = "body", type = "text"},
     {name = "date", type = "datetime", default_now = true},
-    {name = "taxonomies", type = "object", input_fields = [ {name = "tags", type = "list", list_of_type = "string" } ]},
+    {name = "taxonomies", type = "object", input_fields = [ {name = "tags", type = "list", list_of_type = "string" } ], required = false},
 ]
 path = "content/notes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 
@@ -11,7 +11,7 @@ path = "content/notes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 input_fields = [
     {name = "body", type = "text"},
     {name = "date", type = "datetime", default_now = true},
-    {name = "taxonomies", type = "object", input_fields = [ {name = "tags", type = "list", list_of_type = "string" } ]},
+    {name = "taxonomies", type = "object", input_fields = [ {name = "tags", type = "list", list_of_type = "string" }], required = false},
     {name = "extra", type = "object", input_fields = [ {name = "in_reply_to", type = "string"} ]},
 ]
 path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
@@ -20,7 +20,7 @@ path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 input_fields = [
     {name = "body", type = "text"},
     {name = "date", type = "datetime", default_now = true},
-    {name = "taxonomies", type = "object", input_fields = [ {name = "tags", type = "list", list_of_type = "string" } ]},
+    {name = "taxonomies", type = "object", input_fields = [ {name = "tags", type = "list", list_of_type = "string" }], required = false},
     {name = "extra", type = "object", input_fields = [ {name = "in_like_of", type = "string"}]},
 ]
 path = "content/likes/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
