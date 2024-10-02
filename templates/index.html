@@ -6,6 +6,12 @@
 {% import "reply_macros.html" as reply_macros %}
 {% import "recommendation_macros.html" as recommendation_macros %}
 
+{% block title -%}
+{% if paginator.current_index == 1 %}Homepage
+{% else %}Page - {{ paginator.current_index }}
+{%- endif %}
+{%- endblock  %}
+
 {% block body %}
 
 {% for page in paginator.pages %}
