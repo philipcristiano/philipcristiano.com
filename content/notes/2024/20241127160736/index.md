@@ -25,5 +25,5 @@ I've added some sanity checks [my common Github Actions](https://github.com/phil
 - name: Check Container
   if: inputs.check_command != ''
   run: |
-      docker run local-build:${{ github.sha }} "-h"
+      docker run local-build:${{ github.sha }} ${{ inputs.check_command }}
 ```
