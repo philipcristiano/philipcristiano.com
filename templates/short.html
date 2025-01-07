@@ -3,7 +3,7 @@
 {%- endmacro webmention_reply %}
 
 {% macro page_tags(page) -%}
-<div><em>{% if page.taxonomies.tags %}Filed under:</em>
+<div>{% if page.taxonomies.tags %}<em>Filed under:</em>
 {% for taxo in page.taxonomies.tags %}
 <a href="/tags/{{taxo}}">{{ taxo }}</a>
 {% endfor %}
