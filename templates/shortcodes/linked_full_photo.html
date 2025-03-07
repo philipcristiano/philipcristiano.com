@@ -1,0 +1,4 @@
+{% set image = resize_image(path=page.colocated_path ~ path, width=320, op="fit_width") %}
+<a href="{{page.path ~ path }} ">
+    <img class="u-photo flex flex-wrap block" src="{{ image.url }}" />
+</a>
