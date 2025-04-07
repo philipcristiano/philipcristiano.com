@@ -18,7 +18,7 @@ path = "content/replies/{{ now() | date(format=\"%Y/%Y%m%d%H%M%S\")}}/index.md"
 
 [templates.like]
 input_fields = [
-    {name = "body", type = "text"},
+    {name = "body", type = "text", required = false},
     {name = "date", type = "datetime", default_now = true},
     {name = "taxonomies", type = "object", input_fields = [ {name = "tags", type = "list", list_of_type = "string" }], required = false},
     {name = "extra", type = "object", input_fields = [ {name = "in_like_of", type = "string"}]},
