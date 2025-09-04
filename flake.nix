@@ -17,7 +17,6 @@
         devShell = pkgs.mkShell {
           buildInputs = [
             pkgs.zola
-            pkgs.tailwindcss
           ];
         };
       });

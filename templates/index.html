@@ -15,7 +15,7 @@
 {% block body %}
 
 {% for page in paginator.pages %}
-<div class="max-w-4xlg">
+<div class="page">
     {% if page.components.0 == "likes"%}
      {{ like_macros::like(page=page) }}
     {% elif page.components.0 == "notes"%}
@@ -39,7 +39,6 @@
     {% endif %}
 
 </div>
-<hr class="">
 {% endfor %}
 
 {% if paginator.previous %}
