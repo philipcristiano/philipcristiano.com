@@ -83,6 +83,11 @@ div.body {
     border-bottom: none;
 }
 
+
+a.no-underline {
+    text-decoration: none;
+}
+
 .posted_on {
     display: block;
     margin-bottom: 1rem;
