@@ -169,6 +169,11 @@ div.body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
+    div.body {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 1rem;
+    }
     .header .flex {
         flex-direction: column;
         gap: 1rem;
