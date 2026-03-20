@@ -27,26 +27,9 @@ jobs:
         script: |
           make build_preview
 
-    - uses: jsmrcaga/action-netlify-deploy@v2.4.0
-      with:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID}}
-        NETLIFY_DEPLOY_TO_PROD: false
-        build_directory: public
-        install_command: "echo install"
-        build_command: "echo build"
-
-    - name: Comment on PR with Deploy URL
-      shell: bash
-      run: |
-        gh pr comment $PR_URL --body "Netlify deploy: ${{ env.NETLIFY_PREVIEW_URL }}."
-      env:
-        PR_URL: ${{github.event.pull_request.html_url}}
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-    - name: Test webmention
-      env:
-        PR_URL: ${{github.event.pull_request.html_url}}
-      run: |
-        npm install @remy/webmention
-        npx webmention ${{ env.NETLIFY_PREVIEW_URL }}/atom.xml --limit=0
+    # - name: Test webmention
+    #   env:
+    #     PR_URL: ${{github.event.pull_request.html_url}}
+    #   run: |
+    #     npm install @remy/webmention
+    #     npx webmention ${{ env.NETLIFY_PREVIEW_URL }}/atom.xml --limit=0

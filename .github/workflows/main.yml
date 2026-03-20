@@ -26,14 +26,17 @@ jobs:
         script: |
           make build
 
-    - uses: jsmrcaga/action-netlify-deploy@v2.4.0
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID}}
-        NETLIFY_DEPLOY_TO_PROD: true
-        build_directory: public
-        install_command: "echo install"
-        build_command: "echo build"
+        # Upload entire repository
+        path: './public'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
     - name: Send Webmentions
       run: |
