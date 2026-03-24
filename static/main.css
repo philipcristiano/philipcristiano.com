@@ -28,20 +28,20 @@
 
   /* light mode colors */
   body {
-    --primary-color: #5871a2;
-    --primary-pale-color: #5871a233;
-    --primary-decoration-color: #5871a210;
+    --primary-color: #5570A2;     /* 4.52:1 on bg — darkened from #5871a2 to hold AA */
+    --primary-pale-color: #5570A233;
+    --primary-decoration-color: #5570A210;
     --bg-color: #F5F4F0;          /* warm light gray */
     --text-color: #2f3030;        /* ~12.7:1 on bg */
     --text-pale-color: #666666;   /* ~5.2:1 on bg — darkened from #767676 to hold AA on off-white */
     --text-decoration-color: #a9a9a9;
     --highlight-mark-color: #5f75b020;
 
-    --callout-note-color: #5871a2;
-    --callout-tip-color: #268556;
-    --callout-important-color: #885fc9;
-    --callout-warning-color: #ab6632;
-    --callout-caution-color: #c64e4e;
+    --callout-note-color: #5570A2;  /* 4.52:1 on bg */
+    --callout-tip-color: #1F7A45;   /* 4.86:1 on bg */
+    --callout-important-color: #7A52B8; /* 5.12:1 on bg */
+    --callout-warning-color: #A06030;   /* 4.52:1 on bg */
+    --callout-caution-color: #BE4848;   /* 4.53:1 on bg */
 
     /* Flexoki Blue 600 ~5.9:1 / Purple 600 ~7.1:1 on #F5F4F0 */
     --link-color: #205EA6;
@@ -59,11 +59,11 @@
     --text-decoration-color: #636363;
     --highlight-mark-color: #8296cb3b;
 
-    --callout-note-color: #6f8fd1;
-    --callout-tip-color: #47976f;
-    --callout-important-color: #9776cd;
-    --callout-warning-color: #ad7a52;
-    --callout-caution-color: #d06161;
+    --callout-note-color: #6f8fd1;   /* 4.7:1 on bg */
+    --callout-tip-color: #4A9C6E;    /* 4.52:1 on bg — lightened from #47976f */
+    --callout-important-color: #A07FD6; /* 4.69:1 on bg — lightened from #9776cd */
+    --callout-warning-color: #B8865C;   /* 4.77:1 on bg — lightened from #ad7a52 */
+    --callout-caution-color: #DC7070;   /* 4.75:1 on bg — lightened from #d06161 */
 
     /* #6F8FD1 ~4.7:1 / #9D91D0 ~5.3:1 on #262626 */
     --link-color: #6F8FD1;
