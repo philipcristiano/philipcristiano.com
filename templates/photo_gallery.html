@@ -9,6 +9,10 @@
   <meta name="description" content="{{ config.description }}">
 {% endblock desc %}
 
+{% block head %}
+<link rel="canonical" href="{{ config.base_url }}{{ page.path }}">
+{% endblock head %}
+
 {% block content %}
 <div id="wrapper">
   <div id="blank"></div>

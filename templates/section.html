@@ -1,4 +1,10 @@
 {% import "macros/prose.html" as macros %}
+{% import "like_macros.html" as like_macros %}
+{% import "note_macros.html" as note_macros %}
+{% import "photo_macros.html" as photo_macros %}
+{% import "post_macros.html" as post_macros %}
+{% import "reply_macros.html" as reply_macros %}
+{% import "recommendation_macros.html" as recommendation_macros %}
 {% extends "_base.html" %}
 
 {% block page %}blog{% endblock page %}
@@ -11,16 +17,51 @@
 {% block content %}
 <div id="wrapper">
   {{ macros::back_link(path = get_url(path="/")) }}
-  <main class="layout-list">
+  <main>
+    {% if paginator is defined %}
     <article class="prose"><h1>{{ section.title }}</h1></article>
-    <div class="post-list">
-      {% for page in section.pages %}
-      <a class="post instant" href="{{ page.permalink }}">
-        <span>{{ page.title | default(value=page.date | date(format="%Y-%m-%d")) }}</span>
-        <span class="date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-      </a>
+    <section class="layout-list h-feed">
+      {% for page in paginator.pages %}
+      {% if page.components.0 == "likes" %}
+        {{ like_macros::like(page=page) }}
+      {% elif page.components.0 == "notes" %}
+        {{ note_macros::note(page=page) }}
+      {% elif page.components.0 == "photos" %}
+        {{ photo_macros::gallery(page=page) }}
+      {% elif page.components.0 == "posts" %}
+        {% if page.summary %}
+          {{ post_macros::post_summary(page=page) }}
+        {% else %}
+          {{ post_macros::post(page=page) }}
+        {% endif %}
+      {% elif page.components.0 == "replies" %}
+        {{ reply_macros::reply(page=page) }}
+      {% elif page.components.0 == "recommendations" %}
+        {{ recommendation_macros::recommendation(page=page) }}
+      {% endif %}
       {% endfor %}
+      <div class="feed-pagination">
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}">‹ Newer</a>
+        {% endif %}
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}">Older ›</a>
+        {% endif %}
+      </div>
+    </section>
+    {% else %}
+    <div class="layout-list">
+      <article class="prose"><h1>{{ section.title }}</h1></article>
+      <div class="post-list">
+        {% for page in section.pages %}
+        <a class="post instant" href="{{ page.permalink }}">
+          <span>{{ page.title | default(value=page.date | date(format="%Y-%m-%d")) }}</span>
+          <span class="date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+        </a>
+        {% endfor %}
+      </div>
     </div>
+    {% endif %}
   </main>
   {% include "_footer.html" %}
 </div>

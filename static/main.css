@@ -76,7 +76,6 @@
     --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     --homepage-max-width: 768px;
     --main-max-width: 768px;
-    --avatar-size: 96px;
     --font-size: 20px;
     --line-height: 1.5;
     --img-border-radius: 0px;
@@ -88,9 +87,6 @@
     --block-code-border-radius: 0px;
     --block-code-border-color: var(--primary-color);
     --detail-border-color: var(--primary-color);
-  }
-
-  body {
     font-weight: 300;
   }
 
@@ -142,6 +138,12 @@
   /* blog main: no top margin, for vertical spacing consistent with prose pages */
   html body.blog main {
     margin: 0;
+  }
+
+  /* prose-page back-link header: align to main's max-width */
+  body.prose-page header {
+    max-width: var(--main-max-width);
+    margin: 0 auto;
   }
 
   /* -----------------------------------------------

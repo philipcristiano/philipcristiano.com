@@ -16,7 +16,8 @@
     <div>
       <article class="prose h-entry">
         <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
-        <h1><a class="u-url p-name" href="{{ page.extra.url }}">{{ page.title }}</a></h1>
+        <a class="u-url" href="{{ page.permalink }}" style="display:none"></a>
+        <h1><a class="u-bookmark-of p-name" href="{{ page.extra.url }}">{{ page.title }}</a></h1>
         <span class="posted-on dt-published" datetime="{{ page.date }}">
           Added {{ page.date | date(format="%Y-%m-%d") }}
         </span>

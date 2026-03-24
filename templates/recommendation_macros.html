@@ -5,7 +5,7 @@
   {{ short::u_author() }}
   {{ short::card_header(page=page, type="rec") }}
   <div class="feed-entry-header">
-    <a href="{{ page.extra.url }}">{{ page.title }}</a>
+    <a class="u-bookmark-of p-name" href="{{ page.extra.url }}">{{ page.title }}</a>
   </div>
   {% if page.content %}
   <div class="prose e-content">

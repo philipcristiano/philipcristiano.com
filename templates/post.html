@@ -24,6 +24,7 @@
 {% endblock desc %}
 
 {% block head %}
+<link rel="canonical" href="{{ config.base_url }}{{ page.path }}">
 {% if config.markdown.highlighting.style == "class" %}
 <link id="hl" rel="stylesheet" type="text/css" href="/giallo-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
 {% endif %}
@@ -90,11 +91,13 @@
       {% set check_icon = load_data(path="icon/check.svg") %}
       <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
       {% endif %}
-      <article class="prose">
-        <h1>{{ page.title }}</h1>
+      <article class="prose h-entry">
+        <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
+        <a class="u-url" href="{{ page.permalink }}" style="display:none"></a>
+        <h1 class="p-name">{{ page.title }}</h1>
         <div id="post-info">
           <div id="date">
-            <span id="publish">{{ page.date | date(format=section.extra.date_format | default(value="%Y-%m-%d")) }}</span>
+            <span id="publish" class="dt-published" datetime="{{ page.date }}">{{ page.date | date(format=section.extra.date_format | default(value="%Y-%m-%d")) }}</span>
             {% if page.updated and page.updated != page.date -%}
             <span>Updated on <span id="updated">{{ page.updated | date(format=section.extra.date_format | default(value="%Y-%m-%d")) }}</span></span>
             {% endif -%}
@@ -121,7 +124,9 @@
         </blockquote>
         {% endif %}
 
-        {{ page.content | safe }}
+        <div class="e-content">
+          {{ page.content | safe }}
+        </div>
       </article>
       {% include "_webmentions.html" %}
 

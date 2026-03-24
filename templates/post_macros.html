@@ -5,10 +5,13 @@
   {{ short::u_author() }}
   {{ short::card_header(page=page, type="post") }}
   <div class="feed-entry-header">
-    <a class="u-url" href="{{ page.permalink }}">{{ page.title }}</a>
+    <a class="u-url p-name" href="{{ page.permalink }}">{{ page.title }}</a>
   </div>
-  <div class="prose e-content">
-    {{ page.content | safe }}
+  <div class="p-summary">
+    {{ page.content | striptags | truncate(length=200) }}
+  </div>
+  <div class="read-more">
+    <a href="{{ page.permalink }}">Read more →</a>
   </div>
   {{ short::page_tags(page=page) }}
 </div>

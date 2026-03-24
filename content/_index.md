@@ -9,6 +9,7 @@ name = "Philip Cristiano"
 bio = "I like making software to make operating software easier."
 links = [
     { name = "GitHub", url = "https://github.com/philipcristiano", icon = "github", rel_me = true },
+    { name = "Feed", url = "/atom.xml", icon = "rss", rel_me = false },
 ]
 footer = true
 +++
