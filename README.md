@@ -1,6 +1,6 @@
 # philipcristiano.com
 
-Personal site built with [Zola](https://www.getzola.org/) and deployed to Netlify.
+Personal site built with [Zola](https://www.getzola.org/) and deployed to GitHub Pages.
 
 ## Local development
 
@@ -24,7 +24,7 @@ make build          # production build → public/
 make build_preview  # preview build with base_url "/"
 ```
 
-Zola version pinned in `netlify.toml` (`ZOLA_VERSION`).
+Zola version pinned via Nix in `flake.nix`.
 
 ## Deployment
 
