@@ -124,11 +124,19 @@ CSS and JS are vendored directly — no build step for styles.
 
 ### Color scheme
 
-Custom blue-gray palette, WCAG 2.1 AA compliant:
+Custom blue-gray palette, WCAG 2.1 AA compliant (all text/link colors ≥ 4.5:1):
 
 | Token | Light | Dark |
 |-------|-------|------|
 | `--bg-color` | `#F5F4F0` | `#262626` |
-| `--primary-color` | `#5871a2` | `#6f8fd1` |
 | `--text-color` | `#2f3030` | `#C8C8C8` |
 | `--text-pale-color` | `#666666` | `#939393` |
+| `--text-decoration-color` | `#a9a9a9` | `#636363` |
+| `--primary-color` | `#5570A2` | `#6f8fd1` |
+| `--link-color` | `#205EA6` | `#6F8FD1` |
+| `--visited-color` | `#5E409D` | `#9D91D0` |
+| `--callout-note-color` | `#5570A2` | `#6f8fd1` |
+| `--callout-tip-color` | `#1F7A45` | `#4A9C6E` |
+| `--callout-important-color` | `#7A52B8` | `#A07FD6` |
+| `--callout-warning-color` | `#A06030` | `#B8865C` |
+| `--callout-caution-color` | `#BE4848` | `#DC7070` |
