@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      contents: read
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
     steps:
     - uses: actions/checkout@v6
 
@@ -20,20 +26,23 @@ jobs:
         extra_nix_config: |
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-    - uses: workflow/nix-shell-action@v3.4.0
+    - uses: workflow/nix-shell-action@v4.0.0
       with:
         flakes-from-devshell: true
         script: |
           make build
 
-    - uses: jsmrcaga/action-netlify-deploy@v2.4.0
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v4
       with:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID}}
-        NETLIFY_DEPLOY_TO_PROD: true
-        build_directory: public
-        install_command: "echo install"
-        build_command: "echo build"
+        # Upload entire repository
+        path: './public'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
     - name: Send Webmentions
       run: |
