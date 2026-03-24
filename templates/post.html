@@ -74,23 +74,11 @@
       </ul>
     </nav>
     {% endif %}
-    {% if section.extra.back_to_top is defined and section.extra.back_to_top %}
-    <button id="back-to-top" aria-label="back to top">
-      {% set icon = load_data(path="icon/arrow-up.svg") %}
-      {{ icon | safe }}
-    </button>
-    {% endif %}
   </aside>
   <main>
     {{ macros::back_link(path = get_url(path=section.path)) }}
 
     <div>
-      {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% elif section.extra.copy is defined %}{% set allow_copy = section.extra.copy %}{% else %}{% set allow_copy = false %}{% endif %}
-      {% if allow_copy %}
-      {% set copy_icon = load_data(path="icon/copy.svg") %}
-      {% set check_icon = load_data(path="icon/check.svg") %}
-      <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
-      {% endif %}
       <article class="prose h-entry">
         <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
         <a class="u-url" href="{{ page.permalink }}" style="display:none"></a>
@@ -113,27 +101,11 @@
           {% endif %}
         </div>
 
-        {% if page.extra.outdate_alert is defined %}{% set show_outdate_alert = page.extra.outdate_alert %}{% elif section.extra.outdate_alert is defined %}{% set show_outdate_alert = section.extra.outdate_alert %}{% else %}{% set show_outdate_alert = false %}{% endif %}
-        {% if page.extra.outdate_alert_days is defined %}{% set outdate_alert_days = page.extra.outdate_alert_days %}{% elif section.extra.outdate_alert_days is defined %}{% set outdate_alert_days = section.extra.outdate_alert_days %}{% else %}{% set outdate_alert_days = 0 %}{% endif %}
-
-        {% if show_outdate_alert -%}
-        <blockquote id="outdate_alert" class="callout caution hidden" data-days="{{ outdate_alert_days }}"
-          data-alert-text-before="{{ section.extra.outdate_alert_text_before | default(value="") }}"
-          data-alert-text-after="{{ section.extra.outdate_alert_text_after | default(value="") }}">
-          <div class="content"></div>
-        </blockquote>
-        {% endif %}
-
         <div class="e-content">
           {{ page.content | safe }}
         </div>
       </article>
       {% include "_webmentions.html" %}
-
-      {% if page.extra.reaction is defined %}{% set show_reaction = page.extra.reaction %}{% else %}{% set show_reaction = config.extra.reaction %}{% endif %}
-      {% if show_reaction %}
-      <div class="reaction {{ config.extra.reaction_align }}" data-endpoint="{{ config.extra.reaction_endpoint }}"></div>
-      {% endif %}
 
     </div>
 
