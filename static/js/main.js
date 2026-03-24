@@ -183,10 +183,6 @@ function addFootnoteBacklink() {
   });
 }
 
-function enableImgLightense() {
-  window.addEventListener("load", () => Lightense(".prose img:not(.no-lightense)", { background: 'rgba(43, 43, 43, 0.19)' }));
-}
-
 function enableReaction() {
   const container = document.querySelector('.reaction');
   if (!container) return;
@@ -266,6 +262,5 @@ if (document.body.classList.contains('post')) {
 if (document.querySelector('.prose')) {
   addCopyBtns();
   addFootnoteBacklink();
-  enableImgLightense();
   enableReaction();
 }
