@@ -30,10 +30,10 @@ Zola version pinned in `netlify.toml` (`ZOLA_VERSION`).
 
 Pushing to `main` triggers a GitHub Actions workflow that:
 1. Builds via Nix + `make build`
-2. Deploys to Netlify (production)
+2. Deploys to GitHub Pages (production)
 3. Sends webmentions for any updated pages
 
-Pull requests get a Netlify deploy preview automatically.
+Pull requests run `make build_preview` to verify the build but do not deploy a preview.
 
 ## Content types
 
