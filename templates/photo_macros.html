@@ -1,23 +1,21 @@
-{% import "date_macros.html" as date_macros %}
 {% import "short.html" as short %}
+
 {% macro gallery(page) %}
-<div class="post h-entry">
-    <a href="/" class="u-author"></a>
-    <a class="u-url no-underline" href="{{ page.permalink }}">
-      {{ date_macros::posted_on(date=page.date) }}
-    </a>
-    <div class="post_body flex e-content flex-wrap">
-        {% for asset in page.assets -%}
-          {%- if asset is matching("[.](jpg|png)$") -%}
-          {% set image = resize_image(path=asset, width=320, op="fit_width") %}
-          <img class="u-photo flex flex-wrap block" src="{{ image.url }}" />
-          {%- endif %}
-        {%- endfor %}
-
-	      {{ page.content | safe }}
-    </div>
-
-    {{ short::page_tags(page=page) }}
-
+<div class="feed-entry photo-card h-entry">
+  {{ short::u_author() }}
+  {{ short::card_header(page=page, type="photo") }}
+  {% if page.title %}
+  <div class="feed-entry-header"><a href="{{ page.permalink }}">{{ page.title }}</a></div>
+  {% endif %}
+  <div class="photo-grid e-content">
+    {% for asset in page.assets -%}
+      {%- if asset is matching("[.](jpg|png)$") -%}
+      {% set image = resize_image(path=asset, width=320, op="fit_width") %}
+      <img class="u-photo" src="{{ image.url }}" alt="" loading="lazy" />
+      {%- endif %}
+    {%- endfor %}
+    {{ page.content | safe }}
+  </div>
+  {{ short::page_tags(page=page) }}
 </div>
-{% endmacro post %}
+{% endmacro gallery %}

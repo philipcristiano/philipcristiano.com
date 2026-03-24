@@ -1,0 +1,330 @@
+<style>
+  /* -----------------------------------------------
+     CSS custom properties — light and dark mode
+     All contrast ratios verified WCAG 2.1 AA against
+     their respective background colors.
+  ----------------------------------------------- */
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a233;
+    --primary-decoration-color: #5871a210;
+    --bg-color: #F5F4F0;          /* warm light gray */
+    --text-color: #2f3030;        /* ~12.7:1 on bg */
+    --text-pale-color: #666666;   /* ~5.2:1 on bg — darkened from #767676 to hold AA on off-white */
+    --text-decoration-color: #a9a9a9;
+    --highlight-mark-color: #5f75b020;
+
+    --callout-note-color: #5871a2;
+    --callout-tip-color: #268556;
+    --callout-important-color: #885fc9;
+    --callout-warning-color: #ab6632;
+    --callout-caution-color: #c64e4e;
+
+    /* Flexoki Blue 600 ~5.9:1 / Purple 600 ~7.1:1 on #F5F4F0 */
+    --link-color: #205EA6;
+    --visited-color: #5E409D;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #6f8fd1;
+    --primary-pale-color: #6f8fd166;
+    --primary-decoration-color: #6f8fd112;
+    --bg-color: #262626;          /* elevated from #1c1c1c */
+    --text-color: #C8C8C8;        /* ~11.4:1 on bg */
+    --text-pale-color: #939393;   /* ~4.7:1 on bg — lightened from #848484 to hold AA on lighter bg */
+    --text-decoration-color: #636363;
+    --highlight-mark-color: #8296cb3b;
+
+    --callout-note-color: #6f8fd1;
+    --callout-tip-color: #47976f;
+    --callout-important-color: #9776cd;
+    --callout-warning-color: #ad7a52;
+    --callout-caution-color: #d06161;
+
+    /* #6F8FD1 ~4.7:1 / #9D91D0 ~5.3:1 on #262626 */
+    --link-color: #6F8FD1;
+    --visited-color: #9D91D0;
+  }
+
+  /* typography & sizing */
+  body {
+    --main-font: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 96px;
+    --font-size: 20px;
+    --line-height: 1.5;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 0.75;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-decoration-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+  body {
+    font-weight: 300;
+  }
+
+  body .prose h1 {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  body .prose h2 {
+    margin: 0;
+  }
+
+  #name {
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* -----------------------------------------------
+     Link colors — WCAG 2.1 AA compliant
+     Light: Flexoki Blue 600 / Purple 600
+     Dark:  #6F8FD1 (~4.7:1) / #9D91D0 (~5.3:1)
+  ----------------------------------------------- */
+
+  /* Outside .prose */
+  a:link    { color: var(--link-color); }
+  a:visited { color: var(--visited-color); }
+
+  /* Inside .prose — higher specificity beats Serene's .prose a */
+  body .prose a:link    { color: var(--link-color); }
+  body .prose a:visited { color: var(--visited-color); }
+  body .prose a { border-bottom: none; text-decoration: underline; }
+
+  /* Nav and footer: stay as-is */
+  header a, footer a { color: inherit; }
+
+  html body.homepage main {
+    padding: 2em 0 0;
+  }
+
+  /* blog-class articles: same side padding as prose-page articles */
+  body.blog article.prose {
+    padding: 0 15px;
+  }
+
+  /* blog main: no top margin, for vertical spacing consistent with prose pages */
+  html body.blog main {
+    margin: 0;
+  }
+
+  /* -----------------------------------------------
+     Feed entries (custom types: notes, likes, replies,
+     photos, recommendations — not in Serene OTB)
+  ----------------------------------------------- */
+  .feed-entry {
+    position: relative;
+    border: 1px solid var(--text-decoration-color);
+    border-radius: 2px;
+    padding: 2.4rem 1rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* -----------------------------------------------
+     Card type icon (top-left label)
+  ----------------------------------------------- */
+  .card-type-label {
+    position: absolute;
+    top: 0.75rem;
+    left: 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-pale-color);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* -----------------------------------------------
+     Flexoki accent borders per card type
+  ----------------------------------------------- */
+  .post-card { border-left: 3px solid #878580; } /* Flexoki Base 600 */
+  .note-card { border-left: 3px solid #D0A215; } /* Flexoki Yellow */
+  .like-card  { border-left: 3px solid #D14D41; } /* Flexoki Red */
+  .reply-card { border-left: 3px solid #4385BE; } /* Flexoki Blue */
+  .rec-card   { border-left: 3px solid #DA702C; } /* Flexoki Orange */
+  .photo-card { border-left: 3px solid #24837B; } /* Flexoki Cyan */
+
+  .feed-entry-header {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  /* -----------------------------------------------
+     Long URLs: break to prevent overflow in any card
+  ----------------------------------------------- */
+  .like-url,
+  .reply-url {
+    word-break: break-all;
+  }
+
+  /* -----------------------------------------------
+     Reply card
+  ----------------------------------------------- */
+  .reply-card-context {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+    color: var(--text-pale-color);
+  }
+
+  .reply-url {
+    flex: 1;
+  }
+
+  /* Muted link style: pale color, brightens on hover */
+  .card-date:link,
+  .card-date:visited,
+  .reply-url:link,
+  .reply-url:visited {
+    color: var(--text-pale-color);
+    text-decoration: none;
+  }
+
+  .card-date:hover,
+  .reply-url:hover {
+    color: var(--primary-color);
+  }
+
+  /* Date on individual pages (note, like, reply, etc.) */
+  .posted-on {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-pale-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-date {
+    position: absolute;
+    top: 0.7rem;
+    right: 1rem;
+    font-size: 0.75rem;
+  }
+
+  /* -----------------------------------------------
+     Photo grid
+  ----------------------------------------------- */
+  .photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .photo-grid img {
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 280px;
+  }
+
+  /* -----------------------------------------------
+     Tags
+  ----------------------------------------------- */
+  .page-tags {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-pale-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .page-tags em {
+    font-style: normal;
+  }
+
+  /* -----------------------------------------------
+     Pagination
+  ----------------------------------------------- */
+  .feed-pagination {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
+  }
+
+  .feed-pagination a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-decoration: none;
+    color: var(--text-color);
+    border-bottom: 1.5px solid var(--primary-color);
+  }
+
+  .feed-pagination a:hover {
+    color: var(--primary-color);
+  }
+
+  /* -----------------------------------------------
+     Webmentions
+  ----------------------------------------------- */
+  .webmentions {
+    margin-top: 2rem;
+    padding: 1.5rem 15px 0;
+    border-top: 1px solid var(--text-decoration-color);
+  }
+
+  .webmention-note {
+    font-size: 0.8rem;
+    color: var(--text-pale-color);
+    margin-top: 0.75rem;
+  }
+
+  /* -----------------------------------------------
+     Mobile feed cards
+     Placed after card-type rules so these overrides
+     win the cascade at equal specificity.
+  ----------------------------------------------- */
+  @media (max-width: 768px) {
+    /* Drop the enclosing box; bottom rule separates entries without side borders */
+    .feed-entry {
+      border: none;
+      border-bottom: 1px solid var(--text-decoration-color);
+      border-radius: 0;
+      padding-bottom: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feed-pagination {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Remove left accent borders; colored label badge takes their place */
+    .post-card, .note-card, .like-card, .reply-card, .rec-card, .photo-card {
+      border-left: none;
+    }
+
+    /* Colored badge on the type label — black text verified WCAG AA on all */
+    .card-type-label {
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+      color: #000;
+    }
+
+    .post-card  .card-type-label { background: #878580; } /* gray   5.9:1 */
+    .note-card  .card-type-label { background: #D0A215; } /* yellow 13:1  */
+    .like-card  .card-type-label { background: #D14D41; } /* red    4.8:1 */
+    .reply-card .card-type-label { background: #4385BE; } /* blue   5.5:1 */
+    .rec-card   .card-type-label { background: #DA702C; } /* orange 6.2:1 */
+    .photo-card .card-type-label { background: #24837B; } /* teal   4.8:1 */
+  }
+</style>

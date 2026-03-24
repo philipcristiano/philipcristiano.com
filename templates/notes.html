@@ -1,3 +1,4 @@
+{% import "note_macros.html" as note_macros %}
 {% import "macros/prose.html" as macros %}
 {% extends "_base.html" %}
 
@@ -10,18 +11,22 @@
 
 {% block content %}
 <div id="wrapper">
-  {{ macros::back_link(path = get_url(path="/")) }}
-  {% include "_section_title.html" %}
-  <main class="layout-list">
+  {{ macros::back_link(path=get_url(path="/")) }}
+  <main>
     <article class="prose"><h1>{{ section.title }}</h1></article>
-    <div class="post-list">
-      {% for page in section.pages %}
-      <a class="post instant" href="{{ page.permalink }}">
-        <span>{{ page.title | default(value=page.date | date(format="%Y-%m-%d")) }}</span>
-        <span class="date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-      </a>
+    <section class="layout-list">
+      {% for page in paginator.pages %}
+        {{ note_macros::note(page=page) }}
       {% endfor %}
-    </div>
+      <div class="feed-pagination">
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}">‹ Newer</a>
+        {% endif %}
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}">Older ›</a>
+        {% endif %}
+      </div>
+    </section>
   </main>
   {% include "_footer.html" %}
 </div>

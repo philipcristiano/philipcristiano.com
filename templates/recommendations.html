@@ -1,16 +1,37 @@
-{% extends "base.html" %}
+{% import "macros/prose.html" as macros %}
+{% extends "_base.html" %}
 
-{% block body %}
+{% block page %}prose-page{% endblock page %}
+{% block lang %}{{ section.lang }}{% endblock lang %}
+{% block title %}Recommendations | {{ config.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ config.description }}">
+{% endblock desc %}
 
-<div class="max-w-4xlg">
-<h4> Things I read that are maybe worth checking out </h4>
-<ul>
-{% for page in section.pages %}
-
-    <li><a href="{{page.extra.url}}">{{page.title}}</a> - <a href="{{page.extra.feed}}">Feed</a></li>
-
-{% endfor %}
-</ul>
+{% block content %}
+<div id="wrapper">
+  {{ macros::back_link(path = get_url(path="/")) }}
+  <main>
+    <article class="prose">
+        <h1>Recommendations</h1>
+        {% for page in section.pages %}
+          {% set host_and_path = page.extra.url | split(pat="//") | last %}
+          {% set domain = host_and_path | split(pat="/") | first %}
+          {% set favicon = "https://icons.duckduckgo.com/ip3/" ~ domain ~ ".ico" %}
+          <div class="collection-box-wrapper">
+            <a href="{{ page.extra.url }}" target="_blank" rel="noreferrer noopener" class="collection box">
+              <div class="text">
+                <div class="title">{{ page.title }}</div>
+                {% if page.extra.description %}
+                <div class="subtitle">{{ page.extra.description }}</div>
+                {% endif %}
+              </div>
+              <img class="no-lightense" src="{{ favicon }}" alt="{{ page.title }}" width="48" height="48" />
+            </a>
+          </div>
+        {% endfor %}
+    </article>
+    {% include "_footer.html" %}
+  </main>
 </div>
-
-{% endblock %}
+{% endblock content %}

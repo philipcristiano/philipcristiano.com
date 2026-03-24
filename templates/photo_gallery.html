@@ -1,11 +1,50 @@
-{% extends "base.html" %}
-{% import "photo_macros.html" as photo_macros %}
+{% import "macros/prose.html" as macros %}
+{% import "short.html" as short %}
+{% extends "_base.html" %}
 
-{% block header %}
-    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
-{% endblock header %}
+{% block page %}post{% endblock page %}
+{% block lang %}{{ page.lang }}{% endblock lang %}
+{% block title %}{% if page.title %}{{ page.title }}{% else %}Photos · {{ page.date | date(format="%Y-%m-%d") }}{% endif %} | {{ config.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ config.description }}">
+{% endblock desc %}
 
-{% block body %}
-
-{{ photo_macros::gallery(page=page) }}
-{% endblock %}
+{% block content %}
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside></aside>
+  <main>
+    {{ macros::back_link(path=get_url(path="/")) }}
+    <div>
+      <article class="prose h-entry">
+        <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
+        <a class="u-url" href="{{ page.permalink }}" style="display:none"></a>
+        {% if page.title %}
+        <h1>{{ page.title }}</h1>
+        {% endif %}
+        <span class="posted-on dt-published" datetime="{{ page.date }}">
+          {{ page.date | date(format="%Y-%m-%d") }}
+        </span>
+        <div class="photo-grid e-content">
+          {% set_global first_img = true %}
+          {% for asset in page.assets -%}
+            {%- if asset is matching("[.](jpg|png)$") -%}
+            {% set image = resize_image(path=asset, width=600, op="fit_width") %}
+            {% if first_img %}
+            <img class="u-photo" src="{{ image.url }}" alt="" />
+            {% set_global first_img = false %}
+            {% else %}
+            <img class="u-photo" src="{{ image.url }}" alt="" loading="lazy" />
+            {% endif %}
+            {%- endif %}
+          {%- endfor %}
+          {{ page.content | safe }}
+        </div>
+        {{ short::page_tags(page=page) }}
+      </article>
+      {% include "_webmentions.html" %}
+    </div>
+    {% include "_footer.html" %}
+  </main>
+</div>
+{% endblock content %}

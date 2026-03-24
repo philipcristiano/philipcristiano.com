@@ -1,16 +1,15 @@
-{% import "date_macros.html" as date_macros %}
 {% import "short.html" as short %}
-{% macro reply(page) %}
-<div class="post h-entry">
-    <a href="/" class="u-author"></a>
-    <a class="u-url no-underline" href="{{ page.permalink }}">
-      {{ date_macros::posted_on(date=page.date) }}
-    </a>
-    <a class="u-in-reply-to" href="{{page.extra.in_reply_to}}">In reply to</a>
-    <div class="post_body e-content">
-	      {{ page.content | safe }}
-    </div>
-    {{ short::page_tags(page=page) }}
 
+{% macro reply(page) %}
+<div class="feed-entry reply-card h-entry">
+  {{ short::u_author() }}
+  {{ short::card_header(page=page, type="reply") }}
+  <div class="reply-card-context">
+    <a class="u-in-reply-to reply-url" href="{{ page.extra.in_reply_to }}">{{ page.extra.in_reply_to }}</a>
+  </div>
+  <div class="prose e-content">
+    {{ page.content | safe }}
+  </div>
+  {{ short::page_tags(page=page) }}
 </div>
-{% endmacro post %}
+{% endmacro reply %}

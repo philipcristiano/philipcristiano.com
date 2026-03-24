@@ -1,14 +1,42 @@
-{% extends "base.html" %}
-{% import "like_macros.html" as like_macros %}
+{% import "macros/prose.html" as macros %}
 {% import "short.html" as short %}
+{% extends "_base.html" %}
 
+{% block page %}post{% endblock page %}
+{% block lang %}{{ page.lang }}{% endblock lang %}
+{% block title %}Liked · {{ page.date | date(format="%Y-%m-%d") }} | {{ config.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ config.description }}">
+{% endblock desc %}
 
-{% block header %}
-    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
-{% endblock header %}
+{% block head %}
+<link rel="canonical" href="{{ config.base_url }}{{ page.path }}">
+{% endblock head %}
 
-{% block body %}
-
-{{ like_macros::like(page=page) }}
-{{ short::webmention_reply() }}
-{% endblock %}
+{% block content %}
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside></aside>
+  <main>
+    {{ macros::back_link(path=get_url(path="/")) }}
+    <div>
+      <article class="prose h-entry">
+        <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
+        <a class="u-url" href="{{ page.permalink }}" style="display:none"></a>
+        <span class="posted-on dt-published" datetime="{{ page.date }}">
+          {{ page.date | date(format="%Y-%m-%d") }}
+        </span>
+        <p><a class="u-like-of" href="{{ page.extra.in_like_of }}">Liked: {{ page.extra.in_like_of }}</a></p>
+        {% if page.content %}
+        <div class="e-content">
+          {{ page.content | safe }}
+        </div>
+        {% endif %}
+        {{ short::page_tags(page=page) }}
+      </article>
+      {% include "_webmentions.html" %}
+    </div>
+    {% include "_footer.html" %}
+  </main>
+</div>
+{% endblock content %}

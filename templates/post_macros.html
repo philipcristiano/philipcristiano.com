@@ -1,31 +1,29 @@
-{% import "date_macros.html" as date_macros %}
 {% import "short.html" as short %}
-{% macro post(page) %}
-<div class="post h-entry">
-    <a href="/" class="u-author"></a>
-    <h2>
-      <a class="u-url no-underline" href="{{ page.permalink }}">{{ page.title }}</a></h2>
-      {{ date_macros::posted_on(date=page.date) }}
-    <div class="post_body e-content">
-	      {{ page.content | safe }}
-    </div>
-    {{ short::page_tags(page=page) }}
 
+{% macro post(page) %}
+<div class="feed-entry post-card h-entry">
+  {{ short::u_author() }}
+  {{ short::card_header(page=page, type="post") }}
+  <div class="feed-entry-header">
+    <a class="u-url" href="{{ page.permalink }}">{{ page.title }}</a>
+  </div>
+  <div class="prose e-content">
+    {{ page.content | safe }}
+  </div>
+  {{ short::page_tags(page=page) }}
 </div>
 {% endmacro post %}
 
 {% macro post_summary(page) %}
-<div class="post h-entry">
-    <a href="/" class="u-author"></a>
-    <h1><a class="u-url p-name" href="{{ post.permalink }}">{{ page.title }}</a></h1>
-
-    <div >
-      {{ date_macros::posted_on(date=page.date) }}
-    </div>
-    <div class="p-summary">
-	      {{ page.summary | safe }}
-    </div>
-    {{ short::page_tags(page=page) }}
-
+<div class="feed-entry post-card h-entry">
+  {{ short::u_author() }}
+  {{ short::card_header(page=page, type="post") }}
+  <div class="feed-entry-header">
+    <a class="u-url p-name" href="{{ page.permalink }}">{{ page.title }}</a>
+  </div>
+  <div class="p-summary">
+    {{ page.summary | safe }}
+  </div>
+  {{ short::page_tags(page=page) }}
 </div>
-{% endmacro post %}
+{% endmacro post_summary %}

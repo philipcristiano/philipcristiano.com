@@ -1,16 +1,12 @@
-{% import "date_macros.html" as date_macros %}
 {% import "short.html" as short %}
+
 {% macro note(page) %}
-<div class="post h-entry">
-    <a href="/" class="u-author"></a>
-    <a class="u-url no-underline" href="{{ page.permalink }}">
-      {{ date_macros::posted_on(date=page.date) }}
-    </a>
-    <div class="post_body e-content">
-	      {{ page.content | safe }}
-    </div>
-
-    {{ short::page_tags(page=page) }}
-
+<div class="feed-entry note-card h-entry">
+  {{ short::u_author() }}
+  {{ short::card_header(page=page, type="note") }}
+  <div class="prose e-content">
+    {{ page.content | safe }}
+  </div>
+  {{ short::page_tags(page=page) }}
 </div>
-{% endmacro post %}
+{% endmacro note %}

@@ -1,47 +1,38 @@
-{% extends "base.html" %}
-{% import "like_macros.html" as like_macros %}
-{% import "note_macros.html" as note_macros %}
-{% import "photo_macros.html" as photo_macros %}
-{% import "post_macros.html" as post_macros %}
-{% import "reply_macros.html" as reply_macros %}
-{% import "recommendation_macros.html" as recommendation_macros %}
+{% import "macros/prose.html" as macros %}
+{% extends "_base.html" %}
 
-{% block body %}
+{% block page %}tag-single{% endblock page %}
+{% block lang -%}
+{% set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") %}
+{% set section_md_path = blog_section_path ~ "/_index.md"%}
+{% set section = get_section(path=section_md_path, metadata_only=true) %}
+{%- if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ lang }}{% endif -%}
+{%- endblock lang %}
+{% block title %}#{{ term.name }} | {{ config.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ term.name }}">
+{% endblock desc %}
 
-{% for page in paginator.pages %}
-<div class="max-w-4xlg">
-    {% if page.components.0 == "likes"%}
-     {{ like_macros::like(page=page) }}
-    {% elif page.components.0 == "notes"%}
-     {{ note_macros::note(page=page) }}
-    {% elif page.components.0 == "photos"%}
-     {{ photo_macros::gallery(page=page) }}
-    {% elif page.components.0 == "posts"%}
-      {% if page.summary %}
-      {{ post_macros::post_summary(page=page) }}
-      {% else %}
-      {{ post_macros::post(page=page) }}
-      {% endif %}
-    {% elif page.components.0 == "replies"%}
-     {{ reply_macros::reply(page=page) }}
-    {% elif page.components.0 == "recommendations"%}
-     {{ recommendation_macros::recommendation(page=page) }}
-    {% elif page.path == "/about/" %}
-    {% elif page.path == "/opml/" %}
-    {% else %}
-      {{EXPLODE}}
-    {% endif %}
-
+{% block content %}
+<div id="wrapper">
+  {{ macros::back_link(path = get_url(path="/tags")) }}
+  <main class="layout-list">
+    <div class="title">
+      <span># {{ term.name }}</span>
+    </div>
+    <div class="post-list">
+      {% for post in term.pages %}
+      <a class="post instant {% if post.extra.featured %}featured{% endif %}" href="{{ post.permalink }}">
+        {% if post.title %}
+        <span>{{ post.title }}</span>
+        <span class="date">{{ post.date | date(format=section.extra.date_format) }}</span>
+        {% else %}
+        <span>{{ post.components.0 }} · {{ post.date | date(format="%Y-%m-%d") }}</span>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </main>
+  {% include "_footer.html" %}
 </div>
-<hr class="">
-{% endfor %}
-
-{% if paginator.previous %}
-  <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
-{% endif %}
-
-{% if paginator.next %}
-  <a class="next" href="{{ paginator.next }}">Next ›</a>
-{% endif %}
-
-{% endblock %}
+{% endblock content %}

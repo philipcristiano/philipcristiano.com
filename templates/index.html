@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
 {% import "like_macros.html" as like_macros %}
 {% import "note_macros.html" as note_macros %}
 {% import "photo_macros.html" as photo_macros %}
@@ -6,47 +6,110 @@
 {% import "reply_macros.html" as reply_macros %}
 {% import "recommendation_macros.html" as recommendation_macros %}
 
-{% block title -%}
-{% if paginator.current_index == 1 %}Homepage
-{% else %}Page - {{ paginator.current_index }}
-{%- endif %}
-{%- endblock  %}
+{% block page %}homepage{% endblock page %}
+{% block lang %}{% if section.extra.lang %}{{ section.extra.lang }}{% else %}{{ section.lang }}{% endif %}{% endblock lang %}
+{% block title %}{{ config.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ config.description }}">
+{% endblock desc %}
 
-{% block body %}
+{% block head %}
+{% if config.markdown.highlighting.style == "class" %}
+  {% if config.extra.force_theme == "dark" %}
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='giallo-dark.css') }}" />
+  {% else %}
+    <link id="hl" rel="stylesheet" type="text/css" href="{{ get_url(path='giallo-light.css') }}" />
+  {% endif %}
+{% endif %}
+{% endblock head %}
 
-{% for page in paginator.pages %}
-<div class="page">
-    {% if page.components.0 == "likes"%}
-     {{ like_macros::like(page=page) }}
-    {% elif page.components.0 == "notes"%}
-     {{ note_macros::note(page=page) }}
-    {% elif page.components.0 == "photos"%}
-     {{ photo_macros::gallery(page=page) }}
-    {% elif page.components.0 == "posts"%}
-      {% if page.summary %}
-      {{ post_macros::post_summary(page=page) }}
-      {% else %}
-      {{ post_macros::post(page=page) }}
-      {% endif %}
-    {% elif page.components.0 == "replies"%}
-     {{ reply_macros::reply(page=page) }}
-    {% elif page.components.0 == "recommendations"%}
-     {{ recommendation_macros::recommendation(page=page) }}
-    {% elif page.path == "/about/" %}
-    {% elif page.path == "/opml/" %}
-    {% else %}
-      {{EXPLODE}}
+{% block content %}
+<div id="wrapper">
+  <main>
+    <section id="info" class="h-card">
+      <div id="text">
+        <div>
+          <a id="name" class="p-name u-url" href="/">{{ section.extra.name }}</a>
+          {% if section.extra.id %}
+          <span id="id">@{{ section.extra.id }}</span>
+          {% endif %}
+        </div>
+        {% if section.extra.bio %}
+        <div id="bio" class="p-note"> {{ section.extra.bio }} </div>
+        {% endif %}
+      </div>
+    </section>
+    <section id="links">
+      <div id="left">
+        {% for nav_section in config.extra.sections %}
+        <a {% if nav_section.is_external %}href="{{ nav_section.path }}" target="_blank" rel='noreferrer noopener'{% else %}href="{{ get_url(path=nav_section.path) }}" class="instant"{% endif %}>{{ nav_section.name }}</a>
+        {% endfor %}
+      </div>
+      <div id="right">
+        {% for link in section.extra.links %}
+        <a href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener{% if link.rel_me %} me{% endif %}'>
+          {% set icon_path = "icon/" ~ link.icon ~ ".svg" %}
+          {% set icon = load_data(path=icon_path) | replace(from='<svg ', to='<svg aria-hidden="true" focusable="false" ') %}
+          {{ icon | safe }}
+        </a>
+        {% endfor %}
+        {% if not section.extra.footer and not config.extra.force_theme %}
+        {% set moon_icon = load_data(path="icon/moon.svg") | replace(from='<svg ', to='<svg aria-hidden="true" focusable="false" ') %}
+        {% set sun_icon = load_data(path="icon/sun.svg") | replace(from='<svg ', to='<svg aria-hidden="true" focusable="false" ') %}
+        <button id="theme-toggle" aria-label="theme switch">
+          <span class="moon-icon">{{ moon_icon | safe }}</span>
+          <span class="sun-icon">{{ sun_icon | safe }}</span>
+        </button>
+        {% endif %}
+      </div>
+    </section>
+    {% if section.content %}
+    <section id="brief" class="prose">
+      {{ section.content | trim | safe }}
+    </section>
     {% endif %}
 
+    <section class="layout-list h-feed">
+      {% for page in paginator.pages %}
+
+      {% if page.components.0 == "likes" %}
+        {{ like_macros::like(page=page) }}
+      {% elif page.components.0 == "notes" %}
+        {{ note_macros::note(page=page) }}
+      {% elif page.components.0 == "photos" %}
+        {{ photo_macros::gallery(page=page) }}
+      {% elif page.components.0 == "posts" %}
+        {% if page.summary %}
+          {{ post_macros::post_summary(page=page) }}
+        {% else %}
+          {{ post_macros::post(page=page) }}
+        {% endif %}
+      {% elif page.components.0 == "replies" %}
+        {{ reply_macros::reply(page=page) }}
+      {% elif page.components.0 == "recommendations" %}
+        {{ recommendation_macros::recommendation(page=page) }}
+      {% elif page.path == "/about/" or page.path == "/opml/" %}
+        {# skip #}
+      {% else %}
+        {{EXPLODE}}
+      {% endif %}
+
+      {% endfor %}
+
+      <div class="feed-pagination">
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}">‹ Newer</a>
+        {% endif %}
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}">Older ›</a>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+  {% if section.extra.footer %}
+    {% include "_footer.html" %}
+  {% endif %}
 </div>
-{% endfor %}
+{% endblock content %}
 
-{% if paginator.previous %}
-  <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
-{% endif %}
-
-{% if paginator.next %}
-  <a class="next" href="{{ paginator.next }}">Next ›</a>
-{% endif %}
-
-{% endblock %}
+{% block script %}{% endblock script %}

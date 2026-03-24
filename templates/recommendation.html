@@ -1,16 +1,37 @@
-{% extends "base.html" %}
+{% import "macros/prose.html" as macros %}
+{% import "short.html" as short %}
+{% extends "_base.html" %}
 
-{% block header %}
-    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
-{% endblock header %}
+{% block page %}prose-page{% endblock page %}
+{% block lang %}{{ page.lang }}{% endblock lang %}
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ config.description }}">
+{% endblock desc %}
 
-{% block body %}
-
-<div class="max-w-4xlg">
-<h4> Added recommendation on {{page.date}} </h4>
-    <a href="{{page.extra.url}}">{{page.title}}</a> - <a href="{{page.extra.feed}}">Feed</a>
-    <br>
-    <a href="/recommendations">See all recommendations</a>
+{% block content %}
+<div id="wrapper">
+  <main>
+    {{ macros::back_link(path=get_url(path="/recommendations")) }}
+    <div>
+      <article class="prose h-entry">
+        <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
+        <h1><a class="u-url p-name" href="{{ page.extra.url }}">{{ page.title }}</a></h1>
+        <span class="posted-on dt-published" datetime="{{ page.date }}">
+          Added {{ page.date | date(format="%Y-%m-%d") }}
+        </span>
+        {% if page.extra.feed %}
+        <p><a href="{{ page.extra.feed }}">Feed</a></p>
+        {% endif %}
+        {% if page.content %}
+        <div class="e-content">
+          {{ page.content | safe }}
+        </div>
+        {% endif %}
+      </article>
+      {% include "_webmentions.html" %}
+    </div>
+    {% include "_footer.html" %}
+  </main>
 </div>
-
-{% endblock %}
+{% endblock content %}
