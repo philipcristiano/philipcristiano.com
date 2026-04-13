@@ -1,14 +1,43 @@
-{% extends "base.html" %}
-{% import "note_macros.html" as note_macros %}
+{% import "macros/prose.html" as macros %}
 {% import "short.html" as short %}
+{% extends "_base.html" %}
 
-{% block header %}
-    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
-{% endblock header %}
+{% block page %}post{% endblock page %}
+{% block lang %}{{ page.lang }}{% endblock lang %}
+{% block title %}Note · {{ page.date | date(format="%Y-%m-%d") }} | {{ config.title }}{% endblock title %}
+{% block desc %}
+  <meta name="description" content="{{ config.description }}">
+{% endblock desc %}
 
-{% block title %}Note on {{page.date}}{% endblock title %}
-{% block body %}
+{% block head %}
+<link rel="canonical" href="{{ config.base_url }}{{ page.path }}">
+{% if config.markdown.highlighting.style == "class" %}
+<link id="hl" rel="stylesheet" type="text/css" href="/giallo-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
+{% endif %}
+{% endblock head %}
 
-{{ note_macros::note(page=page) }}
-{{ short::webmention_reply() }}
-{% endblock %}
+{% block content %}
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside></aside>
+  <main>
+    {{ macros::back_link(path=get_url(path="/")) }}
+    <div>
+      <article class="prose h-entry">
+        <h1>Note</h1>
+        <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
+        <a class="u-url" href="{{ page.permalink }}" style="display:none"></a>
+        <span class="posted-on dt-published" datetime="{{ page.date }}">
+          {{ page.date | date(format="%Y-%m-%d") }}
+        </span>
+        <div class="e-content">
+          {{ page.content | safe }}
+        </div>
+        {{ short::page_tags(page=page) }}
+      </article>
+      {% include "_webmentions.html" %}
+    </div>
+    {% include "_footer.html" %}
+  </main>
+</div>
+{% endblock content %}

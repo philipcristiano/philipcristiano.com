@@ -1,9 +1,33 @@
-{% extends "base.html" %}
+{% import "macros/prose.html" as macros %}
+{% extends "_base.html" %}
 
+{% block page %}prose-page{% endblock page %}
+{% block lang %}{{ page.lang }}{% endblock lang %}
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block desc %}
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+  {% else %}
+    <meta name="description" content="{{ config.description }}">
+  {% endif %}
+{% endblock desc %}
 
-{% block title %}{{page.title}}{% endblock title %}
-{% block body %}
+{% block head %}
+<link rel="canonical" href="{{ config.base_url }}{{ page.path }}">
+{% if config.markdown.highlighting.style == "class" %}
+<link id="hl" rel="stylesheet" type="text/css" href="/giallo-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
+{% endif %}
+{% endblock head %}
 
-{{ page.content | safe }}
-
-{% endblock %}
+{% block content %}
+<div id="wrapper">
+  {{ macros::back_link(path = get_url(path="/")) }}
+  <main>
+    <article class="prose">
+      <h1>{{ page.title }}</h1>
+      {{ page.content | safe }}
+    </article>
+    {% include "_footer.html" %}
+  </main>
+</div>
+{% endblock content %}

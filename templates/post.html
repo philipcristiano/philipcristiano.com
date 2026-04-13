@@ -1,15 +1,124 @@
-{% extends "base.html" %}
-{% import "post_macros.html" as post_macros %}
+{% import "macros/prose.html" as macros %}
 {% import "short.html" as short %}
+{% extends "_base.html" %}
 
-{% block header %}
-    <link rel="canonical" href="{{config.base_url}}{{page.path}}">
-{% endblock header %}
+{% block page %}post{% endblock page %}
+{% block lang -%}
+{%- set blog_section_path = config.extra.blog_section_path | trim_start_matches(pat="/") -%}
+{%- set section_md_path = blog_section_path ~ "/_index.md" -%}
+{%- set section = get_section(path=section_md_path, metadata_only=true) -%}
+{%- if page.extra.lang %}{{page.extra.lang}}{% elif section.extra.lang %}{{section.extra.lang}}{% else %}{{page.lang}}{% endif -%}
+{%- endblock lang %}
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block desc %}
+  {% if page.summary %}
+    {% set desc = page.summary %}
+  {% elif page.description %}
+    {% set desc = page.description %}
+  {% elif section.description %}
+    {% set desc = section.description %}
+  {% else %}
+    {% set desc = config.description %}
+  {% endif %}
+  <meta name="description" content="{{ desc }}">
+{% endblock desc %}
 
-{% block title %}{{page.title}}{% endblock title %}
-{% block body %}
+{% block head %}
+<link rel="canonical" href="{{ config.base_url }}{{ page.path }}">
+{% if config.markdown.highlighting.style == "class" %}
+<link id="hl" rel="stylesheet" type="text/css" href="/giallo-{% if config.extra.force_theme == "dark" %}dark{% else %}light{% endif %}.css" />
+{% endif %}
+{% if page.extra.math %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" integrity="sha384-HORx6nWi8j5/mYA+y57/9/CZc5z8HnEw4WUZWy5yOn9ToKBv1l58vJaufFAn9Zzi" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+{% endif %}
+{% endblock head %}
 
-{{ post_macros::post(page=page) }}
-{{ short::webmention_reply() }}
+{% block content %}
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside>
+    {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% elif section.extra.toc is defined %}{% set show_toc = section.extra.toc %}{% else %}{% set show_toc = false %}{% endif %}
+    {% if show_toc and page.toc %}
+    <nav>
+      <ul>
+        {% for h2 in page.toc %}
+        <li>
+          <a class="h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+          {% if h2.children %}
+          <ul>
+            {% for h3 in h2.children %}
+            <li>
+              <a class="h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  </aside>
+  <main>
+    {{ macros::back_link(path = get_url(path=section.path)) }}
 
-{% endblock %}
+    <div>
+      <article class="prose h-entry">
+        <a href="/" class="u-author" aria-hidden="true" style="display:none"></a>
+        <a class="u-url" href="{{ page.permalink }}" style="display:none"></a>
+        <h1 class="p-name">{{ page.title }}</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish" class="dt-published" datetime="{{ page.date }}">{{ page.date | date(format=section.extra.date_format | default(value="%Y-%m-%d")) }}</span>
+            {% if page.updated and page.updated != page.date -%}
+            <span>Updated on <span id="updated">{{ page.updated | date(format=section.extra.date_format | default(value="%Y-%m-%d")) }}</span></span>
+            {% endif -%}
+          </div>
+
+          {% if page.taxonomies.tags is defined %}
+          <div id="tags">
+            {% for tag in page.taxonomies.tags -%}
+            {% set tag_slugify = tag | slugify -%}
+            <a class="instant" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"><span>#</span>{{ tag }}</a>
+            {%- endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="e-content">
+          {{ page.content | safe }}
+        </div>
+      </article>
+      {% include "_webmentions.html" %}
+
+    </div>
+
+    {% include "_footer.html" %}
+  </main>
+</div>
+{% endblock content %}
+
+{% block script %}
+{% if page.extra.mermaid %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+{% endif %}
+{% endblock script %}

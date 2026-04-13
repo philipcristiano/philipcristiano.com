@@ -1,29 +1,58 @@
-title= "Philip Cristiano"
-# The URL the site will be built for
+title = "Philip Cristiano"
+description = "Philip Cristiano's personal site"
 base_url = "https://philipcristiano.com"
-
+default_language = "en"
 author = "Philip Cristiano"
-
-# Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
-
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
-
+output_dir = "public"
+compile_sass = false
+minify_html = false
+build_search_index = false
 generate_feeds = true
+feed_filenames = ["atom.xml"]
 
 taxonomies = [
-    {name = "tags", feed = true, render = true, paginate_by = 50},
+    { name = "tags", feed = true, render = true, paginate_by = 50 },
 ]
 
 [markdown]
+external_links_target_blank = false
+external_links_no_follow = true
+external_links_no_referrer = true
+github_alerts = true
 
 [markdown.highlighting]
-theme = "gruvbox-dark-medium"
+style = "class"
+light_theme = "github-light"
+dark_theme = "github-dark"
 error_on_missing_language = true
 
-extra_themes = ["themes/gruvbox-dark-medium.json"]
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
 
 [extra]
-# Put all your custom variables here
+sections = [
+    { name = "posts",           path = "/posts",           is_external = false },
+    { name = "notes",           path = "/notes",           is_external = false },
+    { name = "photos",          path = "/photos",          is_external = false },
+    { name = "recommendations", path = "/recommendations", is_external = false },
+    { name = "about",           path = "/about",           is_external = false },
+]
+blog_section_path = "/posts"
+
+back_link_text = "Back"
+force_theme = false
+
+footer_copyright = "© Philip Cristiano"
+footer_credits = false
+
+not_found_error_text = "404 Not Found"
+not_found_recover_text = "« back to home »"
+
+reaction = false
+reaction_align = "right"
+reaction_endpoint = ""
+
+# Site-specific
 number_feed_items = 20
