@@ -7,6 +7,15 @@
 <ul>
 {% for page in section.pages %}
 
+   {# Don't display recommendations with an end_date older than now #}
+   {% if page.extra.end_date %}
+     {% set end_time = page.extra.end_date|date(format="%s")|int %}
+	   {% set curr_time = now()|date(format="%s")|int %}
+	   {% if end_time < curr_time %}
+     {% continue %}
+     {% endif %}
+   {% endif %}
+
     <li><a href="{{page.extra.url}}">{{page.title}}</a> - <a href="{{page.extra.feed}}">Feed</a></li>
 
 {% endfor %}

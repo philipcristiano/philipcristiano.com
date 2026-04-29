@@ -56,6 +56,7 @@
         {% filter escape_xml %}
           <a href="{{page.extra.url}}">{{page.title}}</a> - <a href="{{page.extra.feed}}">Feed</a>
         {% endfilter %}
+        {% if page.extra.end_date %} No longer recommended as of {{ page.extra.end_date}} {% endif %}
         {%- endif -%}
         {% if page.components.0 == "photos" -%}
           {% for asset in page.assets -%}
