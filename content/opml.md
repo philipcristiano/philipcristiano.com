@@ -1,6 +1,6 @@
 +++
 
-title = "OPML"
+title = "Following"
 
 transparent = true
 
