@@ -40,6 +40,7 @@ jobs:
       with:
         # Upload entire repository
         path: './public'
+        include-hidden-files: true
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
